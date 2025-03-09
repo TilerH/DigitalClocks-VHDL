@@ -1,0 +1,1520 @@
+Timing Analyzer report for demo
+Fri Jul 12 10:11:31 2024
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Fmax Summary
+  6. Setup Summary
+  7. Hold Summary
+  8. Recovery Summary
+  9. Removal Summary
+ 10. Minimum Pulse Width Summary
+ 11. Setup: 'fenpin:inst1|clkb'
+ 12. Setup: 'fenpina:inst4|clkm'
+ 13. Setup: 'clk'
+ 14. Setup: 'xiaodou:inst27|keya'
+ 15. Setup: 'fenpin300:inst7|clkm'
+ 16. Hold: 'clk'
+ 17. Hold: 'fenpin300:inst7|clkm'
+ 18. Hold: 'fenpina:inst4|clkm'
+ 19. Hold: 'fenpin:inst1|clkb'
+ 20. Hold: 'xiaodou:inst27|keya'
+ 21. Recovery: 'fenpin:inst1|clkb'
+ 22. Removal: 'fenpin:inst1|clkb'
+ 23. Setup Transfers
+ 24. Hold Transfers
+ 25. Recovery Transfers
+ 26. Removal Transfers
+ 27. Report TCCS
+ 28. Report RSKM
+ 29. Unconstrained Paths Summary
+ 30. Clock Status Summary
+ 31. Unconstrained Input Ports
+ 32. Unconstrained Output Ports
+ 33. Unconstrained Input Ports
+ 34. Unconstrained Output Ports
+ 35. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-----------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                     ;
++-----------------------+-----------------------------------------------------+
+; Quartus Prime Version ; Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                              ;
+; Revision Name         ; demo                                                ;
+; Device Family         ; MAX II                                              ;
+; Device Name           ; EPM570T100C5                                        ;
+; Timing Models         ; Final                                               ;
+; Delay Model           ; Slow Model                                          ;
+; Rise/Fall Delays      ; Unavailable                                         ;
++-----------------------+-----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 20          ;
+; Maximum allowed            ; 14          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                     ;
++----------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------------------+
+; Clock Name           ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                  ;
++----------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------------------+
+; clk                  ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk }                  ;
+; fenpin300:inst7|clkm ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { fenpin300:inst7|clkm } ;
+; fenpin:inst1|clkb    ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { fenpin:inst1|clkb }    ;
+; fenpina:inst4|clkm   ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { fenpina:inst4|clkm }   ;
+; xiaodou:inst27|keya  ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { xiaodou:inst27|keya }  ;
++----------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------------------+
+
+
++------------------------------------------------------------+
+; Fmax Summary                                               ;
++------------+-----------------+----------------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name           ; Note ;
++------------+-----------------+----------------------+------+
+; 81.47 MHz  ; 81.47 MHz       ; fenpin:inst1|clkb    ;      ;
+; 116.43 MHz ; 116.43 MHz      ; clk                  ;      ;
+; 134.73 MHz ; 134.73 MHz      ; fenpin300:inst7|clkm ;      ;
+; 145.73 MHz ; 145.73 MHz      ; fenpina:inst4|clkm   ;      ;
++------------+-----------------+----------------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++------------------------------------------------+
+; Setup Summary                                  ;
++----------------------+---------+---------------+
+; Clock                ; Slack   ; End Point TNS ;
++----------------------+---------+---------------+
+; fenpin:inst1|clkb    ; -11.274 ; -199.514      ;
+; fenpina:inst4|clkm   ; -9.464  ; -204.338      ;
+; clk                  ; -7.589  ; -268.962      ;
+; xiaodou:inst27|keya  ; -6.441  ; -79.965       ;
+; fenpin300:inst7|clkm ; -6.422  ; -198.933      ;
++----------------------+---------+---------------+
+
+
++-----------------------------------------------+
+; Hold Summary                                  ;
++----------------------+--------+---------------+
+; Clock                ; Slack  ; End Point TNS ;
++----------------------+--------+---------------+
+; clk                  ; -2.398 ; -6.488        ;
+; fenpin300:inst7|clkm ; -2.364 ; -2.364        ;
+; fenpina:inst4|clkm   ; -0.262 ; -0.475        ;
+; fenpin:inst1|clkb    ; 1.078  ; 0.000         ;
+; xiaodou:inst27|keya  ; 4.202  ; 0.000         ;
++----------------------+--------+---------------+
+
+
++--------------------------------------------+
+; Recovery Summary                           ;
++-------------------+--------+---------------+
+; Clock             ; Slack  ; End Point TNS ;
++-------------------+--------+---------------+
+; fenpin:inst1|clkb ; -6.176 ; -117.912      ;
++-------------------+--------+---------------+
+
+
++-------------------------------------------+
+; Removal Summary                           ;
++-------------------+-------+---------------+
+; Clock             ; Slack ; End Point TNS ;
++-------------------+-------+---------------+
+; fenpin:inst1|clkb ; 4.116 ; 0.000         ;
++-------------------+-------+---------------+
+
+
++-----------------------------------------------+
+; Minimum Pulse Width Summary                   ;
++----------------------+--------+---------------+
+; Clock                ; Slack  ; End Point TNS ;
++----------------------+--------+---------------+
+; clk                  ; -2.289 ; -2.289        ;
+; fenpin300:inst7|clkm ; 0.234  ; 0.000         ;
+; fenpin:inst1|clkb    ; 0.234  ; 0.000         ;
+; fenpina:inst4|clkm   ; 0.234  ; 0.000         ;
+; xiaodou:inst27|keya  ; 0.500  ; 0.000         ;
++----------------------+--------+---------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'fenpin:inst1|clkb'                                                                                                                           ;
++---------+----------------------------+---------------------------+----------------------+-------------------+--------------+------------+------------+
+; Slack   ; From Node                  ; To Node                   ; Launch Clock         ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++---------+----------------------------+---------------------------+----------------------+-------------------+--------------+------------+------------+
+; -11.274 ; jishuqic2:inst24|HF[0]     ; naozhongjishu:inst36|q[0] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 11.941     ;
+; -10.938 ; jishuqic2:inst24|HF[1]     ; naozhongjishu:inst36|q[0] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 11.605     ;
+; -10.912 ; jishuqic2:inst24|HF[3]     ; naozhongjishu:inst36|q[0] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 11.579     ;
+; -10.906 ; jishuqif:inst25|HP[0]      ; naozhongjishu:inst36|q[0] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 11.573     ;
+; -10.860 ; jishuqic2:inst24|HF[0]     ; naozhongjishu:inst36|q[1] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 11.527     ;
+; -10.798 ; jinzhixuan:inst5|jinzhi[0] ; naozhongjishu:inst36|q[0] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 10.841     ;
+; -10.639 ; jishuqic2:inst24|HF[2]     ; naozhongjishu:inst36|q[0] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 11.306     ;
+; -10.524 ; jishuqic2:inst24|HF[1]     ; naozhongjishu:inst36|q[1] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 11.191     ;
+; -10.498 ; jishuqic2:inst24|HF[3]     ; naozhongjishu:inst36|q[1] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 11.165     ;
+; -10.492 ; jishuqif:inst25|HP[0]      ; naozhongjishu:inst36|q[1] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 11.159     ;
+; -10.384 ; jinzhixuan:inst5|jinzhi[0] ; naozhongjishu:inst36|q[1] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 10.427     ;
+; -10.354 ; jishuqic2:inst24|HF[0]     ; naozhongjishu:inst36|q[2] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 11.021     ;
+; -10.318 ; jishuqif:inst25|HP[1]      ; naozhongjishu:inst36|q[0] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 10.985     ;
+; -10.225 ; jishuqic2:inst24|HF[2]     ; naozhongjishu:inst36|q[1] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 10.892     ;
+; -10.018 ; jishuqic2:inst24|HF[1]     ; naozhongjishu:inst36|q[2] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 10.685     ;
+; -9.992  ; jishuqic2:inst24|HF[3]     ; naozhongjishu:inst36|q[2] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 10.659     ;
+; -9.986  ; jishuqif:inst25|HP[0]      ; naozhongjishu:inst36|q[2] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 10.653     ;
+; -9.904  ; jishuqif:inst25|HP[1]      ; naozhongjishu:inst36|q[1] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 10.571     ;
+; -9.878  ; jinzhixuan:inst5|jinzhi[0] ; naozhongjishu:inst36|q[2] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 9.921      ;
+; -9.731  ; jishuqic2:inst24|HF[0]     ; naozhongjishu:inst36|q[3] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 10.398     ;
+; -9.719  ; jishuqic2:inst24|HF[2]     ; naozhongjishu:inst36|q[2] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 10.386     ;
+; -9.398  ; jishuqif:inst25|HP[1]      ; naozhongjishu:inst36|q[2] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 10.065     ;
+; -9.395  ; jishuqic2:inst24|HF[1]     ; naozhongjishu:inst36|q[3] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 10.062     ;
+; -9.369  ; jishuqic2:inst24|HF[3]     ; naozhongjishu:inst36|q[3] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 10.036     ;
+; -9.363  ; jishuqif:inst25|HP[0]      ; naozhongjishu:inst36|q[3] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 10.030     ;
+; -9.255  ; jinzhixuan:inst5|jinzhi[0] ; naozhongjishu:inst36|q[3] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 9.298      ;
+; -9.137  ; jishuqic:inst22|HF[1]      ; naozhongjishu:inst36|q[0] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 9.804      ;
+; -9.096  ; jishuqic2:inst24|HF[2]     ; naozhongjishu:inst36|q[3] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 9.763      ;
+; -8.913  ; jishuqic:inst22|HF[0]      ; naozhongjishu:inst36|q[0] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 9.580      ;
+; -8.814  ; jishuqib2:inst23|HC[1]     ; naozhongjishu:inst36|q[0] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 9.481      ;
+; -8.775  ; jishuqif:inst25|HP[1]      ; naozhongjishu:inst36|q[3] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 9.442      ;
+; -8.762  ; jishuqic:inst22|HF[3]      ; naozhongjishu:inst36|q[0] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 9.429      ;
+; -8.723  ; jishuqic:inst22|HF[1]      ; naozhongjishu:inst36|q[1] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 9.390      ;
+; -8.517  ; jishuqib2:inst23|HC[0]     ; naozhongjishu:inst36|q[0] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 9.184      ;
+; -8.499  ; jishuqic:inst22|HF[0]      ; naozhongjishu:inst36|q[1] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 9.166      ;
+; -8.400  ; jishuqib2:inst23|HC[1]     ; naozhongjishu:inst36|q[1] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 9.067      ;
+; -8.391  ; jishuqic:inst22|HF[1]      ; baoshijishu:inst35|q[1]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 9.058      ;
+; -8.348  ; jishuqic:inst22|HF[3]      ; naozhongjishu:inst36|q[1] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 9.015      ;
+; -8.295  ; jishuqib2:inst23|HC[2]     ; naozhongjishu:inst36|q[0] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 8.962      ;
+; -8.290  ; jishuqic:inst22|HF[1]      ; baoshijishu:inst35|q[3]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 8.957      ;
+; -8.288  ; jishuqic:inst22|HF[1]      ; baoshijishu:inst35|q[2]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 8.955      ;
+; -8.217  ; jishuqic:inst22|HF[1]      ; naozhongjishu:inst36|q[2] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 8.884      ;
+; -8.103  ; jishuqib2:inst23|HC[0]     ; naozhongjishu:inst36|q[1] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 8.770      ;
+; -7.993  ; jishuqic:inst22|HF[0]      ; naozhongjishu:inst36|q[2] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 8.660      ;
+; -7.910  ; jishuqic:inst22|HF[2]      ; naozhongjishu:inst36|q[0] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 8.577      ;
+; -7.894  ; jishuqib2:inst23|HC[1]     ; naozhongjishu:inst36|q[2] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 8.561      ;
+; -7.881  ; jishuqib2:inst23|HC[2]     ; naozhongjishu:inst36|q[1] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 8.548      ;
+; -7.842  ; jishuqic:inst22|HF[3]      ; naozhongjishu:inst36|q[2] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 8.509      ;
+; -7.783  ; jishuqic:inst22|HF[1]      ; baoshijishu:inst35|q[0]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 8.450      ;
+; -7.651  ; naozhong:inst30|TLc2[1]    ; naozhongjishu:inst36|q[0] ; fenpina:inst4|clkm   ; fenpin:inst1|clkb ; 0.500        ; 0.810      ; 8.628      ;
+; -7.605  ; jishuqic:inst22|HF[2]      ; baoshijishu:inst35|q[1]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 8.272      ;
+; -7.597  ; jishuqib2:inst23|HC[0]     ; naozhongjishu:inst36|q[2] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 8.264      ;
+; -7.594  ; jishuqic:inst22|HF[1]      ; naozhongjishu:inst36|q[3] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 8.261      ;
+; -7.574  ; jishuqic:inst22|HF[3]      ; baoshijishu:inst35|q[1]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 8.241      ;
+; -7.504  ; jishuqic:inst22|HF[2]      ; baoshijishu:inst35|q[3]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 8.171      ;
+; -7.502  ; jishuqic:inst22|HF[2]      ; baoshijishu:inst35|q[2]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 8.169      ;
+; -7.496  ; jishuqic:inst22|HF[2]      ; naozhongjishu:inst36|q[1] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 8.163      ;
+; -7.486  ; jishuqic2:inst24|HF[3]     ; jishuqic2:inst24|HF[3]    ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 8.153      ;
+; -7.473  ; jishuqic:inst22|HF[3]      ; baoshijishu:inst35|q[3]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 8.140      ;
+; -7.471  ; jishuqic:inst22|HF[3]      ; baoshijishu:inst35|q[2]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 8.138      ;
+; -7.376  ; naozhong:inst30|TLb2[1]    ; naozhongjishu:inst36|q[0] ; fenpina:inst4|clkm   ; fenpin:inst1|clkb ; 0.500        ; 0.810      ; 8.353      ;
+; -7.375  ; jishuqib2:inst23|HC[2]     ; naozhongjishu:inst36|q[2] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 8.042      ;
+; -7.370  ; jishuqic:inst22|HF[0]      ; naozhongjishu:inst36|q[3] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 8.037      ;
+; -7.324  ; jishuqic:inst22|HF[0]      ; baoshijishu:inst35|q[1]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 7.991      ;
+; -7.271  ; jishuqib2:inst23|HC[1]     ; naozhongjishu:inst36|q[3] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 7.938      ;
+; -7.237  ; naozhong:inst30|TLc2[1]    ; naozhongjishu:inst36|q[1] ; fenpina:inst4|clkm   ; fenpin:inst1|clkb ; 0.500        ; 0.810      ; 8.214      ;
+; -7.235  ; jishuqib2:inst23|HC[1]     ; baoshijishu:inst35|q[1]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 7.902      ;
+; -7.223  ; jishuqic:inst22|HF[0]      ; baoshijishu:inst35|q[3]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 7.890      ;
+; -7.221  ; jishuqic:inst22|HF[0]      ; baoshijishu:inst35|q[2]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 7.888      ;
+; -7.219  ; jishuqic:inst22|HF[3]      ; naozhongjishu:inst36|q[3] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 7.886      ;
+; -7.134  ; jishuqib2:inst23|HC[1]     ; baoshijishu:inst35|q[3]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 7.801      ;
+; -7.132  ; jishuqib2:inst23|HC[1]     ; baoshijishu:inst35|q[2]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 7.799      ;
+; -7.055  ; naozhong:inst30|THb2[1]    ; naozhongjishu:inst36|q[0] ; fenpina:inst4|clkm   ; fenpin:inst1|clkb ; 0.500        ; 0.810      ; 8.032      ;
+; -7.039  ; jishuqib:inst|HC[1]        ; baoshijishu:inst35|q[1]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 7.706      ;
+; -7.030  ; naozhong:inst30|TLb2[3]    ; naozhongjishu:inst36|q[0] ; fenpina:inst4|clkm   ; fenpin:inst1|clkb ; 0.500        ; 0.810      ; 8.007      ;
+; -6.997  ; jishuqic:inst22|HF[2]      ; baoshijishu:inst35|q[0]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 7.664      ;
+; -6.990  ; jishuqic:inst22|HF[2]      ; naozhongjishu:inst36|q[2] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 7.657      ;
+; -6.982  ; jishuqia:inst21|HA[3]      ; baoshijishu:inst35|q[1]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 7.649      ;
+; -6.974  ; jishuqib2:inst23|HC[0]     ; naozhongjishu:inst36|q[3] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 7.641      ;
+; -6.966  ; jishuqic:inst22|HF[3]      ; baoshijishu:inst35|q[0]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 7.633      ;
+; -6.962  ; naozhong:inst30|TLb2[1]    ; naozhongjishu:inst36|q[1] ; fenpina:inst4|clkm   ; fenpin:inst1|clkb ; 0.500        ; 0.810      ; 7.939      ;
+; -6.938  ; jishuqib2:inst23|HC[0]     ; baoshijishu:inst35|q[1]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 7.605      ;
+; -6.938  ; jishuqib:inst|HC[1]        ; baoshijishu:inst35|q[3]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 7.605      ;
+; -6.936  ; jishuqib:inst|HC[1]        ; baoshijishu:inst35|q[2]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 7.603      ;
+; -6.887  ; jishuqib:inst|HC[2]        ; baoshijishu:inst35|q[1]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 7.554      ;
+; -6.883  ; jishuqia:inst21|HA[0]      ; baoshijishu:inst35|q[1]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 7.550      ;
+; -6.881  ; jishuqia:inst21|HA[3]      ; baoshijishu:inst35|q[3]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 7.548      ;
+; -6.879  ; jishuqia:inst21|HA[3]      ; baoshijishu:inst35|q[2]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 7.546      ;
+; -6.866  ; naozhong:inst30|TLc2[3]    ; naozhongjishu:inst36|q[0] ; fenpina:inst4|clkm   ; fenpin:inst1|clkb ; 0.500        ; 0.810      ; 7.843      ;
+; -6.837  ; jishuqib2:inst23|HC[0]     ; baoshijishu:inst35|q[3]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 7.504      ;
+; -6.835  ; jishuqib2:inst23|HC[0]     ; baoshijishu:inst35|q[2]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 7.502      ;
+; -6.786  ; jishuqib:inst|HC[2]        ; baoshijishu:inst35|q[3]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 7.453      ;
+; -6.784  ; jishuqib:inst|HC[2]        ; baoshijishu:inst35|q[2]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 7.451      ;
+; -6.782  ; jishuqia:inst21|HA[0]      ; baoshijishu:inst35|q[3]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 7.449      ;
+; -6.780  ; jishuqia:inst21|HA[0]      ; baoshijishu:inst35|q[2]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 7.447      ;
+; -6.752  ; jishuqib2:inst23|HC[2]     ; naozhongjishu:inst36|q[3] ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 7.419      ;
+; -6.731  ; naozhong:inst30|TLc2[1]    ; naozhongjishu:inst36|q[2] ; fenpina:inst4|clkm   ; fenpin:inst1|clkb ; 0.500        ; 0.810      ; 7.708      ;
+; -6.716  ; jishuqic:inst22|HF[0]      ; baoshijishu:inst35|q[0]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 7.383      ;
+; -6.671  ; jishuqia:inst21|HA[1]      ; baoshijishu:inst35|q[1]   ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 7.338      ;
+; -6.661  ; jishuqic2:inst24|HF[0]     ; jishuqic2:inst24|HF[3]    ; fenpin:inst1|clkb    ; fenpin:inst1|clkb ; 1.000        ; 0.000      ; 7.328      ;
++---------+----------------------------+---------------------------+----------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'fenpina:inst4|clkm'                                                                                                                      ;
++--------+----------------------------+-----------------------+----------------------+--------------------+--------------+------------+------------+
+; Slack  ; From Node                  ; To Node               ; Launch Clock         ; Latch Clock        ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------------+-----------------------+----------------------+--------------------+--------------+------------+------------+
+; -9.464 ; jishuqic2:inst24|HF[0]     ; saomiao:inst453|A[1]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 8.821      ;
+; -9.454 ; jishuqic2:inst24|HF[0]     ; shanshuoh:inst14|A[1] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 8.811      ;
+; -9.411 ; jishuqic2:inst24|HF[0]     ; saomiao:inst453|A[2]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 8.768      ;
+; -9.128 ; jishuqic2:inst24|HF[1]     ; saomiao:inst453|A[1]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 8.485      ;
+; -9.118 ; jishuqic2:inst24|HF[1]     ; shanshuoh:inst14|A[1] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 8.475      ;
+; -9.102 ; jishuqic2:inst24|HF[3]     ; saomiao:inst453|A[1]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 8.459      ;
+; -9.096 ; jishuqif:inst25|HP[0]      ; saomiao:inst453|A[1]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 8.453      ;
+; -9.092 ; jishuqic2:inst24|HF[3]     ; shanshuoh:inst14|A[1] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 8.449      ;
+; -9.086 ; jishuqif:inst25|HP[0]      ; shanshuoh:inst14|A[1] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 8.443      ;
+; -9.075 ; jishuqic2:inst24|HF[1]     ; saomiao:inst453|A[2]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 8.432      ;
+; -9.065 ; jishuqic2:inst24|HF[2]     ; saomiao:inst453|A[3]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 8.422      ;
+; -9.049 ; jishuqic2:inst24|HF[3]     ; saomiao:inst453|A[2]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 8.406      ;
+; -9.043 ; jishuqif:inst25|HP[0]      ; saomiao:inst453|A[2]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 8.400      ;
+; -8.988 ; jinzhixuan:inst5|jinzhi[0] ; saomiao:inst453|A[1]  ; fenpin300:inst7|clkm ; fenpina:inst4|clkm ; 0.500        ; -1.434     ; 7.721      ;
+; -8.978 ; jinzhixuan:inst5|jinzhi[0] ; shanshuoh:inst14|A[1] ; fenpin300:inst7|clkm ; fenpina:inst4|clkm ; 0.500        ; -1.434     ; 7.711      ;
+; -8.942 ; jishuqic2:inst24|HF[0]     ; shanshuoh:inst14|A[2] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 8.299      ;
+; -8.935 ; jinzhixuan:inst5|jinzhi[0] ; saomiao:inst453|A[2]  ; fenpin300:inst7|clkm ; fenpina:inst4|clkm ; 0.500        ; -1.434     ; 7.668      ;
+; -8.900 ; jishuqic2:inst24|HF[3]     ; saomiao:inst453|A[3]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 8.257      ;
+; -8.766 ; jinzhixuan:inst5|jinzhi[0] ; saomiao:inst453|A[3]  ; fenpin300:inst7|clkm ; fenpina:inst4|clkm ; 0.500        ; -1.434     ; 7.499      ;
+; -8.682 ; jishuqic2:inst24|HF[2]     ; saomiao:inst453|A[1]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 8.039      ;
+; -8.672 ; jishuqic2:inst24|HF[2]     ; shanshuoh:inst14|A[1] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 8.029      ;
+; -8.629 ; jishuqic2:inst24|HF[2]     ; saomiao:inst453|A[2]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 7.986      ;
+; -8.606 ; jishuqic2:inst24|HF[1]     ; shanshuoh:inst14|A[2] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 7.963      ;
+; -8.585 ; jishuqic2:inst24|HF[0]     ; saomiao:inst453|A[0]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 7.942      ;
+; -8.584 ; jishuqic2:inst24|HF[0]     ; shanshuoh:inst14|A[0] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 7.941      ;
+; -8.580 ; jishuqic2:inst24|HF[3]     ; shanshuoh:inst14|A[2] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 7.937      ;
+; -8.574 ; jishuqif:inst25|HP[0]      ; shanshuoh:inst14|A[2] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 7.931      ;
+; -8.508 ; jishuqif:inst25|HP[1]      ; saomiao:inst453|A[1]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 7.865      ;
+; -8.498 ; jishuqif:inst25|HP[1]      ; shanshuoh:inst14|A[1] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 7.855      ;
+; -8.466 ; jinzhixuan:inst5|jinzhi[0] ; shanshuoh:inst14|A[2] ; fenpin300:inst7|clkm ; fenpina:inst4|clkm ; 0.500        ; -1.434     ; 7.199      ;
+; -8.455 ; jishuqif:inst25|HP[1]      ; saomiao:inst453|A[2]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 7.812      ;
+; -8.429 ; jishuqic2:inst24|HF[2]     ; shanshuoh:inst14|A[3] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 7.786      ;
+; -8.264 ; jishuqic2:inst24|HF[3]     ; shanshuoh:inst14|A[3] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 7.621      ;
+; -8.263 ; jishuqif:inst25|HP[1]      ; saomiao:inst453|A[3]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 7.620      ;
+; -8.249 ; jishuqic2:inst24|HF[1]     ; saomiao:inst453|A[0]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 7.606      ;
+; -8.248 ; jishuqic2:inst24|HF[1]     ; shanshuoh:inst14|A[0] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 7.605      ;
+; -8.223 ; jishuqic2:inst24|HF[3]     ; saomiao:inst453|A[0]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 7.580      ;
+; -8.222 ; jishuqic2:inst24|HF[3]     ; shanshuoh:inst14|A[0] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 7.579      ;
+; -8.217 ; jishuqif:inst25|HP[0]      ; saomiao:inst453|A[0]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 7.574      ;
+; -8.216 ; jishuqif:inst25|HP[0]      ; shanshuoh:inst14|A[0] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 7.573      ;
+; -8.160 ; jishuqic2:inst24|HF[2]     ; shanshuoh:inst14|A[2] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 7.517      ;
+; -8.130 ; jinzhixuan:inst5|jinzhi[0] ; shanshuoh:inst14|A[3] ; fenpin300:inst7|clkm ; fenpina:inst4|clkm ; 0.500        ; -1.434     ; 6.863      ;
+; -8.109 ; jinzhixuan:inst5|jinzhi[0] ; saomiao:inst453|A[0]  ; fenpin300:inst7|clkm ; fenpina:inst4|clkm ; 0.500        ; -1.434     ; 6.842      ;
+; -8.108 ; jinzhixuan:inst5|jinzhi[0] ; shanshuoh:inst14|A[0] ; fenpin300:inst7|clkm ; fenpina:inst4|clkm ; 0.500        ; -1.434     ; 6.841      ;
+; -7.986 ; jishuqif:inst25|HP[1]      ; shanshuoh:inst14|A[2] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 7.343      ;
+; -7.969 ; jishuqif:inst25|HP[0]      ; saomiao:inst453|A[3]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 7.326      ;
+; -7.950 ; jishuqic2:inst24|HF[1]     ; saomiao:inst453|A[3]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 7.307      ;
+; -7.882 ; jishuqib:inst|HC[0]        ; shanshuos:inst12|A[0] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 7.239      ;
+; -7.873 ; jishuqib:inst|HC[0]        ; saomiao:inst453|A[0]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 7.230      ;
+; -7.803 ; jishuqic2:inst24|HF[2]     ; saomiao:inst453|A[0]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 7.160      ;
+; -7.802 ; jishuqic2:inst24|HF[2]     ; shanshuoh:inst14|A[0] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 7.159      ;
+; -7.629 ; jishuqif:inst25|HP[1]      ; saomiao:inst453|A[0]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 6.986      ;
+; -7.628 ; jishuqif:inst25|HP[1]      ; shanshuoh:inst14|A[0] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 6.985      ;
+; -7.627 ; jishuqif:inst25|HP[1]      ; shanshuoh:inst14|A[3] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 6.984      ;
+; -7.505 ; jishuqia:inst21|HA[3]      ; saomiao:inst453|A[3]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 6.862      ;
+; -7.484 ; jishuqia:inst21|HA[2]      ; saomiao:inst453|A[2]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 6.841      ;
+; -7.449 ; jishuqia:inst21|HA[3]      ; shanshuos:inst12|A[3] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 6.806      ;
+; -7.431 ; jishuqib:inst|HC[1]        ; saomiao:inst453|A[1]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 6.788      ;
+; -7.428 ; jishuqia:inst21|HA[1]      ; saomiao:inst453|A[1]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 6.785      ;
+; -7.333 ; jishuqif:inst25|HP[0]      ; shanshuoh:inst14|A[3] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 6.690      ;
+; -7.314 ; jishuqic2:inst24|HF[1]     ; shanshuoh:inst14|A[3] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 6.671      ;
+; -7.147 ; jishuqic:inst22|HF[2]      ; saomiao:inst453|A[2]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 6.504      ;
+; -7.075 ; jishuqia:inst21|HA[2]      ; shanshuos:inst12|A[2] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 6.432      ;
+; -7.043 ; jishuqia:inst21|HA[0]      ; shanshuos:inst12|A[0] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 6.400      ;
+; -7.034 ; jishuqia:inst21|HA[0]      ; saomiao:inst453|A[0]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 6.391      ;
+; -6.861 ; jishuqib:inst|HC[1]        ; shanshuos:inst12|A[1] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 6.218      ;
+; -6.858 ; jishuqia:inst21|HA[1]      ; shanshuos:inst12|A[1] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 6.215      ;
+; -6.724 ; jishuqic:inst22|HF[0]      ; saomiao:inst453|A[0]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 6.081      ;
+; -6.720 ; jishuqic:inst22|HF[3]      ; saomiao:inst453|A[3]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 6.077      ;
+; -6.256 ; jishuqic:inst22|HF[0]      ; shanshuom:inst13|A[0] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 5.613      ;
+; -6.176 ; jishuqib2:inst23|HC[2]     ; saomiao:inst453|A[2]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 5.533      ;
+; -6.171 ; jishuqib2:inst23|HC[1]     ; saomiao:inst453|A[1]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 5.528      ;
+; -6.137 ; jishuqib2:inst23|HC[0]     ; saomiao:inst453|A[0]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 5.494      ;
+; -5.902 ; jishuqic:inst22|HF[1]      ; saomiao:inst453|A[1]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 5.259      ;
+; -5.862 ; naozhong:inst30|s.s4       ; shanshuom:inst13|A[3] ; fenpina:inst4|clkm   ; fenpina:inst4|clkm ; 1.000        ; 0.000      ; 6.529      ;
+; -5.779 ; jishuqib:inst|HC[2]        ; shanshuos:inst12|A[2] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 5.136      ;
+; -5.701 ; jishuqib2:inst23|HC[1]     ; shanshuom:inst13|A[1] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 5.058      ;
+; -5.669 ; jishuqib2:inst23|HC[0]     ; shanshuom:inst13|A[0] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 5.026      ;
+; -5.527 ; naozhong:inst30|s.s4       ; shanshuom:inst13|A[2] ; fenpina:inst4|clkm   ; fenpina:inst4|clkm ; 1.000        ; 0.000      ; 6.194      ;
+; -5.483 ; naozhong:inst30|s.s5       ; shanshuom:inst13|A[2] ; fenpina:inst4|clkm   ; fenpina:inst4|clkm ; 1.000        ; 0.000      ; 6.150      ;
+; -5.483 ; naozhong:inst30|s.s5       ; shanshuom:inst13|A[3] ; fenpina:inst4|clkm   ; fenpina:inst4|clkm ; 1.000        ; 0.000      ; 6.150      ;
+; -5.432 ; jishuqic:inst22|HF[1]      ; shanshuom:inst13|A[1] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 4.789      ;
+; -5.428 ; jishuqic:inst22|HF[2]      ; shanshuom:inst13|A[2] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 4.785      ;
+; -5.420 ; naozhong:inst30|s.s5       ; saomiao:inst453|A[1]  ; fenpina:inst4|clkm   ; fenpina:inst4|clkm ; 1.000        ; 0.000      ; 6.087      ;
+; -5.301 ; jishuqic:inst22|HF[3]      ; shanshuom:inst13|A[3] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 4.658      ;
+; -4.984 ; naozhong:inst30|s.s4       ; saomiao:inst453|A[0]  ; fenpina:inst4|clkm   ; fenpina:inst4|clkm ; 1.000        ; 0.000      ; 5.651      ;
+; -4.979 ; naozhong:inst30|s.s5       ; saomiao:inst453|A[0]  ; fenpina:inst4|clkm   ; fenpina:inst4|clkm ; 1.000        ; 0.000      ; 5.646      ;
+; -4.950 ; naozhong:inst30|s.s5       ; shanshuom:inst13|A[1] ; fenpina:inst4|clkm   ; fenpina:inst4|clkm ; 1.000        ; 0.000      ; 5.617      ;
+; -4.921 ; naozhong:inst30|s.s8       ; shanshuoh:inst14|A[2] ; fenpina:inst4|clkm   ; fenpina:inst4|clkm ; 1.000        ; 0.000      ; 5.588      ;
+; -4.920 ; naozhong:inst30|s.s8       ; shanshuoh:inst14|A[3] ; fenpina:inst4|clkm   ; fenpina:inst4|clkm ; 1.000        ; 0.000      ; 5.587      ;
+; -4.865 ; naozhong:inst30|s.s5       ; naozhong:inst30|A[1]  ; fenpina:inst4|clkm   ; fenpina:inst4|clkm ; 1.000        ; 0.000      ; 5.532      ;
+; -4.839 ; naozhong:inst30|s.s5       ; naozhong:inst30|A[0]  ; fenpina:inst4|clkm   ; fenpina:inst4|clkm ; 1.000        ; 0.000      ; 5.506      ;
+; -4.824 ; naozhong:inst30|s.s5       ; saomiao:inst453|A[2]  ; fenpina:inst4|clkm   ; fenpina:inst4|clkm ; 1.000        ; 0.000      ; 5.491      ;
+; -4.800 ; naozhong:inst30|s.s4       ; saomiao:inst453|A[1]  ; fenpina:inst4|clkm   ; fenpina:inst4|clkm ; 1.000        ; 0.000      ; 5.467      ;
+; -4.772 ; naozhong:inst30|s.s7       ; naozhong:inst30|A[2]  ; fenpina:inst4|clkm   ; fenpina:inst4|clkm ; 1.000        ; 0.000      ; 5.439      ;
+; -4.720 ; naozhong:inst30|s.s6       ; saomiao:inst453|A[2]  ; fenpina:inst4|clkm   ; fenpina:inst4|clkm ; 1.000        ; 0.000      ; 5.387      ;
+; -4.699 ; naozhong:inst30|s.s5       ; naozhong:inst30|A[3]  ; fenpina:inst4|clkm   ; fenpina:inst4|clkm ; 1.000        ; 0.000      ; 5.366      ;
+; -4.616 ; jishuqib2:inst23|HC[2]     ; shanshuom:inst13|A[2] ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 3.973      ;
+; -4.604 ; jishuqib:inst|HC[2]        ; saomiao:inst453|A[2]  ; fenpin:inst1|clkb    ; fenpina:inst4|clkm ; 0.500        ; -0.810     ; 3.961      ;
+; -4.588 ; naozhong:inst30|s.s1       ; shanshuos:inst12|A[3] ; fenpina:inst4|clkm   ; fenpina:inst4|clkm ; 1.000        ; 0.000      ; 5.255      ;
++--------+----------------------------+-----------------------+----------------------+--------------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'clk'                                                                                                                     ;
++--------+-------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node               ; To Node                 ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+; -7.589 ; fenpin:inst1|count1[0]  ; fenpin:inst1|count1[16] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.256      ;
+; -7.589 ; fenpin:inst1|count1[0]  ; fenpin:inst1|count1[19] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.256      ;
+; -7.579 ; fenpin:inst1|count1[0]  ; fenpin:inst1|count1[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.246      ;
+; -7.488 ; fenpin:inst1|count1[6]  ; fenpin:inst1|count1[16] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.155      ;
+; -7.488 ; fenpin:inst1|count1[6]  ; fenpin:inst1|count1[19] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.155      ;
+; -7.478 ; fenpin:inst1|count1[6]  ; fenpin:inst1|count1[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.145      ;
+; -7.419 ; fenpin:inst1|count1[3]  ; fenpin:inst1|count1[16] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.086      ;
+; -7.419 ; fenpin:inst1|count1[3]  ; fenpin:inst1|count1[19] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.086      ;
+; -7.409 ; fenpin:inst1|count1[3]  ; fenpin:inst1|count1[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.076      ;
+; -7.347 ; fenpin:inst1|count1[7]  ; fenpin:inst1|count1[16] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.014      ;
+; -7.347 ; fenpin:inst1|count1[7]  ; fenpin:inst1|count1[19] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.014      ;
+; -7.337 ; fenpin:inst1|count1[7]  ; fenpin:inst1|count1[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.004      ;
+; -7.245 ; fenpin:inst1|count1[5]  ; fenpin:inst1|count1[16] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.912      ;
+; -7.245 ; fenpin:inst1|count1[5]  ; fenpin:inst1|count1[19] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.912      ;
+; -7.235 ; fenpin:inst1|count1[5]  ; fenpin:inst1|count1[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.902      ;
+; -7.164 ; fenpin:inst1|count1[5]  ; fenpin:inst1|count1[18] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.831      ;
+; -7.159 ; fenpin:inst1|count1[6]  ; fenpin:inst1|count1[18] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.826      ;
+; -7.057 ; fenpin:inst1|count1[0]  ; fenpin:inst1|count1[0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 7.724      ;
+; -6.980 ; fenpin:inst1|count1[7]  ; fenpin:inst1|count1[18] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.647      ;
+; -6.961 ; fenpin:inst1|count1[5]  ; fenpin:inst1|count1[17] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.628      ;
+; -6.956 ; fenpin:inst1|count1[6]  ; fenpin:inst1|count1[0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 7.623      ;
+; -6.956 ; fenpin:inst1|count1[6]  ; fenpin:inst1|count1[17] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.623      ;
+; -6.943 ; fenpin:inst1|count1[10] ; fenpin:inst1|count1[18] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.610      ;
+; -6.887 ; fenpin:inst1|count1[3]  ; fenpin:inst1|count1[0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 7.554      ;
+; -6.884 ; fenpin:inst1|count1[2]  ; fenpin:inst1|count1[16] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.551      ;
+; -6.884 ; fenpin:inst1|count1[2]  ; fenpin:inst1|count1[19] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.551      ;
+; -6.874 ; fenpin:inst1|count1[2]  ; fenpin:inst1|count1[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.541      ;
+; -6.853 ; fenpin:inst1|count1[0]  ; fenpin:inst1|count1[18] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.520      ;
+; -6.827 ; fenpin:inst1|count1[13] ; fenpin:inst1|count1[16] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.494      ;
+; -6.827 ; fenpin:inst1|count1[13] ; fenpin:inst1|count1[19] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.494      ;
+; -6.821 ; fenpin:inst1|count1[11] ; fenpin:inst1|count1[18] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.488      ;
+; -6.817 ; fenpin:inst1|count1[13] ; fenpin:inst1|count1[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.484      ;
+; -6.815 ; fenpin:inst1|count1[7]  ; fenpin:inst1|count1[0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 7.482      ;
+; -6.812 ; fenpin:inst1|count1[8]  ; fenpin:inst1|count1[18] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.479      ;
+; -6.801 ; fenpin:inst1|count1[14] ; fenpin:inst1|count1[18] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.468      ;
+; -6.792 ; fenpin:inst1|count1[9]  ; fenpin:inst1|count1[18] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.459      ;
+; -6.777 ; fenpin:inst1|count1[7]  ; fenpin:inst1|count1[17] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.444      ;
+; -6.758 ; fenpin:inst1|count1[13] ; fenpin:inst1|count1[18] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.425      ;
+; -6.740 ; fenpin:inst1|count1[10] ; fenpin:inst1|count1[17] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.407      ;
+; -6.733 ; fenpin:inst1|count1[12] ; fenpin:inst1|count1[18] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.400      ;
+; -6.713 ; fenpin:inst1|count1[5]  ; fenpin:inst1|count1[0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 7.380      ;
+; -6.683 ; fenpin:inst1|count1[3]  ; fenpin:inst1|count1[18] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.350      ;
+; -6.618 ; fenpin:inst1|count1[11] ; fenpin:inst1|count1[17] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.285      ;
+; -6.609 ; fenpin:inst1|count1[8]  ; fenpin:inst1|count1[17] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.276      ;
+; -6.598 ; fenpin:inst1|count1[14] ; fenpin:inst1|count1[17] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.265      ;
+; -6.589 ; fenpin:inst1|count1[9]  ; fenpin:inst1|count1[17] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.256      ;
+; -6.560 ; fenpin:inst1|count1[5]  ; fenpin:inst1|count1[9]  ; clk          ; clk         ; 1.000        ; 0.000      ; 7.227      ;
+; -6.555 ; fenpin:inst1|count1[13] ; fenpin:inst1|count1[17] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.222      ;
+; -6.555 ; fenpin:inst1|count1[6]  ; fenpin:inst1|count1[9]  ; clk          ; clk         ; 1.000        ; 0.000      ; 7.222      ;
+; -6.549 ; fenpin:inst1|count1[0]  ; fenpin:inst1|count1[9]  ; clk          ; clk         ; 1.000        ; 0.000      ; 7.216      ;
+; -6.530 ; fenpin:inst1|count1[12] ; fenpin:inst1|count1[17] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.197      ;
+; -6.527 ; fenpin:inst1|count1[5]  ; fenpin:inst1|count1[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.194      ;
+; -6.522 ; fenpin:inst1|count1[6]  ; fenpin:inst1|count1[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.189      ;
+; -6.516 ; fenpin:inst1|count1[0]  ; fenpin:inst1|count1[17] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.183      ;
+; -6.500 ; fenpin:inst1|count1[5]  ; fenpin:inst1|count1[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.167      ;
+; -6.495 ; fenpin:inst1|count1[6]  ; fenpin:inst1|count1[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.162      ;
+; -6.490 ; fenpin:inst1|count1[9]  ; fenpin:inst1|count1[16] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.157      ;
+; -6.490 ; fenpin:inst1|count1[9]  ; fenpin:inst1|count1[19] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.157      ;
+; -6.480 ; fenpin:inst1|count1[9]  ; fenpin:inst1|count1[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.147      ;
+; -6.463 ; fenpin:inst1|count1[2]  ; fenpin:inst1|count1[18] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.130      ;
+; -6.416 ; fenpin:inst1|count1[5]  ; fenpin:inst1|count1[11] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.083      ;
+; -6.411 ; fenpin:inst1|count1[6]  ; fenpin:inst1|count1[11] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.078      ;
+; -6.376 ; fenpin:inst1|count1[7]  ; fenpin:inst1|count1[9]  ; clk          ; clk         ; 1.000        ; 0.000      ; 7.043      ;
+; -6.367 ; fenpin:inst1|count1[0]  ; fenpin:inst1|clkb       ; clk          ; clk         ; 1.000        ; 0.000      ; 7.034      ;
+; -6.364 ; fenpin:inst1|count1[1]  ; fenpin:inst1|count1[18] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.031      ;
+; -6.355 ; fenpin:inst1|count1[1]  ; fenpin:inst1|count1[16] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.022      ;
+; -6.355 ; fenpin:inst1|count1[1]  ; fenpin:inst1|count1[19] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.022      ;
+; -6.352 ; fenpin:inst1|count1[2]  ; fenpin:inst1|count1[0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 7.019      ;
+; -6.345 ; fenpin:inst1|count1[1]  ; fenpin:inst1|count1[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.012      ;
+; -6.343 ; fenpin:inst1|count1[7]  ; fenpin:inst1|count1[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 7.010      ;
+; -6.316 ; fenpin:inst1|count1[7]  ; fenpin:inst1|count1[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.983      ;
+; -6.295 ; fenpin:inst1|count1[13] ; fenpin:inst1|count1[0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 6.962      ;
+; -6.293 ; fenpin:inst1|count1[2]  ; fenpin:inst1|count1[9]  ; clk          ; clk         ; 1.000        ; 0.000      ; 6.960      ;
+; -6.266 ; fenpin:inst1|count1[6]  ; fenpin:inst1|clkb       ; clk          ; clk         ; 1.000        ; 0.000      ; 6.933      ;
+; -6.260 ; fenpin:inst1|count1[2]  ; fenpin:inst1|count1[17] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.927      ;
+; -6.232 ; fenpin:inst1|count1[0]  ; fenpin:inst1|count1[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.899      ;
+; -6.232 ; fenpin:inst1|count1[7]  ; fenpin:inst1|count1[11] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.899      ;
+; -6.209 ; fenpin:inst1|count1[10] ; fenpin:inst1|count1[16] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.876      ;
+; -6.208 ; fenpin:inst1|count1[8]  ; fenpin:inst1|count1[9]  ; clk          ; clk         ; 1.000        ; 0.000      ; 6.875      ;
+; -6.197 ; fenpin:inst1|count1[3]  ; fenpin:inst1|clkb       ; clk          ; clk         ; 1.000        ; 0.000      ; 6.864      ;
+; -6.194 ; fenpin:inst1|count1[1]  ; fenpin:inst1|count1[9]  ; clk          ; clk         ; 1.000        ; 0.000      ; 6.861      ;
+; -6.175 ; fenpin:inst1|count1[8]  ; fenpin:inst1|count1[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.842      ;
+; -6.168 ; fenpin:inst1|count1[0]  ; fenpin:inst1|count1[7]  ; clk          ; clk         ; 1.000        ; 0.000      ; 6.835      ;
+; -6.161 ; fenpin:inst1|count1[1]  ; fenpin:inst1|count1[17] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.828      ;
+; -6.155 ; fenpin:inst1|count1[9]  ; fenpin:inst1|count1[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.822      ;
+; -6.148 ; fenpin:inst1|count1[8]  ; fenpin:inst1|count1[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.815      ;
+; -6.128 ; fenpin:inst1|count1[9]  ; fenpin:inst1|count1[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.795      ;
+; -6.125 ; fenpin:inst1|count1[7]  ; fenpin:inst1|clkb       ; clk          ; clk         ; 1.000        ; 0.000      ; 6.792      ;
+; -6.123 ; fenpin:inst1|count1[0]  ; fenpin:inst1|count1[6]  ; clk          ; clk         ; 1.000        ; 0.000      ; 6.790      ;
+; -6.096 ; fenpin:inst1|count1[10] ; fenpin:inst1|count1[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.763      ;
+; -6.087 ; fenpin:inst1|count1[11] ; fenpin:inst1|count1[16] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.754      ;
+; -6.082 ; fenpin:inst1|count1[0]  ; fenpin:inst1|count1[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.749      ;
+; -6.078 ; fenpin:inst1|count1[8]  ; fenpin:inst1|count1[16] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.745      ;
+; -6.067 ; fenpin:inst1|count1[14] ; fenpin:inst1|count1[16] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.734      ;
+; -6.064 ; fenpin:inst1|count1[8]  ; fenpin:inst1|count1[11] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.731      ;
+; -6.063 ; fenpin:inst1|count1[3]  ; fenpin:inst1|count1[17] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.730      ;
+; -6.062 ; fenpin:inst1|count1[3]  ; fenpin:inst1|count1[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.729      ;
+; -6.061 ; fenpin:inst1|count1[4]  ; fenpin:inst1|count1[18] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.728      ;
+; -6.060 ; fenpin:inst1|count1[14] ; fenpin:inst1|count1[19] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.727      ;
+; -6.053 ; fenpin:inst1|count1[5]  ; fenpin:inst1|count1[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.720      ;
++--------+-------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'xiaodou:inst27|keya'                                                                                                                      ;
++--------+------------------------+---------------------------+----------------------+---------------------+--------------+------------+------------+
+; Slack  ; From Node              ; To Node                   ; Launch Clock         ; Latch Clock         ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------------+---------------------------+----------------------+---------------------+--------------+------------+------------+
+; -6.441 ; xiaodoukey:inst9|q1[2] ; naozhongkey:inst29|q1a[2] ; fenpin300:inst7|clkm ; xiaodou:inst27|keya ; 0.500        ; -2.853     ; 2.266      ;
+; -6.432 ; xiaodoukey:inst9|q1[3] ; naozhongkey:inst29|q1a[3] ; fenpin300:inst7|clkm ; xiaodou:inst27|keya ; 0.500        ; -2.498     ; 2.429      ;
+; -5.947 ; xiaodoukey:inst9|q1[2] ; naozhongkey:inst29|q1b[2] ; fenpin300:inst7|clkm ; xiaodou:inst27|keya ; 1.000        ; -2.857     ; 2.268      ;
+; -5.908 ; xiaodoukey:inst9|q2[1] ; naozhongkey:inst29|q2b[1] ; fenpin300:inst7|clkm ; xiaodou:inst27|keya ; 1.000        ; -2.816     ; 1.852      ;
+; -5.840 ; xiaodoukey:inst9|q2[2] ; naozhongkey:inst29|q2a[2] ; fenpin300:inst7|clkm ; xiaodou:inst27|keya ; 0.500        ; -2.808     ; 1.866      ;
+; -5.767 ; xiaodoukey:inst9|q1[0] ; naozhongkey:inst29|q1b[0] ; fenpin300:inst7|clkm ; xiaodou:inst27|keya ; 1.000        ; -2.255     ; 2.829      ;
+; -5.766 ; xiaodoukey:inst9|q2[1] ; naozhongkey:inst29|q2a[1] ; fenpin300:inst7|clkm ; xiaodou:inst27|keya ; 0.500        ; -2.194     ; 2.224      ;
+; -5.705 ; xiaodoukey:inst9|q1[0] ; naozhongkey:inst29|q1a[0] ; fenpin300:inst7|clkm ; xiaodou:inst27|keya ; 0.500        ; -2.181     ; 2.503      ;
+; -5.660 ; xiaodoukey:inst9|q2[0] ; naozhongkey:inst29|q2b[0] ; fenpin300:inst7|clkm ; xiaodou:inst27|keya ; 1.000        ; -2.806     ; 2.034      ;
+; -5.601 ; xiaodoukey:inst9|q1[1] ; naozhongkey:inst29|q1a[1] ; fenpin300:inst7|clkm ; xiaodou:inst27|keya ; 0.500        ; -1.636     ; 2.451      ;
+; -5.341 ; xiaodoukey:inst9|q2[2] ; naozhongkey:inst29|q2b[2] ; fenpin300:inst7|clkm ; xiaodou:inst27|keya ; 1.000        ; -2.819     ; 1.857      ;
+; -5.260 ; xiaodoukey:inst9|q1[1] ; naozhongkey:inst29|q1b[1] ; fenpin300:inst7|clkm ; xiaodou:inst27|keya ; 1.000        ; -1.711     ; 2.495      ;
+; -5.226 ; xiaodoukey:inst9|q1[3] ; naozhongkey:inst29|q1b[3] ; fenpin300:inst7|clkm ; xiaodou:inst27|keya ; 1.000        ; -2.305     ; 1.897      ;
+; -5.071 ; xiaodoukey:inst9|q2[0] ; naozhongkey:inst29|q2a[0] ; fenpin300:inst7|clkm ; xiaodou:inst27|keya ; 0.500        ; -1.647     ; 2.276      ;
++--------+------------------------+---------------------------+----------------------+---------------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'fenpin300:inst7|clkm'                                                                                                                                  ;
++--------+------------------------------+---------------------------------+----------------------+----------------------+--------------+------------+------------+
+; Slack  ; From Node                    ; To Node                         ; Launch Clock         ; Latch Clock          ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------------------+---------------------------------+----------------------+----------------------+--------------+------------+------------+
+; -6.422 ; xiaodoukey:inst9|count2[1]   ; xiaodoukey:inst9|q3[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 7.089      ;
+; -6.422 ; xiaodoukey:inst9|count2[1]   ; xiaodoukey:inst9|q3[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 7.089      ;
+; -6.422 ; xiaodoukey:inst9|count2[1]   ; xiaodoukey:inst9|q3[3]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 7.089      ;
+; -6.422 ; xiaodoukey:inst9|count2[1]   ; xiaodoukey:inst9|q3[2]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 7.089      ;
+; -6.379 ; xiaodoukey:inst9|q1[3]       ; xiaodoukey:inst9|q2[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 7.046      ;
+; -6.379 ; xiaodoukey:inst9|q1[3]       ; xiaodoukey:inst9|q2[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 7.046      ;
+; -6.379 ; xiaodoukey:inst9|q1[3]       ; xiaodoukey:inst9|q2[2]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 7.046      ;
+; -6.285 ; xiaodoukey:inst9|count2[1]   ; xiaodoukey:inst9|q2[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.952      ;
+; -6.285 ; xiaodoukey:inst9|count2[1]   ; xiaodoukey:inst9|q2[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.952      ;
+; -6.285 ; xiaodoukey:inst9|count2[1]   ; xiaodoukey:inst9|q2[2]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.952      ;
+; -6.259 ; xiaodoukey:inst9|count2[0]   ; xiaodoukey:inst9|q3[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.926      ;
+; -6.259 ; xiaodoukey:inst9|count2[0]   ; xiaodoukey:inst9|q3[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.926      ;
+; -6.259 ; xiaodoukey:inst9|count2[0]   ; xiaodoukey:inst9|q3[3]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.926      ;
+; -6.259 ; xiaodoukey:inst9|count2[0]   ; xiaodoukey:inst9|q3[2]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.926      ;
+; -6.122 ; xiaodoukey:inst9|count2[0]   ; xiaodoukey:inst9|q2[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.789      ;
+; -6.122 ; xiaodoukey:inst9|count2[0]   ; xiaodoukey:inst9|q2[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.789      ;
+; -6.122 ; xiaodoukey:inst9|count2[0]   ; xiaodoukey:inst9|q2[2]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.789      ;
+; -6.104 ; xiaodoukey:inst9|count2[3]   ; xiaodoukey:inst9|q3[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.771      ;
+; -6.104 ; xiaodoukey:inst9|count2[3]   ; xiaodoukey:inst9|q3[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.771      ;
+; -6.104 ; xiaodoukey:inst9|count2[3]   ; xiaodoukey:inst9|q3[3]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.771      ;
+; -6.104 ; xiaodoukey:inst9|count2[3]   ; xiaodoukey:inst9|q3[2]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.771      ;
+; -6.030 ; xiaodoukey:inst9|q1[0]       ; xiaodoukey:inst9|q2[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.697      ;
+; -6.030 ; xiaodoukey:inst9|q1[0]       ; xiaodoukey:inst9|q2[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.697      ;
+; -6.030 ; xiaodoukey:inst9|q1[0]       ; xiaodoukey:inst9|q2[2]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.697      ;
+; -5.967 ; xiaodoukey:inst9|count2[3]   ; xiaodoukey:inst9|q2[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.634      ;
+; -5.967 ; xiaodoukey:inst9|count2[3]   ; xiaodoukey:inst9|q2[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.634      ;
+; -5.967 ; xiaodoukey:inst9|count2[3]   ; xiaodoukey:inst9|q2[2]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.634      ;
+; -5.910 ; xiaodoukey:inst9|count2[5]   ; xiaodoukey:inst9|q3[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.577      ;
+; -5.910 ; xiaodoukey:inst9|count2[5]   ; xiaodoukey:inst9|q3[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.577      ;
+; -5.910 ; xiaodoukey:inst9|count2[5]   ; xiaodoukey:inst9|q3[3]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.577      ;
+; -5.910 ; xiaodoukey:inst9|count2[5]   ; xiaodoukey:inst9|q3[2]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.577      ;
+; -5.773 ; xiaodoukey:inst9|count2[5]   ; xiaodoukey:inst9|q2[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.440      ;
+; -5.773 ; xiaodoukey:inst9|count2[5]   ; xiaodoukey:inst9|q2[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.440      ;
+; -5.773 ; xiaodoukey:inst9|count2[5]   ; xiaodoukey:inst9|q2[2]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.440      ;
+; -5.703 ; xiaodoukey:inst9|count2[2]   ; xiaodoukey:inst9|q3[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.370      ;
+; -5.703 ; xiaodoukey:inst9|count2[2]   ; xiaodoukey:inst9|q3[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.370      ;
+; -5.703 ; xiaodoukey:inst9|count2[2]   ; xiaodoukey:inst9|q3[3]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.370      ;
+; -5.703 ; xiaodoukey:inst9|count2[2]   ; xiaodoukey:inst9|q3[2]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.370      ;
+; -5.702 ; xiaodoukey:inst9|q1[2]       ; xiaodoukey:inst9|q2[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.369      ;
+; -5.702 ; xiaodoukey:inst9|q1[2]       ; xiaodoukey:inst9|q2[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.369      ;
+; -5.702 ; xiaodoukey:inst9|q1[2]       ; xiaodoukey:inst9|q2[2]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.369      ;
+; -5.571 ; xiaodoukey:inst9|count2[4]   ; xiaodoukey:inst9|q3[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.238      ;
+; -5.571 ; xiaodoukey:inst9|count2[4]   ; xiaodoukey:inst9|q3[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.238      ;
+; -5.571 ; xiaodoukey:inst9|count2[4]   ; xiaodoukey:inst9|q3[3]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.238      ;
+; -5.571 ; xiaodoukey:inst9|count2[4]   ; xiaodoukey:inst9|q3[2]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.238      ;
+; -5.566 ; xiaodoukey:inst9|count2[2]   ; xiaodoukey:inst9|q2[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.233      ;
+; -5.566 ; xiaodoukey:inst9|count2[2]   ; xiaodoukey:inst9|q2[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.233      ;
+; -5.566 ; xiaodoukey:inst9|count2[2]   ; xiaodoukey:inst9|q2[2]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.233      ;
+; -5.497 ; xiaodoukey:inst9|q1[1]       ; xiaodoukey:inst9|q2[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.164      ;
+; -5.497 ; xiaodoukey:inst9|q1[1]       ; xiaodoukey:inst9|q2[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.164      ;
+; -5.497 ; xiaodoukey:inst9|q1[1]       ; xiaodoukey:inst9|q2[2]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.164      ;
+; -5.434 ; xiaodoukey:inst9|count2[4]   ; xiaodoukey:inst9|q2[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.101      ;
+; -5.434 ; xiaodoukey:inst9|count2[4]   ; xiaodoukey:inst9|q2[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.101      ;
+; -5.434 ; xiaodoukey:inst9|count2[4]   ; xiaodoukey:inst9|q2[2]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.101      ;
+; -5.384 ; xiaodoukey:inst9|count2[1]   ; xiaodoukey:inst9|q4[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.051      ;
+; -5.380 ; xiaodoukey:inst9|count2[1]   ; xiaodoukey:inst9|q4[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 6.047      ;
+; -5.221 ; xiaodoukey:inst9|count2[0]   ; xiaodoukey:inst9|q4[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.888      ;
+; -5.217 ; xiaodoukey:inst9|count2[0]   ; xiaodoukey:inst9|q4[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.884      ;
+; -5.068 ; xiaodoukey:inst9|q3[0]       ; xiaodoukey:inst9|q3[3]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.735      ;
+; -5.066 ; xiaodoukey:inst9|count2[3]   ; xiaodoukey:inst9|q4[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.733      ;
+; -5.062 ; xiaodoukey:inst9|count2[3]   ; xiaodoukey:inst9|q4[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.729      ;
+; -5.008 ; xiaodoukey:inst9|count2[1]   ; xiaodoukey:inst9|q1[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.675      ;
+; -5.008 ; xiaodoukey:inst9|count2[1]   ; xiaodoukey:inst9|q1[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.675      ;
+; -4.896 ; xiaodoukey:inst9|q3[1]       ; xiaodoukey:inst9|q3[3]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.563      ;
+; -4.881 ; zhuangtaikey:inst2|count2[1] ; zhuangtaikey:inst2|zhuangtai[2] ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.548      ;
+; -4.881 ; zhuangtaikey:inst2|count2[1] ; zhuangtaikey:inst2|zhuangtai[1] ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.548      ;
+; -4.872 ; xiaodoukey:inst9|count2[5]   ; xiaodoukey:inst9|q4[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.539      ;
+; -4.868 ; xiaodoukey:inst9|count2[5]   ; xiaodoukey:inst9|q4[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.535      ;
+; -4.845 ; xiaodoukey:inst9|count2[0]   ; xiaodoukey:inst9|q1[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.512      ;
+; -4.845 ; xiaodoukey:inst9|count2[0]   ; xiaodoukey:inst9|q1[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.512      ;
+; -4.747 ; xiaodoukey:inst9|q3[0]       ; xiaodoukey:inst9|q4[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.414      ;
+; -4.743 ; xiaodoukey:inst9|q3[0]       ; xiaodoukey:inst9|q4[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.410      ;
+; -4.740 ; xiaodoukey:inst9|q3[0]       ; xiaodoukey:inst9|q3[2]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.407      ;
+; -4.735 ; xiaodoukey:inst9|q3[0]       ; xiaodoukey:inst9|q3[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.402      ;
+; -4.726 ; xiaodoukey:inst9|q3[2]       ; xiaodoukey:inst9|q3[3]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.393      ;
+; -4.709 ; zhuangtaikey:inst2|count2[0] ; zhuangtaikey:inst2|zhuangtai[2] ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.376      ;
+; -4.709 ; zhuangtaikey:inst2|count2[0] ; zhuangtaikey:inst2|zhuangtai[1] ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.376      ;
+; -4.690 ; xiaodoukey:inst9|count2[3]   ; xiaodoukey:inst9|q1[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.357      ;
+; -4.690 ; xiaodoukey:inst9|count2[3]   ; xiaodoukey:inst9|q1[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.357      ;
+; -4.665 ; xiaodoukey:inst9|count2[2]   ; xiaodoukey:inst9|q4[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.332      ;
+; -4.661 ; xiaodoukey:inst9|count2[2]   ; xiaodoukey:inst9|q4[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.328      ;
+; -4.576 ; xiaodoukey:inst9|q3[1]       ; xiaodoukey:inst9|q4[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.243      ;
+; -4.572 ; xiaodoukey:inst9|q3[1]       ; xiaodoukey:inst9|q4[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.239      ;
+; -4.568 ; xiaodoukey:inst9|q3[1]       ; xiaodoukey:inst9|q3[2]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.235      ;
+; -4.563 ; xiaodoukey:inst9|q3[1]       ; xiaodoukey:inst9|q3[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.230      ;
+; -4.533 ; xiaodoukey:inst9|count2[4]   ; xiaodoukey:inst9|q4[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.200      ;
+; -4.529 ; xiaodoukey:inst9|count2[4]   ; xiaodoukey:inst9|q4[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.196      ;
+; -4.496 ; xiaodoukey:inst9|count2[5]   ; xiaodoukey:inst9|q1[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.163      ;
+; -4.496 ; xiaodoukey:inst9|count2[5]   ; xiaodoukey:inst9|q1[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.163      ;
+; -4.405 ; xiaodoukey:inst9|q3[2]       ; xiaodoukey:inst9|q4[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.072      ;
+; -4.401 ; xiaodoukey:inst9|q3[2]       ; xiaodoukey:inst9|q4[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.068      ;
+; -4.398 ; xiaodoukey:inst9|q3[2]       ; xiaodoukey:inst9|q3[2]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.065      ;
+; -4.393 ; xiaodoukey:inst9|q3[2]       ; xiaodoukey:inst9|q3[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.060      ;
+; -4.351 ; xiaodoukey:inst9|q3[3]       ; xiaodoukey:inst9|q3[3]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 5.018      ;
+; -4.289 ; xiaodoukey:inst9|count2[2]   ; xiaodoukey:inst9|q1[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 4.956      ;
+; -4.289 ; xiaodoukey:inst9|count2[2]   ; xiaodoukey:inst9|q1[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 4.956      ;
+; -4.264 ; zhuangtaikey:inst2|count2[1] ; zhuangtaikey:inst2|zhuangtai[0] ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 4.931      ;
+; -4.198 ; zhuangtaikey:inst2|count2[5] ; zhuangtaikey:inst2|zhuangtai[2] ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 4.865      ;
+; -4.198 ; zhuangtaikey:inst2|count2[5] ; zhuangtaikey:inst2|zhuangtai[1] ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 4.865      ;
+; -4.161 ; zhuangtaikey:inst2|count2[2] ; zhuangtaikey:inst2|zhuangtai[2] ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 1.000        ; 0.000      ; 4.828      ;
++--------+------------------------------+---------------------------------+----------------------+----------------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'clk'                                                                                                                                    ;
++--------+----------------------------+----------------------------+----------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                  ; To Node                    ; Launch Clock         ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------------+----------------------------+----------------------+-------------+--------------+------------+------------+
+; -2.398 ; fenpina:inst4|clkm         ; fenpina:inst4|clkm         ; fenpina:inst4|clkm   ; clk         ; 0.000        ; 3.681      ; 1.880      ;
+; -2.159 ; fenpin:inst1|clkb          ; fenpin:inst1|clkb          ; fenpin:inst1|clkb    ; clk         ; 0.000        ; 3.681      ; 2.119      ;
+; -1.931 ; fenpin300:inst7|clkm       ; fenpin300:inst7|clkm       ; fenpin300:inst7|clkm ; clk         ; 0.000        ; 3.681      ; 2.347      ;
+; -1.898 ; fenpina:inst4|clkm         ; fenpina:inst4|clkm         ; fenpina:inst4|clkm   ; clk         ; -0.500       ; 3.681      ; 1.880      ;
+; -1.659 ; fenpin:inst1|clkb          ; fenpin:inst1|clkb          ; fenpin:inst1|clkb    ; clk         ; -0.500       ; 3.681      ; 2.119      ;
+; -1.431 ; fenpin300:inst7|clkm       ; fenpin300:inst7|clkm       ; fenpin300:inst7|clkm ; clk         ; -0.500       ; 3.681      ; 2.347      ;
+; 2.107  ; fenpin300:inst7|count3[6]  ; fenpin300:inst7|count3[6]  ; clk                  ; clk         ; 0.000        ; 0.000      ; 2.328      ;
+; 2.107  ; fenpina:inst4|count3[5]    ; fenpina:inst4|count3[5]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 2.328      ;
+; 2.108  ; fenpin300:inst7|count3[3]  ; fenpin300:inst7|count3[3]  ; clk                  ; clk         ; 0.000        ; 0.000      ; 2.329      ;
+; 2.108  ; fenpina:inst4|count3[2]    ; fenpina:inst4|count3[2]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 2.329      ;
+; 2.117  ; fenpin300:inst7|count3[7]  ; fenpin300:inst7|count3[7]  ; clk                  ; clk         ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117  ; fenpin300:inst7|count3[8]  ; fenpin300:inst7|count3[8]  ; clk                  ; clk         ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117  ; fenpina:inst4|count3[6]    ; fenpina:inst4|count3[6]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117  ; fenpina:inst4|count3[7]    ; fenpina:inst4|count3[7]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 2.338      ;
+; 2.135  ; fenpin300:inst7|count3[5]  ; fenpin300:inst7|count3[5]  ; clk                  ; clk         ; 0.000        ; 0.000      ; 2.356      ;
+; 2.135  ; fenpina:inst4|count3[4]    ; fenpina:inst4|count3[4]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 2.356      ;
+; 2.221  ; fenpin300:inst7|count3[11] ; fenpin300:inst7|count3[11] ; clk                  ; clk         ; 0.000        ; 0.000      ; 2.442      ;
+; 2.221  ; fenpina:inst4|count3[10]   ; fenpina:inst4|count3[10]   ; clk                  ; clk         ; 0.000        ; 0.000      ; 2.442      ;
+; 2.230  ; fenpin300:inst7|count3[1]  ; fenpin300:inst7|count3[1]  ; clk                  ; clk         ; 0.000        ; 0.000      ; 2.451      ;
+; 2.231  ; fenpin300:inst7|count3[2]  ; fenpin300:inst7|count3[2]  ; clk                  ; clk         ; 0.000        ; 0.000      ; 2.452      ;
+; 2.231  ; fenpin300:inst7|count3[0]  ; fenpin300:inst7|count3[0]  ; clk                  ; clk         ; 0.000        ; 0.000      ; 2.452      ;
+; 2.232  ; fenpin300:inst7|count3[9]  ; fenpin300:inst7|count3[9]  ; clk                  ; clk         ; 0.000        ; 0.000      ; 2.453      ;
+; 2.233  ; fenpina:inst4|count3[3]    ; fenpina:inst4|count3[3]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 2.454      ;
+; 2.238  ; fenpina:inst4|count3[0]    ; fenpina:inst4|count3[0]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 2.459      ;
+; 2.239  ; fenpina:inst4|count3[1]    ; fenpina:inst4|count3[1]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 2.460      ;
+; 2.241  ; fenpina:inst4|count3[8]    ; fenpina:inst4|count3[8]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 2.462      ;
+; 2.259  ; fenpin300:inst7|count3[4]  ; fenpin300:inst7|count3[4]  ; clk                  ; clk         ; 0.000        ; 0.000      ; 2.480      ;
+; 2.290  ; fenpin:inst1|count1[20]    ; fenpin:inst1|count1[16]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 2.511      ;
+; 2.291  ; fenpin:inst1|count1[20]    ; fenpin:inst1|count1[19]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 2.512      ;
+; 2.292  ; fenpin:inst1|count1[20]    ; fenpin:inst1|count1[15]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 2.513      ;
+; 2.492  ; fenpina:inst4|count3[9]    ; fenpina:inst4|count3[9]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 2.713      ;
+; 2.505  ; fenpin300:inst7|count3[10] ; fenpin300:inst7|count3[10] ; clk                  ; clk         ; 0.000        ; 0.000      ; 2.726      ;
+; 2.883  ; fenpin:inst1|count1[1]     ; fenpin:inst1|count1[1]     ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.104      ;
+; 2.915  ; fenpin:inst1|count1[20]    ; fenpin:inst1|count1[20]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.136      ;
+; 2.939  ; fenpin300:inst7|count3[6]  ; fenpin300:inst7|count3[7]  ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.160      ;
+; 2.939  ; fenpina:inst4|count3[5]    ; fenpina:inst4|count3[6]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.160      ;
+; 2.940  ; fenpin300:inst7|count3[3]  ; fenpin300:inst7|count3[4]  ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.161      ;
+; 2.940  ; fenpina:inst4|count3[2]    ; fenpina:inst4|count3[3]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.161      ;
+; 2.949  ; fenpin300:inst7|count3[8]  ; fenpin300:inst7|count3[9]  ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.170      ;
+; 2.949  ; fenpin300:inst7|count3[7]  ; fenpin300:inst7|count3[8]  ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.170      ;
+; 2.949  ; fenpina:inst4|count3[7]    ; fenpina:inst4|count3[8]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.170      ;
+; 2.949  ; fenpina:inst4|count3[6]    ; fenpina:inst4|count3[7]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.170      ;
+; 3.027  ; fenpin:inst1|count1[2]     ; fenpin:inst1|count1[2]     ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.248      ;
+; 3.050  ; fenpin300:inst7|count3[6]  ; fenpin300:inst7|count3[8]  ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.271      ;
+; 3.050  ; fenpina:inst4|count3[5]    ; fenpina:inst4|count3[7]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.271      ;
+; 3.051  ; fenpin300:inst7|count3[3]  ; fenpin300:inst7|count3[5]  ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.272      ;
+; 3.051  ; fenpina:inst4|count3[2]    ; fenpina:inst4|count3[4]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.272      ;
+; 3.060  ; fenpin300:inst7|count3[8]  ; fenpin300:inst7|count3[10] ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.281      ;
+; 3.060  ; fenpina:inst4|count3[7]    ; fenpina:inst4|count3[9]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.281      ;
+; 3.060  ; fenpin300:inst7|count3[7]  ; fenpin300:inst7|count3[9]  ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.281      ;
+; 3.060  ; fenpina:inst4|count3[6]    ; fenpina:inst4|count3[8]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.281      ;
+; 3.145  ; fenpin:inst1|count1[3]     ; fenpin:inst1|count1[3]     ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.366      ;
+; 3.161  ; fenpin300:inst7|count3[6]  ; fenpin300:inst7|count3[9]  ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.382      ;
+; 3.161  ; fenpina:inst4|count3[5]    ; fenpina:inst4|count3[8]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.382      ;
+; 3.170  ; fenpin300:inst7|count3[1]  ; fenpin300:inst7|count3[2]  ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.391      ;
+; 3.171  ; fenpin300:inst7|count3[2]  ; fenpin300:inst7|count3[3]  ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.392      ;
+; 3.171  ; fenpin300:inst7|count3[7]  ; fenpin300:inst7|count3[10] ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.392      ;
+; 3.171  ; fenpina:inst4|count3[6]    ; fenpina:inst4|count3[9]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.392      ;
+; 3.172  ; fenpin300:inst7|count3[9]  ; fenpin300:inst7|count3[10] ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.393      ;
+; 3.173  ; fenpina:inst4|count3[3]    ; fenpina:inst4|count3[4]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.394      ;
+; 3.178  ; fenpina:inst4|count3[0]    ; fenpina:inst4|count3[1]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.399      ;
+; 3.179  ; fenpina:inst4|count3[1]    ; fenpina:inst4|count3[2]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.400      ;
+; 3.181  ; fenpina:inst4|count3[8]    ; fenpina:inst4|count3[9]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.402      ;
+; 3.199  ; fenpin300:inst7|count3[4]  ; fenpin300:inst7|count3[5]  ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.420      ;
+; 3.247  ; fenpin:inst1|count1[20]    ; fenpin:inst1|count1[0]     ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.468      ;
+; 3.263  ; fenpin:inst1|count1[4]     ; fenpin:inst1|count1[4]     ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.484      ;
+; 3.272  ; fenpin300:inst7|count3[6]  ; fenpin300:inst7|count3[10] ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.493      ;
+; 3.272  ; fenpina:inst4|count3[5]    ; fenpina:inst4|count3[9]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.493      ;
+; 3.281  ; fenpin300:inst7|count3[1]  ; fenpin300:inst7|count3[3]  ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.502      ;
+; 3.282  ; fenpin300:inst7|count3[2]  ; fenpin300:inst7|count3[4]  ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.503      ;
+; 3.289  ; fenpina:inst4|count3[0]    ; fenpina:inst4|count3[2]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.510      ;
+; 3.290  ; fenpina:inst4|count3[1]    ; fenpina:inst4|count3[3]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.511      ;
+; 3.390  ; fenpin:inst1|count1[20]    ; fenpin:inst1|count1[18]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.611      ;
+; 3.392  ; fenpin300:inst7|count3[1]  ; fenpin300:inst7|count3[4]  ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.613      ;
+; 3.393  ; fenpin300:inst7|count3[2]  ; fenpin300:inst7|count3[5]  ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.614      ;
+; 3.396  ; fenpin:inst1|count1[15]    ; fenpin:inst1|count1[15]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.617      ;
+; 3.400  ; fenpina:inst4|count3[0]    ; fenpina:inst4|count3[3]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.621      ;
+; 3.401  ; fenpina:inst4|count3[1]    ; fenpina:inst4|count3[4]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.622      ;
+; 3.492  ; fenpin300:inst7|count3[0]  ; fenpin300:inst7|count3[4]  ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.713      ;
+; 3.492  ; fenpin300:inst7|count3[0]  ; fenpin300:inst7|count3[5]  ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.713      ;
+; 3.492  ; fenpin300:inst7|count3[0]  ; fenpin300:inst7|count3[3]  ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.713      ;
+; 3.492  ; fenpin300:inst7|count3[0]  ; fenpin300:inst7|count3[2]  ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.713      ;
+; 3.492  ; fenpin300:inst7|count3[0]  ; fenpin300:inst7|count3[1]  ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.713      ;
+; 3.503  ; fenpin300:inst7|count3[1]  ; fenpin300:inst7|count3[5]  ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.724      ;
+; 3.511  ; fenpina:inst4|count3[0]    ; fenpina:inst4|count3[4]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.732      ;
+; 3.517  ; fenpin300:inst7|count3[7]  ; fenpin300:inst7|clkm       ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.738      ;
+; 3.529  ; fenpin300:inst7|count3[8]  ; fenpin300:inst7|count3[11] ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.750      ;
+; 3.529  ; fenpina:inst4|count3[7]    ; fenpina:inst4|count3[10]   ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.750      ;
+; 3.547  ; fenpin:inst1|count1[19]    ; fenpin:inst1|count1[19]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.768      ;
+; 3.550  ; fenpin300:inst7|count3[8]  ; fenpin300:inst7|clkm       ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.771      ;
+; 3.605  ; fenpin:inst1|count1[16]    ; fenpin:inst1|count1[16]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.826      ;
+; 3.631  ; fenpin:inst1|count1[12]    ; fenpin:inst1|count1[13]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.852      ;
+; 3.632  ; fenpin:inst1|count1[12]    ; fenpin:inst1|count1[17]    ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.853      ;
+; 3.640  ; fenpin300:inst7|count3[7]  ; fenpin300:inst7|count3[11] ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.861      ;
+; 3.640  ; fenpina:inst4|count3[6]    ; fenpina:inst4|count3[10]   ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.861      ;
+; 3.641  ; fenpin300:inst7|count3[9]  ; fenpin300:inst7|count3[11] ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.862      ;
+; 3.650  ; fenpina:inst4|count3[8]    ; fenpina:inst4|count3[10]   ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.871      ;
+; 3.668  ; fenpin300:inst7|count3[5]  ; fenpin300:inst7|clkm       ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.889      ;
+; 3.669  ; fenpin:inst1|count1[1]     ; fenpin:inst1|count1[2]     ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.890      ;
+; 3.741  ; fenpin300:inst7|count3[6]  ; fenpin300:inst7|count3[11] ; clk                  ; clk         ; 0.000        ; 0.000      ; 3.962      ;
++--------+----------------------------+----------------------------+----------------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'fenpin300:inst7|clkm'                                                                                                                                      ;
++--------+---------------------------------+---------------------------------+----------------------+----------------------+--------------+------------+------------+
+; Slack  ; From Node                       ; To Node                         ; Launch Clock         ; Latch Clock          ; Relationship ; Clock Skew ; Data Delay ;
++--------+---------------------------------+---------------------------------+----------------------+----------------------+--------------+------------+------------+
+; -2.364 ; xiaodou:inst27|keya             ; xiaodou:inst27|keya             ; xiaodou:inst27|keya  ; fenpin300:inst7|clkm ; 0.000        ; 5.224      ; 3.457      ;
+; -1.864 ; xiaodou:inst27|keya             ; xiaodou:inst27|keya             ; xiaodou:inst27|keya  ; fenpin300:inst7|clkm ; -0.500       ; 5.224      ; 3.457      ;
+; 1.669  ; xiaodoukey:inst9|q1[1]          ; xiaodoukey:inst9|q1[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 1.890      ;
+; 1.739  ; xiaodoukey:inst9|q3[0]          ; xiaodoukey:inst9|q3[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 1.960      ;
+; 1.741  ; xiaodoukey:inst9|q3[0]          ; xiaodoukey:inst9|q3[2]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 1.962      ;
+; 1.744  ; xiaodoukey:inst9|q3[0]          ; xiaodoukey:inst9|q3[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 1.965      ;
+; 1.917  ; xiaodoukey:inst9|q1[3]          ; xiaodoukey:inst9|q1[3]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.138      ;
+; 1.920  ; xiaodoukey:inst9|q4[0]          ; xiaodoukey:inst9|q4[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.141      ;
+; 1.923  ; xiaodoukey:inst9|q4[0]          ; xiaodoukey:inst9|q4[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.144      ;
+; 1.927  ; xiaodoukey:inst9|q1[3]          ; xiaodoukey:inst9|q1[2]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.148      ;
+; 1.957  ; xiaodou:inst27|count2[3]        ; xiaodou:inst27|keya             ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.178      ;
+; 1.961  ; xiaodou:inst11|count2[3]        ; xiaodou:inst11|keya             ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.182      ;
+; 1.968  ; zhuangtaikey:inst2|zhuangtai[0] ; zhuangtaikey:inst2|zhuangtai[0] ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.189      ;
+; 1.998  ; xiaodoukey:inst9|q3[2]          ; xiaodoukey:inst9|q3[3]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.219      ;
+; 2.097  ; zhuangtaikey:inst2|count2[5]    ; zhuangtaikey:inst2|count2[5]    ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.318      ;
+; 2.108  ; xiaodou:inst11|keya             ; xiaodou:inst11|keya             ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.329      ;
+; 2.118  ; xiaodou:inst17|keya             ; xiaodou:inst17|keya             ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.339      ;
+; 2.126  ; xiaodou:inst27|count2[0]        ; xiaodou:inst27|count2[0]        ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126  ; xiaodou:inst17|count2[0]        ; xiaodou:inst17|count2[0]        ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126  ; xiaodou:inst17|count2[1]        ; xiaodou:inst17|count2[1]        ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.347      ;
+; 2.127  ; xiaodou:inst27|count2[1]        ; xiaodou:inst27|count2[1]        ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.348      ;
+; 2.134  ; jinzhixuan:inst5|jinzhi[0]      ; jinzhixuan:inst5|jinzhi[0]      ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.355      ;
+; 2.135  ; xiaodou:inst11|count2[1]        ; xiaodou:inst11|count2[1]        ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.356      ;
+; 2.135  ; zhuangtaikey:inst2|count2[1]    ; zhuangtaikey:inst2|count2[1]    ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.356      ;
+; 2.143  ; xiaodou:inst11|count2[0]        ; xiaodou:inst11|count2[0]        ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.364      ;
+; 2.143  ; zhuangtaikey:inst2|count2[0]    ; zhuangtaikey:inst2|count2[0]    ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.364      ;
+; 2.143  ; zhuangtaikey:inst2|zhuangtai[2] ; zhuangtaikey:inst2|zhuangtai[2] ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.364      ;
+; 2.144  ; xiaodoukey:inst9|count2[1]      ; xiaodoukey:inst9|count2[1]      ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.365      ;
+; 2.145  ; jinzhixuan:inst5|count2[0]      ; jinzhixuan:inst5|count2[0]      ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.366      ;
+; 2.146  ; jinzhixuan:inst5|count2[1]      ; jinzhixuan:inst5|count2[1]      ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.367      ;
+; 2.151  ; xiaodoukey:inst9|count2[0]      ; xiaodoukey:inst9|count2[0]      ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.372      ;
+; 2.152  ; xiaodoukey:inst9|q1[2]          ; xiaodoukey:inst9|q1[2]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.373      ;
+; 2.160  ; xiaodoukey:inst9|q1[2]          ; xiaodoukey:inst9|q1[3]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.381      ;
+; 2.179  ; zhuangtaikey:inst2|zhuangtai[0] ; zhuangtaikey:inst2|zhuangtai[2] ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.400      ;
+; 2.184  ; xiaodoukey:inst9|q3[3]          ; xiaodoukey:inst9|q3[3]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.405      ;
+; 2.187  ; zhuangtaikey:inst2|zhuangtai[0] ; zhuangtaikey:inst2|zhuangtai[1] ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.408      ;
+; 2.201  ; xiaodoukey:inst9|q3[1]          ; xiaodoukey:inst9|q3[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.422      ;
+; 2.205  ; xiaodoukey:inst9|q3[1]          ; xiaodoukey:inst9|q3[2]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.426      ;
+; 2.212  ; jinzhixuan:inst5|count2[2]      ; jinzhixuan:inst5|count2[2]      ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.433      ;
+; 2.212  ; xiaodou:inst17|count2[2]        ; xiaodou:inst17|count2[2]        ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.433      ;
+; 2.232  ; xiaodou:inst27|count2[2]        ; xiaodou:inst27|count2[2]        ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.453      ;
+; 2.235  ; xiaodoukey:inst9|q1[0]          ; xiaodoukey:inst9|q1[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.456      ;
+; 2.240  ; xiaodou:inst11|count2[2]        ; xiaodou:inst11|count2[2]        ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.461      ;
+; 2.240  ; zhuangtaikey:inst2|count2[2]    ; zhuangtaikey:inst2|count2[2]    ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.461      ;
+; 2.241  ; xiaodoukey:inst9|count2[2]      ; xiaodoukey:inst9|count2[2]      ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.462      ;
+; 2.242  ; xiaodoukey:inst9|q4[1]          ; xiaodoukey:inst9|q4[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.463      ;
+; 2.245  ; xiaodoukey:inst9|q3[0]          ; xiaodoukey:inst9|q3[3]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.466      ;
+; 2.245  ; xiaodoukey:inst9|q1[1]          ; xiaodoukey:inst9|q1[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.466      ;
+; 2.246  ; xiaodoukey:inst9|q4[1]          ; xiaodoukey:inst9|q4[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.467      ;
+; 2.249  ; xiaodoukey:inst9|count2[3]      ; xiaodoukey:inst9|count2[3]      ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.470      ;
+; 2.249  ; zhuangtaikey:inst2|count2[4]    ; zhuangtaikey:inst2|count2[4]    ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.470      ;
+; 2.249  ; jinzhixuan:inst5|count2[3]      ; jinzhixuan:inst5|count2[3]      ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.470      ;
+; 2.251  ; zhuangtaikey:inst2|count2[3]    ; zhuangtaikey:inst2|count2[3]    ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.472      ;
+; 2.260  ; xiaodoukey:inst9|count2[4]      ; xiaodoukey:inst9|count2[4]      ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.481      ;
+; 2.260  ; jinzhixuan:inst5|count2[4]      ; jinzhixuan:inst5|count2[4]      ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.481      ;
+; 2.262  ; xiaodoukey:inst9|count2[5]      ; xiaodoukey:inst9|count2[5]      ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.483      ;
+; 2.262  ; jinzhixuan:inst5|count2[5]      ; jinzhixuan:inst5|count2[5]      ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.483      ;
+; 2.271  ; xiaodou:inst11|count2[4]        ; xiaodou:inst11|count2[4]        ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.492      ;
+; 2.272  ; xiaodou:inst11|count2[3]        ; xiaodou:inst11|count2[3]        ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.493      ;
+; 2.272  ; xiaodou:inst27|count2[5]        ; xiaodou:inst27|count2[5]        ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.493      ;
+; 2.272  ; xiaodou:inst27|count2[4]        ; xiaodou:inst27|count2[4]        ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.493      ;
+; 2.272  ; xiaodou:inst27|count2[3]        ; xiaodou:inst27|count2[3]        ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.493      ;
+; 2.272  ; xiaodou:inst17|count2[5]        ; xiaodou:inst17|count2[5]        ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.493      ;
+; 2.272  ; xiaodou:inst17|count2[4]        ; xiaodou:inst17|count2[4]        ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.493      ;
+; 2.273  ; xiaodou:inst11|count2[5]        ; xiaodou:inst11|count2[5]        ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.494      ;
+; 2.274  ; xiaodou:inst17|count2[3]        ; xiaodou:inst17|count2[3]        ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.495      ;
+; 2.279  ; xiaodou:inst17|count2[3]        ; xiaodou:inst17|keya             ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.500      ;
+; 2.322  ; xiaodoukey:inst9|q3[2]          ; xiaodoukey:inst9|q3[2]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.543      ;
+; 2.365  ; zhuangtaikey:inst2|zhuangtai[1] ; zhuangtaikey:inst2|zhuangtai[1] ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.586      ;
+; 2.370  ; zhuangtaikey:inst2|zhuangtai[1] ; zhuangtaikey:inst2|zhuangtai[2] ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.591      ;
+; 2.390  ; xiaodoukey:inst9|q4[1]          ; xiaodoukey:inst9|q3[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.611      ;
+; 2.616  ; zhuangtaikey:inst2|zhuangtai[2] ; zhuangtaikey:inst2|zhuangtai[0] ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.837      ;
+; 2.628  ; xiaodoukey:inst9|q2[0]          ; xiaodoukey:inst9|q2[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.849      ;
+; 2.629  ; xiaodoukey:inst9|q2[0]          ; xiaodoukey:inst9|q2[2]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.850      ;
+; 2.638  ; xiaodoukey:inst9|q2[0]          ; xiaodoukey:inst9|q2[1]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 2.859      ;
+; 2.783  ; xiaodoukey:inst9|q3[1]          ; xiaodoukey:inst9|q3[3]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 3.004      ;
+; 2.892  ; xiaodoukey:inst9|q1[0]          ; xiaodoukey:inst9|q1[0]          ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 3.113      ;
+; 2.958  ; xiaodou:inst27|count2[0]        ; xiaodou:inst27|count2[1]        ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 3.179      ;
+; 2.958  ; xiaodou:inst17|count2[1]        ; xiaodou:inst17|count2[2]        ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 3.179      ;
+; 2.958  ; xiaodou:inst17|count2[0]        ; xiaodou:inst17|count2[1]        ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 3.179      ;
+; 2.959  ; xiaodou:inst27|count2[1]        ; xiaodou:inst27|count2[2]        ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 3.180      ;
+; 2.967  ; xiaodou:inst11|count2[1]        ; xiaodou:inst11|count2[2]        ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 3.188      ;
+; 2.967  ; zhuangtaikey:inst2|count2[1]    ; zhuangtaikey:inst2|count2[2]    ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 3.188      ;
+; 2.975  ; xiaodou:inst11|count2[0]        ; xiaodou:inst11|count2[1]        ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 3.196      ;
+; 2.975  ; zhuangtaikey:inst2|count2[0]    ; zhuangtaikey:inst2|count2[1]    ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 3.196      ;
+; 2.976  ; xiaodoukey:inst9|count2[1]      ; xiaodoukey:inst9|count2[2]      ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 3.197      ;
+; 2.977  ; jinzhixuan:inst5|count2[0]      ; jinzhixuan:inst5|count2[1]      ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 3.198      ;
+; 2.978  ; jinzhixuan:inst5|count2[1]      ; jinzhixuan:inst5|count2[2]      ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 3.199      ;
+; 2.983  ; xiaodoukey:inst9|count2[0]      ; xiaodoukey:inst9|count2[1]      ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 3.204      ;
+; 2.996  ; xiaodou:inst11|count2[4]        ; xiaodou:inst11|keya             ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 3.217      ;
+; 3.065  ; xiaodou:inst27|count2[2]        ; xiaodou:inst27|keya             ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 3.286      ;
+; 3.069  ; xiaodou:inst17|count2[1]        ; xiaodou:inst17|count2[3]        ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 3.290      ;
+; 3.069  ; xiaodou:inst17|count2[0]        ; xiaodou:inst17|count2[2]        ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 3.290      ;
+; 3.069  ; xiaodou:inst27|count2[0]        ; xiaodou:inst27|count2[2]        ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 3.290      ;
+; 3.070  ; xiaodou:inst27|count2[1]        ; xiaodou:inst27|count2[3]        ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 3.291      ;
+; 3.078  ; xiaodou:inst11|count2[1]        ; xiaodou:inst11|count2[3]        ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 3.299      ;
+; 3.078  ; zhuangtaikey:inst2|count2[1]    ; zhuangtaikey:inst2|count2[3]    ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 3.299      ;
+; 3.086  ; xiaodou:inst11|count2[0]        ; xiaodou:inst11|count2[2]        ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 3.307      ;
+; 3.086  ; zhuangtaikey:inst2|count2[0]    ; zhuangtaikey:inst2|count2[2]    ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 3.307      ;
+; 3.087  ; xiaodoukey:inst9|count2[1]      ; xiaodoukey:inst9|count2[3]      ; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 0.000        ; 0.000      ; 3.308      ;
++--------+---------------------------------+---------------------------------+----------------------+----------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'fenpina:inst4|clkm'                                                                                                                       ;
++--------+---------------------------+-------------------------+---------------------+--------------------+--------------+------------+------------+
+; Slack  ; From Node                 ; To Node                 ; Launch Clock        ; Latch Clock        ; Relationship ; Clock Skew ; Data Delay ;
++--------+---------------------------+-------------------------+---------------------+--------------------+--------------+------------+------------+
+; -0.262 ; naozhongkey:inst29|q1a[3] ; naozhong:inst30|TLb2[3] ; xiaodou:inst27|keya ; fenpina:inst4|clkm ; 0.000        ; 1.064      ; 1.023      ;
+; -0.132 ; xiaodou:inst27|keya       ; naozhong:inst30|A[0]    ; xiaodou:inst27|keya ; fenpina:inst4|clkm ; 0.000        ; 3.790      ; 4.255      ;
+; -0.081 ; naozhongkey:inst29|q1b[2] ; naozhong:inst30|TLc2[2] ; xiaodou:inst27|keya ; fenpina:inst4|clkm ; -0.500       ; 1.423      ; 1.063      ;
+; 0.022  ; naozhongkey:inst29|q2a[1] ; naozhong:inst30|THb2[1] ; xiaodou:inst27|keya ; fenpina:inst4|clkm ; 0.000        ; 0.760      ; 1.003      ;
+; 0.130  ; naozhongkey:inst29|q1a[0] ; naozhong:inst30|TLb2[0] ; xiaodou:inst27|keya ; fenpina:inst4|clkm ; 0.000        ; 0.747      ; 1.098      ;
+; 0.368  ; xiaodou:inst27|keya       ; naozhong:inst30|A[0]    ; xiaodou:inst27|keya ; fenpina:inst4|clkm ; -0.500       ; 3.790      ; 4.255      ;
+; 0.450  ; naozhongkey:inst29|q1b[3] ; naozhong:inst30|TLc2[3] ; xiaodou:inst27|keya ; fenpina:inst4|clkm ; -0.500       ; 0.871      ; 1.042      ;
+; 0.470  ; naozhongkey:inst29|q1b[0] ; naozhong:inst30|TLc2[0] ; xiaodou:inst27|keya ; fenpina:inst4|clkm ; -0.500       ; 0.821      ; 1.012      ;
+; 0.609  ; naozhongkey:inst29|q1a[1] ; naozhong:inst30|TLb2[1] ; xiaodou:inst27|keya ; fenpina:inst4|clkm ; 0.000        ; 0.202      ; 1.032      ;
+; 0.621  ; naozhongkey:inst29|q1a[3] ; naozhong:inst30|A[3]    ; xiaodou:inst27|keya ; fenpina:inst4|clkm ; 0.000        ; 1.064      ; 1.906      ;
+; 0.939  ; naozhongkey:inst29|q2b[0] ; naozhong:inst30|THc2[0] ; xiaodou:inst27|keya ; fenpina:inst4|clkm ; -0.500       ; 1.372      ; 2.032      ;
+; 1.074  ; naozhongkey:inst29|q1b[1] ; naozhong:inst30|TLc2[1] ; xiaodou:inst27|keya ; fenpina:inst4|clkm ; -0.500       ; 0.277      ; 1.072      ;
+; 1.392  ; naozhong:inst30|s.s3      ; naozhong:inst30|s.s4    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 1.613      ;
+; 1.440  ; naozhong:inst30|s.s7      ; naozhong:inst30|s.s8    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 1.661      ;
+; 1.479  ; naozhongkey:inst29|q1a[2] ; naozhong:inst30|TLb2[2] ; xiaodou:inst27|keya ; fenpina:inst4|clkm ; 0.000        ; 1.419      ; 3.119      ;
+; 1.646  ; naozhong:inst30|s.s7      ; naozhong:inst30|A[0]    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 1.867      ;
+; 1.646  ; naozhong:inst30|s.s8      ; naozhong:inst30|A[1]    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 1.867      ;
+; 1.691  ; naozhongkey:inst29|q2a[2] ; naozhong:inst30|THb2[2] ; xiaodou:inst27|keya ; fenpina:inst4|clkm ; 0.000        ; 1.374      ; 3.286      ;
+; 1.722  ; naozhongkey:inst29|q2b[0] ; naozhong:inst30|A[0]    ; xiaodou:inst27|keya ; fenpina:inst4|clkm ; -0.500       ; 1.372      ; 2.815      ;
+; 1.775  ; naozhongkey:inst29|q2a[0] ; naozhong:inst30|THb2[0] ; xiaodou:inst27|keya ; fenpina:inst4|clkm ; 0.000        ; 0.213      ; 2.209      ;
+; 1.780  ; naozhongkey:inst29|q2b[1] ; naozhong:inst30|A[1]    ; xiaodou:inst27|keya ; fenpina:inst4|clkm ; -0.500       ; 1.382      ; 2.883      ;
+; 1.841  ; naozhongkey:inst29|q1b[0] ; naozhong:inst30|A[0]    ; xiaodou:inst27|keya ; fenpina:inst4|clkm ; -0.500       ; 0.821      ; 2.383      ;
+; 1.869  ; naozhongkey:inst29|q2b[2] ; naozhong:inst30|A[2]    ; xiaodou:inst27|keya ; fenpina:inst4|clkm ; -0.500       ; 1.385      ; 2.975      ;
+; 1.922  ; naozhongkey:inst29|q1b[1] ; naozhong:inst30|A[1]    ; xiaodou:inst27|keya ; fenpina:inst4|clkm ; -0.500       ; 0.277      ; 1.920      ;
+; 2.040  ; naozhongkey:inst29|q2a[0] ; naozhong:inst30|A[0]    ; xiaodou:inst27|keya ; fenpina:inst4|clkm ; 0.000        ; 0.213      ; 2.474      ;
+; 2.061  ; naozhongkey:inst29|q2b[2] ; naozhong:inst30|THc2[2] ; xiaodou:inst27|keya ; fenpina:inst4|clkm ; -0.500       ; 1.385      ; 3.167      ;
+; 2.081  ; naozhongkey:inst29|q1a[1] ; naozhong:inst30|A[1]    ; xiaodou:inst27|keya ; fenpina:inst4|clkm ; 0.000        ; 0.202      ; 2.504      ;
+; 2.151  ; naozhong:inst30|s.s3      ; naozhong:inst30|A[3]    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 2.372      ;
+; 2.159  ; naozhongkey:inst29|q2b[1] ; naozhong:inst30|THc2[1] ; xiaodou:inst27|keya ; fenpina:inst4|clkm ; -0.500       ; 1.382      ; 3.262      ;
+; 2.166  ; naozhongkey:inst29|q1b[3] ; naozhong:inst30|A[3]    ; xiaodou:inst27|keya ; fenpina:inst4|clkm ; -0.500       ; 0.871      ; 2.758      ;
+; 2.284  ; naozhong:inst30|s.s4      ; naozhong:inst30|TLb2[3] ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 2.505      ;
+; 2.284  ; naozhong:inst30|s.s4      ; naozhong:inst30|TLb2[2] ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 2.505      ;
+; 2.308  ; naozhong:inst30|s.s7      ; naozhong:inst30|TLc2[0] ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 2.529      ;
+; 2.308  ; naozhong:inst30|s.s7      ; naozhong:inst30|TLc2[1] ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 2.529      ;
+; 2.326  ; naozhongkey:inst29|q1a[0] ; naozhong:inst30|A[0]    ; xiaodou:inst27|keya ; fenpina:inst4|clkm ; 0.000        ; 0.747      ; 3.294      ;
+; 2.340  ; naozhongkey:inst29|q2a[1] ; naozhong:inst30|A[1]    ; xiaodou:inst27|keya ; fenpina:inst4|clkm ; 0.000        ; 0.760      ; 3.321      ;
+; 2.380  ; naozhong:inst30|s.s5      ; naozhong:inst30|A[2]    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 2.601      ;
+; 2.388  ; naozhongkey:inst29|q1b[2] ; naozhong:inst30|A[2]    ; xiaodou:inst27|keya ; fenpina:inst4|clkm ; -0.500       ; 1.423      ; 3.532      ;
+; 2.531  ; naozhong:inst30|s.s6      ; naozhong:inst30|s.s7    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 2.752      ;
+; 2.535  ; naozhongkey:inst29|q1a[2] ; naozhong:inst30|A[2]    ; xiaodou:inst27|keya ; fenpina:inst4|clkm ; 0.000        ; 1.419      ; 4.175      ;
+; 2.596  ; naozhongkey:inst29|q2a[2] ; naozhong:inst30|A[2]    ; xiaodou:inst27|keya ; fenpina:inst4|clkm ; 0.000        ; 1.374      ; 4.191      ;
+; 2.664  ; naozhong:inst30|xuan[7]   ; naozhong:inst30|s.s1    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 2.885      ;
+; 2.803  ; naozhong:inst30|s.s2      ; shanshuos:inst12|A[3]   ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.024      ;
+; 2.807  ; naozhong:inst30|s.s2      ; shanshuos:inst12|A[2]   ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.028      ;
+; 2.885  ; naozhong:inst30|s.s6      ; naozhong:inst30|A[2]    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.106      ;
+; 2.987  ; naozhong:inst30|s.s2      ; naozhong:inst30|s.s3    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.208      ;
+; 3.055  ; naozhong:inst30|s.s4      ; naozhong:inst30|s.s5    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.276      ;
+; 3.065  ; naozhong:inst30|s.s4      ; saomiao:inst453|A[3]    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.286      ;
+; 3.066  ; naozhong:inst30|xuan[7]   ; shanshuoh:inst14|A[3]   ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.287      ;
+; 3.067  ; naozhong:inst30|xuan[7]   ; shanshuoh:inst14|A[2]   ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.288      ;
+; 3.091  ; naozhong:inst30|s.s1      ; naozhong:inst30|s.s2    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.312      ;
+; 3.129  ; naozhong:inst30|xuan[7]   ; shanshuos:inst12|A[3]   ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.350      ;
+; 3.143  ; naozhong:inst30|s.s7      ; naozhong:inst30|A[1]    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.364      ;
+; 3.230  ; naozhong:inst30|s.s4      ; naozhong:inst30|A[3]    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.451      ;
+; 3.272  ; naozhong:inst30|s.s3      ; saomiao:inst453|A[3]    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.493      ;
+; 3.329  ; naozhong:inst30|s.s2      ; shanshuos:inst12|A[1]   ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.550      ;
+; 3.346  ; naozhong:inst30|s.s7      ; shanshuoh:inst14|A[1]   ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.567      ;
+; 3.348  ; naozhong:inst30|s.s7      ; saomiao:inst453|A[3]    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.569      ;
+; 3.356  ; naozhong:inst30|s.s7      ; saomiao:inst453|A[1]    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.577      ;
+; 3.373  ; naozhong:inst30|s.s8      ; naozhong:inst30|THc2[1] ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.594      ;
+; 3.373  ; naozhong:inst30|s.s8      ; naozhong:inst30|THc2[2] ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.594      ;
+; 3.380  ; naozhong:inst30|s.s8      ; naozhong:inst30|THc2[0] ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.601      ;
+; 3.394  ; naozhong:inst30|s.s8      ; naozhong:inst30|A[2]    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.615      ;
+; 3.434  ; naozhong:inst30|s.s1      ; shanshuos:inst12|A[2]   ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.655      ;
+; 3.482  ; naozhong:inst30|s.s7      ; shanshuoh:inst14|A[3]   ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.703      ;
+; 3.489  ; naozhong:inst30|s.s7      ; shanshuoh:inst14|A[2]   ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.710      ;
+; 3.493  ; naozhong:inst30|s.s7      ; saomiao:inst453|A[2]    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.714      ;
+; 3.507  ; naozhong:inst30|s.s4      ; naozhong:inst30|TLb2[1] ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.728      ;
+; 3.507  ; naozhong:inst30|s.s4      ; naozhong:inst30|TLb2[0] ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.728      ;
+; 3.554  ; naozhong:inst30|s.s5      ; naozhong:inst30|THb2[2] ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.775      ;
+; 3.628  ; naozhong:inst30|s.s5      ; naozhong:inst30|THb2[1] ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.849      ;
+; 3.628  ; naozhong:inst30|s.s5      ; naozhong:inst30|THb2[0] ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.849      ;
+; 3.669  ; naozhong:inst30|s.s5      ; naozhong:inst30|s.s6    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.890      ;
+; 3.671  ; naozhong:inst30|s.s8      ; naozhong:inst30|xuan[7] ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.892      ;
+; 3.710  ; naozhong:inst30|xuan[7]   ; shanshuom:inst13|A[2]   ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.931      ;
+; 3.770  ; naozhong:inst30|s.s6      ; saomiao:inst453|A[3]    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.991      ;
+; 3.778  ; naozhong:inst30|s.s7      ; shanshuoh:inst14|A[0]   ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 3.999      ;
+; 3.779  ; naozhong:inst30|s.s7      ; saomiao:inst453|A[0]    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 4.000      ;
+; 3.816  ; naozhong:inst30|s.s6      ; naozhong:inst30|A[3]    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 4.037      ;
+; 3.841  ; naozhong:inst30|xuan[7]   ; shanshuos:inst12|A[2]   ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 4.062      ;
+; 3.899  ; naozhong:inst30|s.s2      ; saomiao:inst453|A[1]    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 4.120      ;
+; 3.910  ; naozhong:inst30|s.s1      ; shanshuos:inst12|A[1]   ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 4.131      ;
+; 3.956  ; naozhong:inst30|s.s4      ; naozhong:inst30|A[2]    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 4.177      ;
+; 4.118  ; naozhong:inst30|xuan[7]   ; shanshuom:inst13|A[3]   ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 4.339      ;
+; 4.225  ; naozhong:inst30|s.s1      ; naozhong:inst30|A[0]    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 4.446      ;
+; 4.255  ; naozhong:inst30|s.s1      ; saomiao:inst453|A[0]    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 4.476      ;
+; 4.264  ; naozhong:inst30|s.s1      ; shanshuos:inst12|A[0]   ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 4.485      ;
+; 4.273  ; naozhong:inst30|s.s8      ; shanshuoh:inst14|A[0]   ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 4.494      ;
+; 4.274  ; naozhong:inst30|s.s8      ; saomiao:inst453|A[0]    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 4.495      ;
+; 4.459  ; naozhong:inst30|s.s8      ; naozhong:inst30|A[3]    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 4.680      ;
+; 4.480  ; naozhong:inst30|s.s1      ; saomiao:inst453|A[1]    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 4.701      ;
+; 4.507  ; naozhong:inst30|s.s3      ; naozhong:inst30|A[2]    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 4.728      ;
+; 4.545  ; naozhong:inst30|s.s2      ; naozhong:inst30|A[0]    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 4.766      ;
+; 4.578  ; naozhong:inst30|s.s7      ; naozhong:inst30|A[3]    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 4.799      ;
+; 4.597  ; naozhong:inst30|s.s8      ; naozhong:inst30|A[0]    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 4.818      ;
+; 4.615  ; naozhong:inst30|s.s8      ; shanshuoh:inst14|A[2]   ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 4.836      ;
+; 4.615  ; naozhong:inst30|s.s8      ; shanshuoh:inst14|A[3]   ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 4.836      ;
+; 4.620  ; naozhong:inst30|s.s7      ; naozhong:inst30|TLc2[3] ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 4.841      ;
+; 4.620  ; naozhong:inst30|s.s7      ; naozhong:inst30|TLc2[2] ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 4.841      ;
+; 4.668  ; naozhong:inst30|s.s3      ; saomiao:inst453|A[2]    ; fenpina:inst4|clkm  ; fenpina:inst4|clkm ; 0.000        ; 0.000      ; 4.889      ;
++--------+---------------------------+-------------------------+---------------------+--------------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'fenpin:inst1|clkb'                                                                                                                       ;
++-------+---------------------------+---------------------------+--------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node                 ; To Node                   ; Launch Clock       ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------------+---------------------------+--------------------+-------------------+--------------+------------+------------+
+; 1.078 ; jishuqia:inst21|HA[2]     ; jishuqia:inst21|HA[2]     ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 1.299      ;
+; 1.078 ; jishuqic:inst22|HF[2]     ; jishuqic:inst22|HF[2]     ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 1.299      ;
+; 1.078 ; jishuqic2:inst24|HF[2]    ; jishuqic2:inst24|HF[2]    ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 1.299      ;
+; 1.078 ; jishuqif:inst25|HP[1]     ; jishuqif:inst25|HP[1]     ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 1.299      ;
+; 1.565 ; naozhong:inst30|THc2[2]   ; naozhongjishu:inst36|q[3] ; fenpina:inst4|clkm ; fenpin:inst1|clkb ; -0.500       ; 0.810      ; 2.096      ;
+; 1.639 ; jishuqic2:inst24|HI       ; jishuqic2:inst24|HI       ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 1.860      ;
+; 1.696 ; jishuqic:inst22|flag      ; jishuqic:inst22|flag      ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 1.917      ;
+; 1.697 ; jishuqic:inst22|flag      ; jishuqic:inst22|HI        ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 1.918      ;
+; 1.713 ; jishuqic2:inst24|HF[3]    ; jishuqic2:inst24|HF[1]    ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 1.934      ;
+; 1.717 ; jishuqic2:inst24|HF[3]    ; jishuqic2:inst24|HF[2]    ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 1.938      ;
+; 1.723 ; jishuqif:inst25|HP[0]     ; jishuqif:inst25|HP[0]     ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 1.944      ;
+; 1.729 ; jishuqif:inst25|HP[0]     ; jishuqif:inst25|HP[1]     ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 1.950      ;
+; 1.741 ; jishuqia:inst21|HA[3]     ; jishuqia:inst21|HA[2]     ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 1.962      ;
+; 1.741 ; jishuqia:inst21|HA[3]     ; jishuqia:inst21|HA[1]     ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 1.962      ;
+; 1.755 ; jishuqib:inst|HC[2]       ; jishuqib:inst|HC[2]       ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 1.976      ;
+; 1.757 ; jishuqib:inst|HC[2]       ; jishuqib:inst|HC[0]       ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 1.978      ;
+; 1.764 ; jishuqib:inst|HC[2]       ; jishuqib:inst|HC[1]       ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 1.985      ;
+; 1.909 ; jishuqic:inst22|HI        ; jishuqic:inst22|HI        ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.130      ;
+; 1.925 ; jishuqib2:inst23|flag     ; jishuqib2:inst23|HE       ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.146      ;
+; 1.927 ; jishuqia:inst21|HB        ; jishuqia:inst21|HB        ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.148      ;
+; 1.940 ; jishuqib:inst|flag        ; jishuqib:inst|flag        ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.161      ;
+; 1.961 ; naozhongjishu:inst36|q[0] ; naozhongjishu:inst36|q[0] ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.182      ;
+; 1.991 ; baoshijishu:inst35|q[3]   ; baoshijishu:inst35|q[3]   ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.212      ;
+; 1.993 ; baoshijishu:inst35|q[0]   ; baoshijishu:inst35|q[0]   ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.214      ;
+; 2.039 ; naozhong:inst30|THc2[2]   ; naozhongjishu:inst36|q[1] ; fenpina:inst4|clkm ; fenpin:inst1|clkb ; -0.500       ; 0.810      ; 2.570      ;
+; 2.070 ; naozhong:inst30|THc2[1]   ; naozhongjishu:inst36|q[3] ; fenpina:inst4|clkm ; fenpin:inst1|clkb ; -0.500       ; 0.810      ; 2.601      ;
+; 2.100 ; jishuqib2:inst23|HC[1]    ; jishuqib2:inst23|HC[1]    ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.321      ;
+; 2.102 ; jishuqib2:inst23|HC[1]    ; jishuqib2:inst23|HC[0]    ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.323      ;
+; 2.106 ; jishuqib2:inst23|HC[1]    ; jishuqib2:inst23|HC[2]    ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.327      ;
+; 2.126 ; jishuqib2:inst23|flag     ; jishuqib2:inst23|flag     ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.347      ;
+; 2.135 ; jishuqib2:inst23|HE       ; jishuqib2:inst23|HE       ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.356      ;
+; 2.143 ; jishuqic:inst22|HF[0]     ; jishuqic:inst22|HF[2]     ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.364      ;
+; 2.144 ; jishuqic:inst22|HF[0]     ; jishuqic:inst22|HF[1]     ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.365      ;
+; 2.151 ; jishuqic:inst22|HF[3]     ; jishuqic:inst22|HF[2]     ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.372      ;
+; 2.152 ; jishuqic:inst22|HF[3]     ; jishuqic:inst22|HF[1]     ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.373      ;
+; 2.160 ; jishuqib:inst|HE          ; jishuqib:inst|HE          ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.381      ;
+; 2.161 ; jishuqib2:inst23|HC[0]    ; jishuqib2:inst23|HC[0]    ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.382      ;
+; 2.167 ; jishuqib2:inst23|HC[0]    ; jishuqib2:inst23|HC[1]    ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.388      ;
+; 2.173 ; jishuqib2:inst23|HC[0]    ; jishuqib2:inst23|HC[2]    ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.394      ;
+; 2.175 ; naozhongjishu:inst36|q[0] ; naozhongjishu:inst36|q[1] ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.396      ;
+; 2.175 ; baoshijishu:inst35|q[1]   ; baoshijishu:inst35|q[1]   ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.396      ;
+; 2.188 ; naozhong:inst30|THc2[2]   ; naozhongjishu:inst36|q[2] ; fenpina:inst4|clkm ; fenpin:inst1|clkb ; -0.500       ; 0.810      ; 2.719      ;
+; 2.189 ; jishuqib:inst|HC[0]       ; jishuqib:inst|HC[0]       ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.410      ;
+; 2.195 ; jishuqib:inst|HC[0]       ; jishuqib:inst|HC[2]       ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.416      ;
+; 2.205 ; jishuqib:inst|HC[0]       ; jishuqib:inst|HC[1]       ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.426      ;
+; 2.213 ; jishuqia:inst21|HA[0]     ; jishuqia:inst21|HA[1]     ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.434      ;
+; 2.216 ; baoshijishu:inst35|q[3]   ; baoshijishu:inst35|q[0]   ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.437      ;
+; 2.219 ; jishuqia:inst21|HA[0]     ; jishuqia:inst21|HA[2]     ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.440      ;
+; 2.224 ; baoshijishu:inst35|q[0]   ; baoshijishu:inst35|q[2]   ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.445      ;
+; 2.253 ; jishuqib:inst|flag        ; jishuqib:inst|HE          ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.474      ;
+; 2.266 ; jishuqic2:inst24|flag     ; jishuqic2:inst24|flag     ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.487      ;
+; 2.277 ; jishuqic2:inst24|flag     ; jishuqic2:inst24|HI       ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.498      ;
+; 2.285 ; jishuqib2:inst23|HC[2]    ; jishuqib2:inst23|HC[2]    ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.506      ;
+; 2.285 ; naozhongjishu:inst36|q[3] ; naozhongjishu:inst36|q[3] ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.506      ;
+; 2.295 ; jishuqia:inst21|HA[1]     ; jishuqia:inst21|HA[1]     ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.516      ;
+; 2.295 ; naozhongjishu:inst36|q[3] ; naozhongjishu:inst36|q[2] ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.516      ;
+; 2.297 ; jishuqic:inst22|HF[1]     ; jishuqic:inst22|HF[1]     ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.518      ;
+; 2.298 ; jishuqia:inst21|HA[1]     ; jishuqia:inst21|HA[2]     ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.519      ;
+; 2.302 ; jishuqib2:inst23|HC[2]    ; jishuqib2:inst23|HC[1]    ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.523      ;
+; 2.304 ; jishuqic:inst22|HF[1]     ; jishuqic:inst22|HF[2]     ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.525      ;
+; 2.305 ; jishuqib2:inst23|HC[2]    ; jishuqib2:inst23|HC[0]    ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.526      ;
+; 2.312 ; baoshijishu:inst35|q[1]   ; baoshijishu:inst35|q[2]   ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.533      ;
+; 2.324 ; jishuqia:inst21|HA[3]     ; jishuqia:inst21|HB        ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.545      ;
+; 2.326 ; jishuqib:inst|HC[1]       ; jishuqib:inst|HC[1]       ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.547      ;
+; 2.334 ; jishuqib:inst|HC[1]       ; jishuqib:inst|HC[2]       ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.555      ;
+; 2.335 ; jishuqib:inst|HC[1]       ; jishuqib:inst|HC[0]       ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.556      ;
+; 2.392 ; naozhongjishu:inst36|q[2] ; naozhongjishu:inst36|q[2] ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.613      ;
+; 2.407 ; naozhongjishu:inst36|q[2] ; naozhongjishu:inst36|q[3] ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.628      ;
+; 2.544 ; naozhong:inst30|THc2[1]   ; naozhongjishu:inst36|q[1] ; fenpina:inst4|clkm ; fenpin:inst1|clkb ; -0.500       ; 0.810      ; 3.075      ;
+; 2.582 ; jishuqif:inst25|HP[1]     ; jishuqif:inst25|HP[0]     ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.803      ;
+; 2.655 ; jishuqic:inst22|HF[2]     ; jishuqic:inst22|HF[0]     ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.876      ;
+; 2.677 ; jishuqic2:inst24|HF[3]    ; jishuqic2:inst24|HF[0]    ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.898      ;
+; 2.693 ; naozhong:inst30|THc2[1]   ; naozhongjishu:inst36|q[2] ; fenpina:inst4|clkm ; fenpin:inst1|clkb ; -0.500       ; 0.810      ; 3.224      ;
+; 2.706 ; jishuqia:inst21|HA[2]     ; jishuqia:inst21|HA[3]     ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.927      ;
+; 2.715 ; jishuqia:inst21|HA[2]     ; jishuqia:inst21|HA[0]     ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.936      ;
+; 2.752 ; jishuqic2:inst24|HF[1]    ; jishuqic2:inst24|HF[1]    ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.973      ;
+; 2.756 ; jishuqic2:inst24|HF[1]    ; jishuqic2:inst24|HF[2]    ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 2.977      ;
+; 2.884 ; jishuqia:inst21|HB        ; jishuqib:inst|flag        ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 3.105      ;
+; 2.885 ; jishuqia:inst21|HB        ; jishuqib:inst|HE          ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 3.106      ;
+; 2.915 ; jishuqib2:inst23|HE       ; jishuqic2:inst24|flag     ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 3.136      ;
+; 2.917 ; naozhongjishu:inst36|q[3] ; naozhongjishu:inst36|q[1] ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 3.138      ;
+; 2.920 ; jishuqib2:inst23|HE       ; jishuqic2:inst24|HI       ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 3.141      ;
+; 2.943 ; jishuqic:inst22|HF[1]     ; jishuqic:inst22|HF[0]     ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 3.164      ;
+; 2.959 ; jishuqib:inst|HC[2]       ; jishuqib:inst|HE          ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 3.180      ;
+; 3.007 ; naozhongjishu:inst36|q[2] ; naozhongjishu:inst36|q[1] ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 3.228      ;
+; 3.010 ; jishuqic2:inst24|HF[2]    ; jishuqic2:inst24|HF[0]    ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 3.231      ;
+; 3.017 ; jishuqic:inst22|HF[0]     ; jishuqic:inst22|HF[0]     ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 3.238      ;
+; 3.044 ; jishuqia:inst21|HA[1]     ; jishuqia:inst21|HA[3]     ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 3.265      ;
+; 3.060 ; jishuqia:inst21|HA[1]     ; jishuqia:inst21|HA[0]     ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 3.281      ;
+; 3.068 ; baoshijishu:inst35|q[3]   ; baoshijishu:inst35|q[1]   ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 3.289      ;
+; 3.074 ; jishuqic:inst22|HF[2]     ; jishuqic:inst22|HF[3]     ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 3.295      ;
+; 3.074 ; baoshijishu:inst35|q[3]   ; baoshijishu:inst35|q[2]   ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 3.295      ;
+; 3.108 ; naozhong:inst30|THc2[2]   ; naozhongjishu:inst36|q[0] ; fenpina:inst4|clkm ; fenpin:inst1|clkb ; -0.500       ; 0.810      ; 3.639      ;
+; 3.126 ; jishuqic2:inst24|HF[3]    ; jishuqic2:inst24|HI       ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 3.347      ;
+; 3.136 ; jishuqic2:inst24|HF[3]    ; jishuqic2:inst24|flag     ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 3.357      ;
+; 3.144 ; jishuqia:inst21|HA[2]     ; jishuqia:inst21|HB        ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 3.365      ;
+; 3.167 ; jishuqib:inst|HC[2]       ; jishuqib:inst|flag        ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 3.388      ;
+; 3.188 ; jishuqic:inst22|HF[3]     ; jishuqic:inst22|HF[0]     ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 3.409      ;
+; 3.220 ; baoshijishu:inst35|q[2]   ; baoshijishu:inst35|q[3]   ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 3.441      ;
+; 3.228 ; baoshijishu:inst35|q[1]   ; baoshijishu:inst35|q[0]   ; fenpin:inst1|clkb  ; fenpin:inst1|clkb ; 0.000        ; 0.000      ; 3.449      ;
++-------+---------------------------+---------------------------+--------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'xiaodou:inst27|keya'                                                                                                                      ;
++-------+------------------------+---------------------------+----------------------+---------------------+--------------+------------+------------+
+; Slack ; From Node              ; To Node                   ; Launch Clock         ; Latch Clock         ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------------+---------------------------+----------------------+---------------------+--------------+------------+------------+
+; 4.202 ; xiaodoukey:inst9|q1[3] ; naozhongkey:inst29|q1b[3] ; fenpin300:inst7|clkm ; xiaodou:inst27|keya ; 0.000        ; -2.305     ; 1.897      ;
+; 4.206 ; xiaodoukey:inst9|q1[1] ; naozhongkey:inst29|q1b[1] ; fenpin300:inst7|clkm ; xiaodou:inst27|keya ; 0.000        ; -1.711     ; 2.495      ;
+; 4.423 ; xiaodoukey:inst9|q2[0] ; naozhongkey:inst29|q2a[0] ; fenpin300:inst7|clkm ; xiaodou:inst27|keya ; -0.500       ; -1.647     ; 2.276      ;
+; 4.587 ; xiaodoukey:inst9|q1[1] ; naozhongkey:inst29|q1a[1] ; fenpin300:inst7|clkm ; xiaodou:inst27|keya ; -0.500       ; -1.636     ; 2.451      ;
+; 4.668 ; xiaodoukey:inst9|q2[1] ; naozhongkey:inst29|q2b[1] ; fenpin300:inst7|clkm ; xiaodou:inst27|keya ; 0.000        ; -2.816     ; 1.852      ;
+; 4.676 ; xiaodoukey:inst9|q2[2] ; naozhongkey:inst29|q2b[2] ; fenpin300:inst7|clkm ; xiaodou:inst27|keya ; 0.000        ; -2.819     ; 1.857      ;
+; 4.840 ; xiaodoukey:inst9|q2[0] ; naozhongkey:inst29|q2b[0] ; fenpin300:inst7|clkm ; xiaodou:inst27|keya ; 0.000        ; -2.806     ; 2.034      ;
+; 4.918 ; xiaodoukey:inst9|q2[1] ; naozhongkey:inst29|q2a[1] ; fenpin300:inst7|clkm ; xiaodou:inst27|keya ; -0.500       ; -2.194     ; 2.224      ;
+; 5.084 ; xiaodoukey:inst9|q1[0] ; naozhongkey:inst29|q1b[0] ; fenpin300:inst7|clkm ; xiaodou:inst27|keya ; 0.000        ; -2.255     ; 2.829      ;
+; 5.125 ; xiaodoukey:inst9|q1[2] ; naozhongkey:inst29|q1b[2] ; fenpin300:inst7|clkm ; xiaodou:inst27|keya ; 0.000        ; -2.857     ; 2.268      ;
+; 5.174 ; xiaodoukey:inst9|q2[2] ; naozhongkey:inst29|q2a[2] ; fenpin300:inst7|clkm ; xiaodou:inst27|keya ; -0.500       ; -2.808     ; 1.866      ;
+; 5.184 ; xiaodoukey:inst9|q1[0] ; naozhongkey:inst29|q1a[0] ; fenpin300:inst7|clkm ; xiaodou:inst27|keya ; -0.500       ; -2.181     ; 2.503      ;
+; 5.427 ; xiaodoukey:inst9|q1[3] ; naozhongkey:inst29|q1a[3] ; fenpin300:inst7|clkm ; xiaodou:inst27|keya ; -0.500       ; -2.498     ; 2.429      ;
+; 5.619 ; xiaodoukey:inst9|q1[2] ; naozhongkey:inst29|q1a[2] ; fenpin300:inst7|clkm ; xiaodou:inst27|keya ; -0.500       ; -2.853     ; 2.266      ;
++-------+------------------------+---------------------------+----------------------+---------------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Recovery: 'fenpin:inst1|clkb'                                                                                                                         ;
++--------+---------------------------------+------------------------+----------------------+-------------------+--------------+------------+------------+
+; Slack  ; From Node                       ; To Node                ; Launch Clock         ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++--------+---------------------------------+------------------------+----------------------+-------------------+--------------+------------+------------+
+; -6.176 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqib2:inst23|HC[1] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 6.219      ;
+; -6.176 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqib2:inst23|HC[0] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 6.219      ;
+; -6.176 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqib2:inst23|HC[2] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 6.219      ;
+; -6.125 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqic:inst22|HF[1]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 6.168      ;
+; -6.125 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqic:inst22|HF[0]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 6.168      ;
+; -6.125 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqic:inst22|HF[2]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 6.168      ;
+; -6.125 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqic:inst22|HF[3]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 6.168      ;
+; -6.082 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqib:inst|HC[2]    ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 6.125      ;
+; -6.082 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqib:inst|HC[0]    ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 6.125      ;
+; -6.082 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqib:inst|HC[1]    ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 6.125      ;
+; -6.045 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqia:inst21|HA[2]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 6.088      ;
+; -6.045 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqia:inst21|HA[1]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 6.088      ;
+; -6.045 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqia:inst21|HA[0]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 6.088      ;
+; -6.045 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqia:inst21|HA[3]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 6.088      ;
+; -5.942 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqib2:inst23|HC[1] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.985      ;
+; -5.942 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqib2:inst23|HC[0] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.985      ;
+; -5.942 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqib2:inst23|HC[2] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.985      ;
+; -5.891 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqic:inst22|HF[1]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.934      ;
+; -5.891 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqic:inst22|HF[0]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.934      ;
+; -5.891 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqic:inst22|HF[2]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.934      ;
+; -5.891 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqic:inst22|HF[3]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.934      ;
+; -5.848 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqib:inst|HC[2]    ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.891      ;
+; -5.848 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqib:inst|HC[0]    ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.891      ;
+; -5.848 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqib:inst|HC[1]    ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.891      ;
+; -5.811 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqia:inst21|HA[2]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.854      ;
+; -5.811 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqia:inst21|HA[1]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.854      ;
+; -5.811 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqia:inst21|HA[0]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.854      ;
+; -5.811 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqia:inst21|HA[3]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.854      ;
+; -5.655 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqif:inst25|HP[1]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.698      ;
+; -5.655 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqif:inst25|HP[0]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.698      ;
+; -5.578 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqib2:inst23|HC[1] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.621      ;
+; -5.578 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqib2:inst23|HC[0] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.621      ;
+; -5.578 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqib2:inst23|HC[2] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.621      ;
+; -5.555 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqif:inst25|HP[1]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.598      ;
+; -5.555 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqif:inst25|HP[0]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.598      ;
+; -5.527 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqic:inst22|HF[1]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.570      ;
+; -5.527 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqic:inst22|HF[0]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.570      ;
+; -5.527 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqic:inst22|HF[2]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.570      ;
+; -5.527 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqic:inst22|HF[3]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.570      ;
+; -5.498 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqib:inst|HC[2]    ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.541      ;
+; -5.498 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqib:inst|HC[0]    ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.541      ;
+; -5.498 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqib:inst|HC[1]    ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.541      ;
+; -5.461 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqia:inst21|HA[2]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.504      ;
+; -5.461 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqia:inst21|HA[1]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.504      ;
+; -5.461 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqia:inst21|HA[0]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.504      ;
+; -5.461 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqia:inst21|HA[3]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.504      ;
+; -5.287 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqic2:inst24|HF[2] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.330      ;
+; -5.287 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqic2:inst24|HF[0] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.330      ;
+; -5.287 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqic2:inst24|HF[3] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.330      ;
+; -5.287 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqic2:inst24|HF[1] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.330      ;
+; -5.187 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqic2:inst24|HF[2] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.230      ;
+; -5.187 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqic2:inst24|HF[0] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.230      ;
+; -5.187 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqic2:inst24|HF[3] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.230      ;
+; -5.187 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqic2:inst24|HF[1] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.230      ;
+; -5.172 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqif:inst25|HP[1]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.215      ;
+; -5.172 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqif:inst25|HP[0]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 5.215      ;
+; -4.859 ; xiaodoukey:inst9|q3[2]          ; jishuqic2:inst24|HF[2] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 4.902      ;
+; -4.840 ; xiaodoukey:inst9|q1[2]          ; jishuqia:inst21|HA[2]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 4.883      ;
+; -4.804 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqic2:inst24|HF[2] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 4.847      ;
+; -4.804 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqic2:inst24|HF[0] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 4.847      ;
+; -4.804 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqic2:inst24|HF[3] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 4.847      ;
+; -4.804 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqic2:inst24|HF[1] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 4.847      ;
+; -4.731 ; xiaodoukey:inst9|q1[2]          ; jishuqic:inst22|HF[2]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 4.774      ;
+; -4.524 ; xiaodoukey:inst9|q1[0]          ; jishuqic:inst22|HF[0]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 4.567      ;
+; -4.405 ; xiaodoukey:inst9|q3[1]          ; jishuqic2:inst24|HF[1] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 4.448      ;
+; -4.403 ; xiaodoukey:inst9|q1[3]          ; jishuqia:inst21|HA[3]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 4.446      ;
+; -4.389 ; xiaodoukey:inst9|q1[1]          ; jishuqic:inst22|HF[1]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 4.432      ;
+; -4.378 ; xiaodoukey:inst9|q3[3]          ; jishuqic2:inst24|HF[3] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 4.421      ;
+; -4.332 ; xiaodoukey:inst9|q1[3]          ; jishuqic:inst22|HF[3]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 4.375      ;
+; -4.321 ; xiaodoukey:inst9|q2[0]          ; jishuqib:inst|HC[0]    ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 4.364      ;
+; -4.308 ; xiaodoukey:inst9|q4[1]          ; jishuqif:inst25|HP[1]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 4.351      ;
+; -4.294 ; xiaodoukey:inst9|q3[0]          ; jishuqic2:inst24|HF[0] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 4.337      ;
+; -4.260 ; xiaodoukey:inst9|q4[0]          ; jishuqif:inst25|HP[0]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 4.303      ;
+; -3.898 ; xiaodoukey:inst9|q1[0]          ; jishuqia:inst21|HA[0]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 3.941      ;
+; -3.813 ; xiaodoukey:inst9|q2[2]          ; jishuqib:inst|HC[2]    ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 3.856      ;
+; -3.779 ; xiaodoukey:inst9|q2[2]          ; jishuqib2:inst23|HC[2] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 3.822      ;
+; -3.711 ; xiaodoukey:inst9|q2[1]          ; jishuqib:inst|HC[1]    ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 3.754      ;
+; -3.711 ; xiaodoukey:inst9|q1[1]          ; jishuqia:inst21|HA[1]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 3.754      ;
+; -3.675 ; xiaodoukey:inst9|q2[1]          ; jishuqib2:inst23|HC[1] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 3.718      ;
+; -3.670 ; xiaodoukey:inst9|q2[0]          ; jishuqib2:inst23|HC[0] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 1.000        ; -0.624     ; 3.713      ;
++--------+---------------------------------+------------------------+----------------------+-------------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removal: 'fenpin:inst1|clkb'                                                                                                                         ;
++-------+---------------------------------+------------------------+----------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node                       ; To Node                ; Launch Clock         ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------------------+------------------------+----------------------+-------------------+--------------+------------+------------+
+; 4.116 ; xiaodoukey:inst9|q2[0]          ; jishuqib2:inst23|HC[0] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 3.713      ;
+; 4.121 ; xiaodoukey:inst9|q2[1]          ; jishuqib2:inst23|HC[1] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 3.718      ;
+; 4.157 ; xiaodoukey:inst9|q2[1]          ; jishuqib:inst|HC[1]    ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 3.754      ;
+; 4.157 ; xiaodoukey:inst9|q1[1]          ; jishuqia:inst21|HA[1]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 3.754      ;
+; 4.225 ; xiaodoukey:inst9|q2[2]          ; jishuqib2:inst23|HC[2] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 3.822      ;
+; 4.259 ; xiaodoukey:inst9|q2[2]          ; jishuqib:inst|HC[2]    ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 3.856      ;
+; 4.344 ; xiaodoukey:inst9|q1[0]          ; jishuqia:inst21|HA[0]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 3.941      ;
+; 4.706 ; xiaodoukey:inst9|q4[0]          ; jishuqif:inst25|HP[0]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 4.303      ;
+; 4.740 ; xiaodoukey:inst9|q3[0]          ; jishuqic2:inst24|HF[0] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 4.337      ;
+; 4.754 ; xiaodoukey:inst9|q4[1]          ; jishuqif:inst25|HP[1]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 4.351      ;
+; 4.767 ; xiaodoukey:inst9|q2[0]          ; jishuqib:inst|HC[0]    ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 4.364      ;
+; 4.778 ; xiaodoukey:inst9|q1[3]          ; jishuqic:inst22|HF[3]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 4.375      ;
+; 4.824 ; xiaodoukey:inst9|q3[3]          ; jishuqic2:inst24|HF[3] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 4.421      ;
+; 4.835 ; xiaodoukey:inst9|q1[1]          ; jishuqic:inst22|HF[1]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 4.432      ;
+; 4.849 ; xiaodoukey:inst9|q1[3]          ; jishuqia:inst21|HA[3]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 4.446      ;
+; 4.851 ; xiaodoukey:inst9|q3[1]          ; jishuqic2:inst24|HF[1] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 4.448      ;
+; 4.970 ; xiaodoukey:inst9|q1[0]          ; jishuqic:inst22|HF[0]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 4.567      ;
+; 5.177 ; xiaodoukey:inst9|q1[2]          ; jishuqic:inst22|HF[2]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 4.774      ;
+; 5.250 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqic2:inst24|HF[2] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 4.847      ;
+; 5.250 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqic2:inst24|HF[0] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 4.847      ;
+; 5.250 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqic2:inst24|HF[3] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 4.847      ;
+; 5.250 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqic2:inst24|HF[1] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 4.847      ;
+; 5.286 ; xiaodoukey:inst9|q1[2]          ; jishuqia:inst21|HA[2]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 4.883      ;
+; 5.305 ; xiaodoukey:inst9|q3[2]          ; jishuqic2:inst24|HF[2] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 4.902      ;
+; 5.618 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqif:inst25|HP[1]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.215      ;
+; 5.618 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqif:inst25|HP[0]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.215      ;
+; 5.633 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqic2:inst24|HF[2] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.230      ;
+; 5.633 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqic2:inst24|HF[0] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.230      ;
+; 5.633 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqic2:inst24|HF[3] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.230      ;
+; 5.633 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqic2:inst24|HF[1] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.230      ;
+; 5.733 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqic2:inst24|HF[2] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.330      ;
+; 5.733 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqic2:inst24|HF[0] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.330      ;
+; 5.733 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqic2:inst24|HF[3] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.330      ;
+; 5.733 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqic2:inst24|HF[1] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.330      ;
+; 5.907 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqia:inst21|HA[2]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.504      ;
+; 5.907 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqia:inst21|HA[1]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.504      ;
+; 5.907 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqia:inst21|HA[0]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.504      ;
+; 5.907 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqia:inst21|HA[3]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.504      ;
+; 5.944 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqib:inst|HC[2]    ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.541      ;
+; 5.944 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqib:inst|HC[0]    ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.541      ;
+; 5.944 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqib:inst|HC[1]    ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.541      ;
+; 5.973 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqic:inst22|HF[1]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.570      ;
+; 5.973 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqic:inst22|HF[0]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.570      ;
+; 5.973 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqic:inst22|HF[2]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.570      ;
+; 5.973 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqic:inst22|HF[3]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.570      ;
+; 6.001 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqif:inst25|HP[1]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.598      ;
+; 6.001 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqif:inst25|HP[0]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.598      ;
+; 6.024 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqib2:inst23|HC[1] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.621      ;
+; 6.024 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqib2:inst23|HC[0] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.621      ;
+; 6.024 ; zhuangtaikey:inst2|zhuangtai[1] ; jishuqib2:inst23|HC[2] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.621      ;
+; 6.101 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqif:inst25|HP[1]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.698      ;
+; 6.101 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqif:inst25|HP[0]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.698      ;
+; 6.257 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqia:inst21|HA[2]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.854      ;
+; 6.257 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqia:inst21|HA[1]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.854      ;
+; 6.257 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqia:inst21|HA[0]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.854      ;
+; 6.257 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqia:inst21|HA[3]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.854      ;
+; 6.294 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqib:inst|HC[2]    ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.891      ;
+; 6.294 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqib:inst|HC[0]    ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.891      ;
+; 6.294 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqib:inst|HC[1]    ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.891      ;
+; 6.337 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqic:inst22|HF[1]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.934      ;
+; 6.337 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqic:inst22|HF[0]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.934      ;
+; 6.337 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqic:inst22|HF[2]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.934      ;
+; 6.337 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqic:inst22|HF[3]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.934      ;
+; 6.388 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqib2:inst23|HC[1] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.985      ;
+; 6.388 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqib2:inst23|HC[0] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.985      ;
+; 6.388 ; zhuangtaikey:inst2|zhuangtai[2] ; jishuqib2:inst23|HC[2] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 5.985      ;
+; 6.491 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqia:inst21|HA[2]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 6.088      ;
+; 6.491 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqia:inst21|HA[1]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 6.088      ;
+; 6.491 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqia:inst21|HA[0]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 6.088      ;
+; 6.491 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqia:inst21|HA[3]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 6.088      ;
+; 6.528 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqib:inst|HC[2]    ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 6.125      ;
+; 6.528 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqib:inst|HC[0]    ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 6.125      ;
+; 6.528 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqib:inst|HC[1]    ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 6.125      ;
+; 6.571 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqic:inst22|HF[1]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 6.168      ;
+; 6.571 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqic:inst22|HF[0]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 6.168      ;
+; 6.571 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqic:inst22|HF[2]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 6.168      ;
+; 6.571 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqic:inst22|HF[3]  ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 6.168      ;
+; 6.622 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqib2:inst23|HC[1] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 6.219      ;
+; 6.622 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqib2:inst23|HC[0] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 6.219      ;
+; 6.622 ; zhuangtaikey:inst2|zhuangtai[0] ; jishuqib2:inst23|HC[2] ; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 0.000        ; -0.624     ; 6.219      ;
++-------+---------------------------------+------------------------+----------------------+-------------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------+
+; Setup Transfers                                                                         ;
++----------------------+----------------------+----------+----------+----------+----------+
+; From Clock           ; To Clock             ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++----------------------+----------------------+----------+----------+----------+----------+
+; clk                  ; clk                  ; 575      ; 0        ; 0        ; 440      ;
+; fenpin300:inst7|clkm ; clk                  ; 0        ; 0        ; 1        ; 1        ;
+; fenpin:inst1|clkb    ; clk                  ; 1        ; 1        ; 0        ; 0        ;
+; fenpina:inst4|clkm   ; clk                  ; 0        ; 0        ; 1        ; 1        ;
+; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 450      ; 0        ; 0        ; 0        ;
+; xiaodou:inst27|keya  ; fenpin300:inst7|clkm ; 1        ; 1        ; 0        ; 0        ;
+; fenpin300:inst7|clkm ; fenpin:inst1|clkb    ; 82       ; 0        ; 0        ; 0        ;
+; fenpin:inst1|clkb    ; fenpin:inst1|clkb    ; 593      ; 0        ; 0        ; 0        ;
+; fenpina:inst4|clkm   ; fenpin:inst1|clkb    ; 0        ; 70       ; 0        ; 0        ;
+; fenpin300:inst7|clkm ; fenpina:inst4|clkm   ; 0        ; 0        ; 20       ; 0        ;
+; fenpin:inst1|clkb    ; fenpina:inst4|clkm   ; 0        ; 0        ; 140      ; 0        ;
+; fenpina:inst4|clkm   ; fenpina:inst4|clkm   ; 0        ; 0        ; 0        ; 110      ;
+; xiaodou:inst27|keya  ; fenpina:inst4|clkm   ; 0        ; 0        ; 15       ; 15       ;
+; fenpin300:inst7|clkm ; xiaodou:inst27|keya  ; 7        ; 0        ; 7        ; 0        ;
++----------------------+----------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-----------------------------------------------------------------------------------------+
+; Hold Transfers                                                                          ;
++----------------------+----------------------+----------+----------+----------+----------+
+; From Clock           ; To Clock             ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++----------------------+----------------------+----------+----------+----------+----------+
+; clk                  ; clk                  ; 575      ; 0        ; 0        ; 440      ;
+; fenpin300:inst7|clkm ; clk                  ; 0        ; 0        ; 1        ; 1        ;
+; fenpin:inst1|clkb    ; clk                  ; 1        ; 1        ; 0        ; 0        ;
+; fenpina:inst4|clkm   ; clk                  ; 0        ; 0        ; 1        ; 1        ;
+; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; 450      ; 0        ; 0        ; 0        ;
+; xiaodou:inst27|keya  ; fenpin300:inst7|clkm ; 1        ; 1        ; 0        ; 0        ;
+; fenpin300:inst7|clkm ; fenpin:inst1|clkb    ; 82       ; 0        ; 0        ; 0        ;
+; fenpin:inst1|clkb    ; fenpin:inst1|clkb    ; 593      ; 0        ; 0        ; 0        ;
+; fenpina:inst4|clkm   ; fenpin:inst1|clkb    ; 0        ; 70       ; 0        ; 0        ;
+; fenpin300:inst7|clkm ; fenpina:inst4|clkm   ; 0        ; 0        ; 20       ; 0        ;
+; fenpin:inst1|clkb    ; fenpina:inst4|clkm   ; 0        ; 0        ; 140      ; 0        ;
+; fenpina:inst4|clkm   ; fenpina:inst4|clkm   ; 0        ; 0        ; 0        ; 110      ;
+; xiaodou:inst27|keya  ; fenpina:inst4|clkm   ; 0        ; 0        ; 15       ; 15       ;
+; fenpin300:inst7|clkm ; xiaodou:inst27|keya  ; 7        ; 0        ; 7        ; 0        ;
++----------------------+----------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++--------------------------------------------------------------------------------------+
+; Recovery Transfers                                                                   ;
++----------------------+-------------------+----------+----------+----------+----------+
+; From Clock           ; To Clock          ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++----------------------+-------------------+----------+----------+----------+----------+
+; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 80       ; 0        ; 0        ; 0        ;
++----------------------+-------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++--------------------------------------------------------------------------------------+
+; Removal Transfers                                                                    ;
++----------------------+-------------------+----------+----------+----------+----------+
+; From Clock           ; To Clock          ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++----------------------+-------------------+----------+----------+----------+----------+
+; fenpin300:inst7|clkm ; fenpin:inst1|clkb ; 80       ; 0        ; 0        ; 0        ;
++----------------------+-------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 6     ; 6    ;
+; Unconstrained Input Port Paths  ; 56    ; 56   ;
+; Unconstrained Output Ports      ; 19    ; 19   ;
+; Unconstrained Output Port Paths ; 212   ; 212  ;
++---------------------------------+-------+------+
+
+
++------------------------------------------------------------------+
+; Clock Status Summary                                             ;
++----------------------+----------------------+------+-------------+
+; Target               ; Clock                ; Type ; Status      ;
++----------------------+----------------------+------+-------------+
+; clk                  ; clk                  ; Base ; Constrained ;
+; fenpin300:inst7|clkm ; fenpin300:inst7|clkm ; Base ; Constrained ;
+; fenpin:inst1|clkb    ; fenpin:inst1|clkb    ; Base ; Constrained ;
+; fenpina:inst4|clkm   ; fenpina:inst4|clkm   ; Base ; Constrained ;
+; xiaodou:inst27|keya  ; xiaodou:inst27|keya  ; Base ; Constrained ;
++----------------------+----------------------+------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                           ;
++--------------+--------------------------------------------------------------------------------------+
+; Input Port   ; Comment                                                                              ;
++--------------+--------------------------------------------------------------------------------------+
+; key1         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; naozhong     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; zhenliekey1  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; zhenliekey2  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; zhenliekey3  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; zhuangtaikey ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++--------------+--------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                             ;
++----------------+---------------------------------------------------------------------------------------+
+; Output Port    ; Comment                                                                               ;
++----------------+---------------------------------------------------------------------------------------+
+; baoshi         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; jinzhi         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; naozhongzhishi ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seven[0]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seven[1]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seven[2]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seven[3]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seven[4]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seven[5]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seven[6]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; xiaowu         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; xuan[0]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; xuan[1]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; xuan[2]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; xuan[3]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; xuan[4]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; xuan[5]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; xuan[6]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; xuan[7]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++----------------+---------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                           ;
++--------------+--------------------------------------------------------------------------------------+
+; Input Port   ; Comment                                                                              ;
++--------------+--------------------------------------------------------------------------------------+
+; key1         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; naozhong     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; zhenliekey1  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; zhenliekey2  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; zhenliekey3  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; zhuangtaikey ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++--------------+--------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                             ;
++----------------+---------------------------------------------------------------------------------------+
+; Output Port    ; Comment                                                                               ;
++----------------+---------------------------------------------------------------------------------------+
+; baoshi         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; jinzhi         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; naozhongzhishi ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seven[0]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seven[1]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seven[2]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seven[3]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seven[4]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seven[5]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seven[6]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; xiaowu         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; xuan[0]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; xuan[1]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; xuan[2]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; xuan[3]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; xuan[4]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; xuan[5]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; xuan[6]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; xuan[7]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++----------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Fri Jul 12 10:11:30 2024
+Info: Command: quartus_sta demo -c demo
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 14 of the 14 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Warning (335093): The Timing Analyzer is analyzing 14 combinational loops as latches. For more details, run the Check Timing command in the Timing Analyzer or view the "User-Specified and Inferred Latches" table in the Analysis & Synthesis report.
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'demo.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name fenpin300:inst7|clkm fenpin300:inst7|clkm
+    Info (332105): create_clock -period 1.000 -name fenpin:inst1|clkb fenpin:inst1|clkb
+    Info (332105): create_clock -period 1.000 -name clk clk
+    Info (332105): create_clock -period 1.000 -name fenpina:inst4|clkm fenpina:inst4|clkm
+    Info (332105): create_clock -period 1.000 -name xiaodou:inst27|keya xiaodou:inst27|keya
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -11.274
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):   -11.274            -199.514 fenpin:inst1|clkb 
+    Info (332119):    -9.464            -204.338 fenpina:inst4|clkm 
+    Info (332119):    -7.589            -268.962 clk 
+    Info (332119):    -6.441             -79.965 xiaodou:inst27|keya 
+    Info (332119):    -6.422            -198.933 fenpin300:inst7|clkm 
+Info (332146): Worst-case hold slack is -2.398
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.398              -6.488 clk 
+    Info (332119):    -2.364              -2.364 fenpin300:inst7|clkm 
+    Info (332119):    -0.262              -0.475 fenpina:inst4|clkm 
+    Info (332119):     1.078               0.000 fenpin:inst1|clkb 
+    Info (332119):     4.202               0.000 xiaodou:inst27|keya 
+Info (332146): Worst-case recovery slack is -6.176
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -6.176            -117.912 fenpin:inst1|clkb 
+Info (332146): Worst-case removal slack is 4.116
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     4.116               0.000 fenpin:inst1|clkb 
+Info (332146): Worst-case minimum pulse width slack is -2.289
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.289              -2.289 clk 
+    Info (332119):     0.234               0.000 fenpin300:inst7|clkm 
+    Info (332119):     0.234               0.000 fenpin:inst1|clkb 
+    Info (332119):     0.234               0.000 fenpina:inst4|clkm 
+    Info (332119):     0.500               0.000 xiaodou:inst27|keya 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 4683 megabytes
+    Info: Processing ended: Fri Jul 12 10:11:31 2024
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:00
+
+

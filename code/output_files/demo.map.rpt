@@ -1,0 +1,760 @@
+Analysis & Synthesis report for demo
+Fri Jul 12 10:11:26 2024
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |yuanlitu|shanshuos:inst12|s
+  9. State Machine - |yuanlitu|shanshuom:inst13|s
+ 10. State Machine - |yuanlitu|shanshuoh:inst14|s
+ 11. State Machine - |yuanlitu|saomiao:inst453|s
+ 12. State Machine - |yuanlitu|naozhong:inst30|s
+ 13. User-Specified and Inferred Latches
+ 14. Registers Removed During Synthesis
+ 15. Removed Registers Triggering Further Register Optimizations
+ 16. General Register Statistics
+ 17. Inverted Register Statistics
+ 18. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 19. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++---------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                              ;
++-----------------------------+---------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Fri Jul 12 10:11:26 2024       ;
+; Quartus Prime Version       ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name               ; demo                                        ;
+; Top-level Entity Name       ; yuanlitu                                    ;
+; Family                      ; MAX II                                      ;
+; Total logic elements        ; 369                                         ;
+; Total pins                  ; 27                                          ;
+; Total virtual pins          ; 0                                           ;
+; UFM blocks                  ; 0 / 1 ( 0 % )                               ;
++-----------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EPM570T100C5       ;                    ;
+; Top-level entity name                                            ; yuanlitu           ; demo               ;
+; Family name                                                      ; MAX II             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 20          ;
+; Maximum allowed            ; 14          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                         ;
++----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                               ; Library ;
++----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------+---------+
+; jishuqif.vhd                     ; yes             ; User VHDL File                     ; C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jishuqif.vhd      ;         ;
+; yuanlitu.bdf                     ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/yuanlitu.bdf      ;         ;
+; fenpin.vhd                       ; yes             ; User VHDL File                     ; C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/fenpin.vhd        ;         ;
+; xiaodou.vhd                      ; yes             ; User VHDL File                     ; C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/xiaodou.vhd       ;         ;
+; jishuqia.vhd                     ; yes             ; User VHDL File                     ; C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jishuqia.vhd      ;         ;
+; jishuqib.vhd                     ; yes             ; User VHDL File                     ; C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jishuqib.vhd      ;         ;
+; fenpina.vhd                      ; yes             ; User VHDL File                     ; C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/fenpina.vhd       ;         ;
+; saomiao.vhd                      ; yes             ; User VHDL File                     ; C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/saomiao.vhd       ;         ;
+; yima.vhd                         ; yes             ; User VHDL File                     ; C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/yima.vhd          ;         ;
+; jishuqic.vhd                     ; yes             ; User VHDL File                     ; C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jishuqic.vhd      ;         ;
+; baoshi.vhd                       ; yes             ; User VHDL File                     ; C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/baoshi.vhd        ;         ;
+; fenpin300.vhd                    ; yes             ; User VHDL File                     ; C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/fenpin300.vhd     ;         ;
+; shanshuos.vhd                    ; yes             ; User VHDL File                     ; C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/shanshuos.vhd     ;         ;
+; shanshuom.vhd                    ; yes             ; User VHDL File                     ; C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/shanshuom.vhd     ;         ;
+; shanshuoh.vhd                    ; yes             ; User VHDL File                     ; C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/shanshuoh.vhd     ;         ;
+; zhuangtaikey.vhd                 ; yes             ; User VHDL File                     ; C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/zhuangtaikey.vhd  ;         ;
+; shinengxuan.vhd                  ; yes             ; User VHDL File                     ; C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/shinengxuan.vhd   ;         ;
+; naozhong.vhd                     ; yes             ; User VHDL File                     ; C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/naozhong.vhd      ;         ;
+; xiaodoukey.vhd                   ; yes             ; User VHDL File                     ; C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/xiaodoukey.vhd    ;         ;
+; jishuqib2.vhd                    ; yes             ; User VHDL File                     ; C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jishuqib2.vhd     ;         ;
+; jishuqic2.vhd                    ; yes             ; User VHDL File                     ; C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jishuqic2.vhd     ;         ;
+; naozhongkey.vhd                  ; yes             ; User VHDL File                     ; C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/naozhongkey.vhd   ;         ;
+; baoshijishu.vhd                  ; yes             ; User VHDL File                     ; C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/baoshijishu.vhd   ;         ;
+; baoshiyima.vhd                   ; yes             ; User VHDL File                     ; C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/baoshiyima.vhd    ;         ;
+; naozhongjishu.vhd                ; yes             ; User VHDL File                     ; C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/naozhongjishu.vhd ;         ;
+; naozhongyima.vhd                 ; yes             ; User VHDL File                     ; C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/naozhongyima.vhd  ;         ;
+; bijiao.vhd                       ; yes             ; User VHDL File                     ; C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/bijiao.vhd        ;         ;
+; jinzhixuan.vhd                   ; yes             ; User VHDL File                     ; C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jinzhixuan.vhd    ;         ;
+; shier24.vhd                      ; yes             ; User VHDL File                     ; C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/shier24.vhd       ;         ;
++----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                        ;
++---------------------------------------------+----------------------+
+; Resource                                    ; Usage                ;
++---------------------------------------------+----------------------+
+; Total logic elements                        ; 369                  ;
+;     -- Combinational with no register       ; 186                  ;
+;     -- Register only                        ; 39                   ;
+;     -- Combinational with a register        ; 144                  ;
+;                                             ;                      ;
+; Logic element usage by number of LUT inputs ;                      ;
+;     -- 4 input functions                    ; 144                  ;
+;     -- 3 input functions                    ; 61                   ;
+;     -- 2 input functions                    ; 101                  ;
+;     -- 1 input functions                    ; 23                   ;
+;     -- 0 input functions                    ; 1                    ;
+;                                             ;                      ;
+; Logic elements by mode                      ;                      ;
+;     -- normal mode                          ; 298                  ;
+;     -- arithmetic mode                      ; 71                   ;
+;     -- qfbk mode                            ; 0                    ;
+;     -- register cascade mode                ; 0                    ;
+;     -- synchronous clear/load mode          ; 65                   ;
+;     -- asynchronous clear/load mode         ; 20                   ;
+;                                             ;                      ;
+; Total registers                             ; 183                  ;
+; Total logic cells in carry chains           ; 80                   ;
+; I/O pins                                    ; 27                   ;
+; Maximum fan-out node                        ; fenpin300:inst7|clkm ;
+; Maximum fan-out                             ; 58                   ;
+; Total fan-out                               ; 1388                 ;
+; Average fan-out                             ; 3.51                 ;
++---------------------------------------------+----------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                             ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+--------------------------------+---------------+--------------+
+; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name            ; Entity Name   ; Library Name ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+--------------------------------+---------------+--------------+
+; |yuanlitu                  ; 369 (1)     ; 183          ; 0          ; 27   ; 0            ; 186 (1)      ; 39 (0)            ; 144 (0)          ; 80 (0)          ; 0 (0)      ; |yuanlitu                      ; yuanlitu      ; work         ;
+;    |baoshi:inst31|         ; 14 (14)     ; 0            ; 0          ; 0    ; 0            ; 14 (14)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |yuanlitu|baoshi:inst31        ; baoshi        ; work         ;
+;    |baoshijishu:inst35|    ; 6 (6)       ; 4            ; 0          ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 4 (4)            ; 0 (0)           ; 0 (0)      ; |yuanlitu|baoshijishu:inst35   ; baoshijishu   ; work         ;
+;    |baoshiyima:inst15|     ; 2 (2)       ; 0            ; 0          ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |yuanlitu|baoshiyima:inst15    ; baoshiyima    ; work         ;
+;    |bijiao:inst18|         ; 3 (3)       ; 0            ; 0          ; 0    ; 0            ; 3 (3)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |yuanlitu|bijiao:inst18        ; bijiao        ; work         ;
+;    |fenpin300:inst7|       ; 16 (16)     ; 13           ; 0          ; 0    ; 0            ; 3 (3)        ; 0 (0)             ; 13 (13)          ; 12 (12)         ; 0 (0)      ; |yuanlitu|fenpin300:inst7      ; fenpin300     ; work         ;
+;    |fenpin:inst1|          ; 49 (49)     ; 22           ; 0          ; 0    ; 0            ; 27 (27)      ; 14 (14)           ; 8 (8)            ; 21 (21)         ; 0 (0)      ; |yuanlitu|fenpin:inst1         ; fenpin        ; work         ;
+;    |fenpina:inst4|         ; 15 (15)     ; 12           ; 0          ; 0    ; 0            ; 3 (3)        ; 0 (0)             ; 12 (12)          ; 11 (11)         ; 0 (0)      ; |yuanlitu|fenpina:inst4        ; fenpina       ; work         ;
+;    |jinzhixuan:inst5|      ; 9 (9)       ; 7            ; 0          ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 7 (7)            ; 6 (6)           ; 0 (0)      ; |yuanlitu|jinzhixuan:inst5     ; jinzhixuan    ; work         ;
+;    |jishuqia:inst21|       ; 9 (9)       ; 5            ; 0          ; 0    ; 0            ; 4 (4)        ; 1 (1)             ; 4 (4)            ; 0 (0)           ; 0 (0)      ; |yuanlitu|jishuqia:inst21      ; jishuqia      ; work         ;
+;    |jishuqib2:inst23|      ; 7 (7)       ; 5            ; 0          ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 5 (5)            ; 0 (0)           ; 0 (0)      ; |yuanlitu|jishuqib2:inst23     ; jishuqib2     ; work         ;
+;    |jishuqib:inst|         ; 7 (7)       ; 5            ; 0          ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 5 (5)            ; 0 (0)           ; 0 (0)      ; |yuanlitu|jishuqib:inst        ; jishuqib      ; work         ;
+;    |jishuqic2:inst24|      ; 11 (11)     ; 6            ; 0          ; 0    ; 0            ; 5 (5)        ; 1 (1)             ; 5 (5)            ; 0 (0)           ; 0 (0)      ; |yuanlitu|jishuqic2:inst24     ; jishuqic2     ; work         ;
+;    |jishuqic:inst22|       ; 11 (11)     ; 6            ; 0          ; 0    ; 0            ; 5 (5)        ; 1 (1)             ; 5 (5)            ; 0 (0)           ; 0 (0)      ; |yuanlitu|jishuqic:inst22      ; jishuqic      ; work         ;
+;    |jishuqif:inst25|       ; 3 (3)       ; 2            ; 0          ; 0    ; 0            ; 1 (1)        ; 1 (1)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |yuanlitu|jishuqif:inst25      ; jishuqif      ; work         ;
+;    |naozhong:inst30|       ; 37 (37)     ; 27           ; 0          ; 0    ; 0            ; 10 (10)      ; 21 (21)           ; 6 (6)            ; 0 (0)           ; 0 (0)      ; |yuanlitu|naozhong:inst30      ; naozhong      ; work         ;
+;    |naozhongjishu:inst36|  ; 5 (5)       ; 4            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 4 (4)            ; 0 (0)           ; 0 (0)      ; |yuanlitu|naozhongjishu:inst36 ; naozhongjishu ; work         ;
+;    |naozhongkey:inst29|    ; 14 (14)     ; 0            ; 0          ; 0    ; 0            ; 14 (14)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |yuanlitu|naozhongkey:inst29   ; naozhongkey   ; work         ;
+;    |saomiao:inst453|       ; 15 (15)     ; 4            ; 0          ; 0    ; 0            ; 11 (11)      ; 0 (0)             ; 4 (4)            ; 0 (0)           ; 0 (0)      ; |yuanlitu|saomiao:inst453      ; saomiao       ; work         ;
+;    |shanshuoh:inst14|      ; 5 (5)       ; 4            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 4 (4)            ; 0 (0)           ; 0 (0)      ; |yuanlitu|shanshuoh:inst14     ; shanshuoh     ; work         ;
+;    |shanshuom:inst13|      ; 5 (5)       ; 4            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 4 (4)            ; 0 (0)           ; 0 (0)      ; |yuanlitu|shanshuom:inst13     ; shanshuom     ; work         ;
+;    |shanshuos:inst12|      ; 5 (5)       ; 4            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 4 (4)            ; 0 (0)           ; 0 (0)      ; |yuanlitu|shanshuos:inst12     ; shanshuos     ; work         ;
+;    |shier24:inst10|        ; 11 (11)     ; 0            ; 0          ; 0    ; 0            ; 11 (11)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |yuanlitu|shier24:inst10       ; shier24       ; work         ;
+;    |shinengxuan:inst16|    ; 23 (23)     ; 0            ; 0          ; 0    ; 0            ; 23 (23)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |yuanlitu|shinengxuan:inst16   ; shinengxuan   ; work         ;
+;    |xiaodou:inst11|        ; 9 (9)       ; 7            ; 0          ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 7 (7)            ; 6 (6)           ; 0 (0)      ; |yuanlitu|xiaodou:inst11       ; xiaodou       ; work         ;
+;    |xiaodou:inst17|        ; 9 (9)       ; 7            ; 0          ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 7 (7)            ; 6 (6)           ; 0 (0)      ; |yuanlitu|xiaodou:inst17       ; xiaodou       ; work         ;
+;    |xiaodou:inst27|        ; 9 (9)       ; 7            ; 0          ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 7 (7)            ; 6 (6)           ; 0 (0)      ; |yuanlitu|xiaodou:inst27       ; xiaodou       ; work         ;
+;    |xiaodoukey:inst9|      ; 29 (29)     ; 19           ; 0          ; 0    ; 0            ; 10 (10)      ; 0 (0)             ; 19 (19)          ; 6 (6)           ; 0 (0)      ; |yuanlitu|xiaodoukey:inst9     ; xiaodoukey    ; work         ;
+;    |yima:inst6|            ; 19 (19)     ; 0            ; 0          ; 0    ; 0            ; 19 (19)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |yuanlitu|yima:inst6           ; yima          ; work         ;
+;    |zhuangtaikey:inst2|    ; 11 (11)     ; 9            ; 0          ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 9 (9)            ; 6 (6)           ; 0 (0)      ; |yuanlitu|zhuangtaikey:inst2   ; zhuangtaikey  ; work         ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+--------------------------------+---------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------+
+; State Machine - |yuanlitu|shanshuos:inst12|s                        ;
++------+------+------+------+------+------+------+------+------+------+
+; Name ; s.s8 ; s.s7 ; s.s6 ; s.s5 ; s.s4 ; s.s3 ; s.s2 ; s.s1 ; s.s0 ;
++------+------+------+------+------+------+------+------+------+------+
+; s.s0 ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ;
+; s.s1 ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ; 1    ;
+; s.s2 ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ; 0    ; 1    ;
+; s.s3 ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ; 0    ; 0    ; 1    ;
+; s.s4 ; 0    ; 0    ; 0    ; 0    ; 1    ; 0    ; 0    ; 0    ; 1    ;
+; s.s5 ; 0    ; 0    ; 0    ; 1    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; s.s6 ; 0    ; 0    ; 1    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; s.s7 ; 0    ; 1    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; s.s8 ; 1    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
++------+------+------+------+------+------+------+------+------+------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------+
+; State Machine - |yuanlitu|shanshuom:inst13|s                        ;
++------+------+------+------+------+------+------+------+------+------+
+; Name ; s.s8 ; s.s7 ; s.s6 ; s.s5 ; s.s4 ; s.s3 ; s.s2 ; s.s1 ; s.s0 ;
++------+------+------+------+------+------+------+------+------+------+
+; s.s0 ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ;
+; s.s1 ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ; 1    ;
+; s.s2 ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ; 0    ; 1    ;
+; s.s3 ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ; 0    ; 0    ; 1    ;
+; s.s4 ; 0    ; 0    ; 0    ; 0    ; 1    ; 0    ; 0    ; 0    ; 1    ;
+; s.s5 ; 0    ; 0    ; 0    ; 1    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; s.s6 ; 0    ; 0    ; 1    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; s.s7 ; 0    ; 1    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; s.s8 ; 1    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
++------+------+------+------+------+------+------+------+------+------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------+
+; State Machine - |yuanlitu|shanshuoh:inst14|s                        ;
++------+------+------+------+------+------+------+------+------+------+
+; Name ; s.s8 ; s.s7 ; s.s6 ; s.s5 ; s.s4 ; s.s3 ; s.s2 ; s.s1 ; s.s0 ;
++------+------+------+------+------+------+------+------+------+------+
+; s.s0 ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ;
+; s.s1 ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ; 1    ;
+; s.s2 ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ; 0    ; 1    ;
+; s.s3 ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ; 0    ; 0    ; 1    ;
+; s.s4 ; 0    ; 0    ; 0    ; 0    ; 1    ; 0    ; 0    ; 0    ; 1    ;
+; s.s5 ; 0    ; 0    ; 0    ; 1    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; s.s6 ; 0    ; 0    ; 1    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; s.s7 ; 0    ; 1    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; s.s8 ; 1    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
++------+------+------+------+------+------+------+------+------+------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------+
+; State Machine - |yuanlitu|saomiao:inst453|s                         ;
++------+------+------+------+------+------+------+------+------+------+
+; Name ; s.s8 ; s.s7 ; s.s6 ; s.s5 ; s.s4 ; s.s3 ; s.s2 ; s.s1 ; s.s0 ;
++------+------+------+------+------+------+------+------+------+------+
+; s.s0 ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ;
+; s.s1 ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ; 1    ;
+; s.s2 ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ; 0    ; 1    ;
+; s.s3 ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ; 0    ; 0    ; 1    ;
+; s.s4 ; 0    ; 0    ; 0    ; 0    ; 1    ; 0    ; 0    ; 0    ; 1    ;
+; s.s5 ; 0    ; 0    ; 0    ; 1    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; s.s6 ; 0    ; 0    ; 1    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; s.s7 ; 0    ; 1    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; s.s8 ; 1    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
++------+------+------+------+------+------+------+------+------+------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------+
+; State Machine - |yuanlitu|naozhong:inst30|s                         ;
++------+------+------+------+------+------+------+------+------+------+
+; Name ; s.s8 ; s.s7 ; s.s6 ; s.s5 ; s.s4 ; s.s3 ; s.s2 ; s.s1 ; s.s0 ;
++------+------+------+------+------+------+------+------+------+------+
+; s.s0 ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ;
+; s.s1 ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ; 1    ;
+; s.s2 ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ; 0    ; 1    ;
+; s.s3 ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ; 0    ; 0    ; 1    ;
+; s.s4 ; 0    ; 0    ; 0    ; 0    ; 1    ; 0    ; 0    ; 0    ; 1    ;
+; s.s5 ; 0    ; 0    ; 0    ; 1    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; s.s6 ; 0    ; 0    ; 1    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; s.s7 ; 0    ; 1    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; s.s8 ; 1    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
++------+------+------+------+------+------+------+------+------+------+
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; naozhongkey:inst29|q1b[3]                           ; xiaodou:inst27|keya ; yes                    ;
+; naozhongkey:inst29|q2a[3]                           ; xiaodou:inst27|keya ; yes                    ;
+; naozhongkey:inst29|q1a[3]                           ; xiaodou:inst27|keya ; yes                    ;
+; naozhongkey:inst29|q2b[3]                           ; xiaodou:inst27|keya ; yes                    ;
+; naozhongkey:inst29|q2a[2]                           ; xiaodou:inst27|keya ; yes                    ;
+; naozhongkey:inst29|q1b[2]                           ; xiaodou:inst27|keya ; yes                    ;
+; naozhongkey:inst29|q1a[2]                           ; xiaodou:inst27|keya ; yes                    ;
+; naozhongkey:inst29|q2b[2]                           ; xiaodou:inst27|keya ; yes                    ;
+; naozhongkey:inst29|q2b[1]                           ; xiaodou:inst27|keya ; yes                    ;
+; naozhongkey:inst29|q1b[1]                           ; xiaodou:inst27|keya ; yes                    ;
+; naozhongkey:inst29|q2a[1]                           ; xiaodou:inst27|keya ; yes                    ;
+; naozhongkey:inst29|q1a[1]                           ; xiaodou:inst27|keya ; yes                    ;
+; naozhongkey:inst29|q2b[0]                           ; xiaodou:inst27|keya ; yes                    ;
+; naozhongkey:inst29|q1b[0]                           ; xiaodou:inst27|keya ; yes                    ;
+; naozhongkey:inst29|q2a[0]                           ; xiaodou:inst27|keya ; yes                    ;
+; naozhongkey:inst29|q1a[0]                           ; xiaodou:inst27|keya ; yes                    ;
+; Number of user-specified and inferred latches = 16  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; jinzhixuan:inst5|jinzhi[1]             ; Stuck at GND due to stuck port data_in ;
+; saomiao:inst453|xuan[7]                ; Merged with naozhong:inst30|xuan[7]    ;
+; shanshuoh:inst14|xuan[7]               ; Merged with naozhong:inst30|xuan[7]    ;
+; shanshuom:inst13|xuan[7]               ; Merged with naozhong:inst30|xuan[7]    ;
+; shanshuos:inst12|xuan[7]               ; Merged with naozhong:inst30|xuan[7]    ;
+; naozhong:inst30|xuan[6]                ; Merged with naozhong:inst30|s.s8       ;
+; saomiao:inst453|s.s8                   ; Merged with naozhong:inst30|s.s8       ;
+; saomiao:inst453|xuan[6]                ; Merged with naozhong:inst30|s.s8       ;
+; shanshuoh:inst14|s.s8                  ; Merged with naozhong:inst30|s.s8       ;
+; shanshuoh:inst14|xuan[6]               ; Merged with naozhong:inst30|s.s8       ;
+; shanshuom:inst13|s.s8                  ; Merged with naozhong:inst30|s.s8       ;
+; shanshuom:inst13|xuan[6]               ; Merged with naozhong:inst30|s.s8       ;
+; shanshuos:inst12|s.s8                  ; Merged with naozhong:inst30|s.s8       ;
+; shanshuos:inst12|xuan[6]               ; Merged with naozhong:inst30|s.s8       ;
+; naozhong:inst30|xuan[5]                ; Merged with naozhong:inst30|s.s7       ;
+; saomiao:inst453|s.s7                   ; Merged with naozhong:inst30|s.s7       ;
+; saomiao:inst453|xuan[5]                ; Merged with naozhong:inst30|s.s7       ;
+; shanshuoh:inst14|s.s7                  ; Merged with naozhong:inst30|s.s7       ;
+; shanshuoh:inst14|xuan[5]               ; Merged with naozhong:inst30|s.s7       ;
+; shanshuom:inst13|s.s7                  ; Merged with naozhong:inst30|s.s7       ;
+; shanshuom:inst13|xuan[5]               ; Merged with naozhong:inst30|s.s7       ;
+; shanshuos:inst12|s.s7                  ; Merged with naozhong:inst30|s.s7       ;
+; shanshuos:inst12|xuan[5]               ; Merged with naozhong:inst30|s.s7       ;
+; naozhong:inst30|xuan[4]                ; Merged with naozhong:inst30|s.s6       ;
+; saomiao:inst453|s.s6                   ; Merged with naozhong:inst30|s.s6       ;
+; saomiao:inst453|xuan[4]                ; Merged with naozhong:inst30|s.s6       ;
+; shanshuoh:inst14|s.s6                  ; Merged with naozhong:inst30|s.s6       ;
+; shanshuoh:inst14|xuan[4]               ; Merged with naozhong:inst30|s.s6       ;
+; shanshuom:inst13|s.s6                  ; Merged with naozhong:inst30|s.s6       ;
+; shanshuom:inst13|xuan[4]               ; Merged with naozhong:inst30|s.s6       ;
+; shanshuos:inst12|s.s6                  ; Merged with naozhong:inst30|s.s6       ;
+; shanshuos:inst12|xuan[4]               ; Merged with naozhong:inst30|s.s6       ;
+; naozhong:inst30|xuan[3]                ; Merged with naozhong:inst30|s.s5       ;
+; saomiao:inst453|s.s5                   ; Merged with naozhong:inst30|s.s5       ;
+; saomiao:inst453|xuan[3]                ; Merged with naozhong:inst30|s.s5       ;
+; shanshuoh:inst14|s.s5                  ; Merged with naozhong:inst30|s.s5       ;
+; shanshuoh:inst14|xuan[3]               ; Merged with naozhong:inst30|s.s5       ;
+; shanshuom:inst13|s.s5                  ; Merged with naozhong:inst30|s.s5       ;
+; shanshuom:inst13|xuan[3]               ; Merged with naozhong:inst30|s.s5       ;
+; shanshuos:inst12|s.s5                  ; Merged with naozhong:inst30|s.s5       ;
+; shanshuos:inst12|xuan[3]               ; Merged with naozhong:inst30|s.s5       ;
+; naozhong:inst30|xuan[2]                ; Merged with naozhong:inst30|s.s4       ;
+; saomiao:inst453|s.s4                   ; Merged with naozhong:inst30|s.s4       ;
+; saomiao:inst453|xuan[2]                ; Merged with naozhong:inst30|s.s4       ;
+; shanshuoh:inst14|s.s4                  ; Merged with naozhong:inst30|s.s4       ;
+; shanshuoh:inst14|xuan[2]               ; Merged with naozhong:inst30|s.s4       ;
+; shanshuom:inst13|s.s4                  ; Merged with naozhong:inst30|s.s4       ;
+; shanshuom:inst13|xuan[2]               ; Merged with naozhong:inst30|s.s4       ;
+; shanshuos:inst12|s.s4                  ; Merged with naozhong:inst30|s.s4       ;
+; shanshuos:inst12|xuan[2]               ; Merged with naozhong:inst30|s.s4       ;
+; naozhong:inst30|xuan[1]                ; Merged with naozhong:inst30|s.s3       ;
+; saomiao:inst453|s.s3                   ; Merged with naozhong:inst30|s.s3       ;
+; saomiao:inst453|xuan[1]                ; Merged with naozhong:inst30|s.s3       ;
+; shanshuoh:inst14|s.s3                  ; Merged with naozhong:inst30|s.s3       ;
+; shanshuoh:inst14|xuan[1]               ; Merged with naozhong:inst30|s.s3       ;
+; shanshuom:inst13|s.s3                  ; Merged with naozhong:inst30|s.s3       ;
+; shanshuom:inst13|xuan[1]               ; Merged with naozhong:inst30|s.s3       ;
+; shanshuos:inst12|s.s3                  ; Merged with naozhong:inst30|s.s3       ;
+; shanshuos:inst12|xuan[1]               ; Merged with naozhong:inst30|s.s3       ;
+; naozhong:inst30|xuan[0]                ; Merged with naozhong:inst30|s.s2       ;
+; saomiao:inst453|s.s2                   ; Merged with naozhong:inst30|s.s2       ;
+; saomiao:inst453|xuan[0]                ; Merged with naozhong:inst30|s.s2       ;
+; shanshuoh:inst14|s.s2                  ; Merged with naozhong:inst30|s.s2       ;
+; shanshuoh:inst14|xuan[0]               ; Merged with naozhong:inst30|s.s2       ;
+; shanshuom:inst13|s.s2                  ; Merged with naozhong:inst30|s.s2       ;
+; shanshuom:inst13|xuan[0]               ; Merged with naozhong:inst30|s.s2       ;
+; shanshuos:inst12|s.s2                  ; Merged with naozhong:inst30|s.s2       ;
+; shanshuos:inst12|xuan[0]               ; Merged with naozhong:inst30|s.s2       ;
+; saomiao:inst453|s.s1                   ; Merged with naozhong:inst30|s.s1       ;
+; shanshuoh:inst14|s.s1                  ; Merged with naozhong:inst30|s.s1       ;
+; shanshuom:inst13|s.s1                  ; Merged with naozhong:inst30|s.s1       ;
+; shanshuos:inst12|s.s1                  ; Merged with naozhong:inst30|s.s1       ;
+; saomiao:inst453|s.s0                   ; Merged with naozhong:inst30|s.s0       ;
+; shanshuoh:inst14|s.s0                  ; Merged with naozhong:inst30|s.s0       ;
+; shanshuom:inst13|s.s0                  ; Merged with naozhong:inst30|s.s0       ;
+; shanshuos:inst12|s.s0                  ; Merged with naozhong:inst30|s.s0       ;
+; naozhong:inst30|s.s0                   ; Merged with naozhong:inst30|xuan[7]    ;
+; xiaodoukey:inst9|q4[3]                 ; Stuck at GND due to stuck port data_in ;
+; jishuqif:inst25|HP[3]                  ; Stuck at GND due to stuck port data_in ;
+; xiaodoukey:inst9|q2[3]                 ; Stuck at GND due to stuck port data_in ;
+; jishuqib2:inst23|HC[3]                 ; Stuck at GND due to stuck port data_in ;
+; jishuqib:inst|HC[3]                    ; Stuck at GND due to stuck port data_in ;
+; naozhong:inst30|THb2[3]                ; Stuck at GND due to stuck port data_in ;
+; naozhong:inst30|THc2[3]                ; Stuck at GND due to stuck port data_in ;
+; xiaodoukey:inst9|q4[2]                 ; Stuck at GND due to stuck port data_in ;
+; jishuqif:inst25|HP[2]                  ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 86 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                               ;
++------------------------+---------------------------+----------------------------------------------------------------------+
+; Register name          ; Reason for Removal        ; Registers Removed due to This Register                               ;
++------------------------+---------------------------+----------------------------------------------------------------------+
+; xiaodoukey:inst9|q2[3] ; Stuck at GND              ; jishuqib2:inst23|HC[3], jishuqib:inst|HC[3], naozhong:inst30|THc2[3] ;
+;                        ; due to stuck port data_in ;                                                                      ;
+; xiaodoukey:inst9|q4[3] ; Stuck at GND              ; jishuqif:inst25|HP[3]                                                ;
+;                        ; due to stuck port data_in ;                                                                      ;
+; xiaodoukey:inst9|q4[2] ; Stuck at GND              ; jishuqif:inst25|HP[2]                                                ;
+;                        ; due to stuck port data_in ;                                                                      ;
++------------------------+---------------------------+----------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 183   ;
+; Number of registers using Synchronous Clear  ; 61    ;
+; Number of registers using Synchronous Load   ; 4     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 20    ;
+; Number of registers using Clock Enable       ; 55    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; naozhong:inst30|xuan[7]                ; 6       ;
+; Total number of inverted registers = 1 ;         ;
++----------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |yuanlitu|naozhongjishu:inst36|q[1]  ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |yuanlitu|baoshijishu:inst35|q[3]    ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |yuanlitu|xiaodoukey:inst9|q4[3]     ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |yuanlitu|shanshuom:inst13|A[2]      ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |yuanlitu|shanshuoh:inst14|A[2]      ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |yuanlitu|xiaodoukey:inst9|q3[2]     ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |yuanlitu|shanshuos:inst12|A[2]      ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |yuanlitu|saomiao:inst453|A[0]       ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |yuanlitu|naozhong:inst30|A[3]       ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |yuanlitu|saomiao:inst453|A[3]       ;
+; 8:1                ; 12 bits   ; 60 LEs        ; 48 LEs               ; 12 LEs                 ; No         ; |yuanlitu|shinengxuan:inst16|xuan[4] ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 21 LEs               ; 7 LEs                  ; No         ; |yuanlitu|shier24:inst10|out24h[1]   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Fri Jul 12 10:11:21 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off demo -c demo
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 14 of the 14 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file fenpinb.vhd
+    Info (12022): Found design unit 1: fenpinb-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/fenpinb.vhd Line: 12
+    Info (12023): Found entity 1: fenpinb File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/fenpinb.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file jishuqif.vhd
+    Info (12022): Found design unit 1: jishuqif-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jishuqif.vhd Line: 15
+    Info (12023): Found entity 1: jishuqif File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jishuqif.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file demo.vhd
+    Info (12022): Found design unit 1: demo-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/demo.vhd Line: 15
+    Info (12023): Found entity 1: demo File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/demo.vhd Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file yuanlitu.bdf
+    Info (12023): Found entity 1: yuanlitu
+Info (12021): Found 2 design units, including 1 entities, in source file fenpin.vhd
+    Info (12022): Found design unit 1: fenpin-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/fenpin.vhd Line: 12
+    Info (12023): Found entity 1: fenpin File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/fenpin.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file xiaodou.vhd
+    Info (12022): Found design unit 1: xiaodou-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/xiaodou.vhd Line: 12
+    Info (12023): Found entity 1: xiaodou File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/xiaodou.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file jishuqia.vhd
+    Info (12022): Found design unit 1: jishuqia-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jishuqia.vhd Line: 16
+    Info (12023): Found entity 1: jishuqia File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jishuqia.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file jishuqib.vhd
+    Info (12022): Found design unit 1: jishuqib-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jishuqib.vhd Line: 16
+    Info (12023): Found entity 1: jishuqib File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jishuqib.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file fenpina.vhd
+    Info (12022): Found design unit 1: fenpina-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/fenpina.vhd Line: 12
+    Info (12023): Found entity 1: fenpina File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/fenpina.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file saomiao.vhd
+    Info (12022): Found design unit 1: saomiao-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/saomiao.vhd Line: 19
+    Info (12023): Found entity 1: saomiao File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/saomiao.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file yima.vhd
+    Info (12022): Found design unit 1: yima-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/yima.vhd Line: 12
+    Info (12023): Found entity 1: yima File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/yima.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file jishuqic.vhd
+    Info (12022): Found design unit 1: jishuqic-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jishuqic.vhd Line: 16
+    Info (12023): Found entity 1: jishuqic File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jishuqic.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file baoshi.vhd
+    Info (12022): Found design unit 1: baoshi-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/baoshi.vhd Line: 24
+    Info (12023): Found entity 1: baoshi File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/baoshi.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file kongzhi1.vhd
+    Info (12022): Found design unit 1: kongzhi1-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/kongzhi1.vhd Line: 13
+    Info (12023): Found entity 1: kongzhi1 File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/kongzhi1.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file fenpin300.vhd
+    Info (12022): Found design unit 1: fenpin300-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/fenpin300.vhd Line: 12
+    Info (12023): Found entity 1: fenpin300 File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/fenpin300.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file zhishu.vhd
+    Info (12022): Found design unit 1: zhishu-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/zhishu.vhd Line: 14
+    Info (12023): Found entity 1: zhishu File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/zhishu.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file duanmakaiguan.vhd
+    Info (12022): Found design unit 1: duanmakaiguan-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/duanmakaiguan.vhd Line: 14
+    Info (12023): Found entity 1: duanmakaiguan File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/duanmakaiguan.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file zhenliejian.vhd
+    Info (12022): Found design unit 1: zhenliejian-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/zhenliejian.vhd Line: 12
+    Info (12023): Found entity 1: zhenliejian File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/zhenliejian.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file shanshuos.vhd
+    Info (12022): Found design unit 1: shanshuos-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/shanshuos.vhd Line: 19
+    Info (12023): Found entity 1: shanshuos File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/shanshuos.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file shanshuom.vhd
+    Info (12022): Found design unit 1: shanshuom-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/shanshuom.vhd Line: 19
+    Info (12023): Found entity 1: shanshuom File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/shanshuom.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file shanshuoh.vhd
+    Info (12022): Found design unit 1: shanshuoh-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/shanshuoh.vhd Line: 19
+    Info (12023): Found entity 1: shanshuoh File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/shanshuoh.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file zhuangtaikey.vhd
+    Info (12022): Found design unit 1: zhuangtaikey-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/zhuangtaikey.vhd Line: 12
+    Info (12023): Found entity 1: zhuangtaikey File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/zhuangtaikey.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file shinengxuan.vhd
+    Info (12022): Found design unit 1: shinengxuan-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/shinengxuan.vhd Line: 23
+    Info (12023): Found entity 1: shinengxuan File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/shinengxuan.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file naozhong.vhd
+    Info (12022): Found design unit 1: naozhong-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/naozhong.vhd Line: 22
+    Info (12023): Found entity 1: naozhong File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/naozhong.vhd Line: 6
+Warning (12019): Can't analyze file -- file output_files/fenpinb.vhd is missing
+Info (12021): Found 2 design units, including 1 entities, in source file xiaodoukey.vhd
+    Info (12022): Found design unit 1: xiaodoukey-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/xiaodoukey.vhd Line: 15
+    Info (12023): Found entity 1: xiaodoukey File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/xiaodoukey.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file jishuqib2.vhd
+    Info (12022): Found design unit 1: jishuqib2-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jishuqib2.vhd Line: 16
+    Info (12023): Found entity 1: jishuqib2 File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jishuqib2.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file jishuqic2.vhd
+    Info (12022): Found design unit 1: jishuqic2-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jishuqic2.vhd Line: 16
+    Info (12023): Found entity 1: jishuqic2 File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jishuqic2.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file naozhongkey.vhd
+    Info (12022): Found design unit 1: naozhongkey-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/naozhongkey.vhd Line: 18
+    Info (12023): Found entity 1: naozhongkey File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/naozhongkey.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file baoshijishu.vhd
+    Info (12022): Found design unit 1: baoshijishu-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/baoshijishu.vhd Line: 13
+    Info (12023): Found entity 1: baoshijishu File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/baoshijishu.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file baoshiyima.vhd
+    Info (12022): Found design unit 1: baoshiyima-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/baoshiyima.vhd Line: 14
+    Info (12023): Found entity 1: baoshiyima File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/baoshiyima.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file naozhongjishu.vhd
+    Info (12022): Found design unit 1: naozhongjishu-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/naozhongjishu.vhd Line: 13
+    Info (12023): Found entity 1: naozhongjishu File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/naozhongjishu.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file naozhongyima.vhd
+    Info (12022): Found design unit 1: naozhongyima-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/naozhongyima.vhd Line: 12
+    Info (12023): Found entity 1: naozhongyima File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/naozhongyima.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file bijiao.vhd
+    Info (12022): Found design unit 1: bijiao-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/bijiao.vhd Line: 15
+    Info (12023): Found entity 1: bijiao File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/bijiao.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file jinzhixuan.vhd
+    Info (12022): Found design unit 1: jinzhixuan-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jinzhixuan.vhd Line: 12
+    Info (12023): Found entity 1: jinzhixuan File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jinzhixuan.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file shier24.vhd
+    Info (12022): Found design unit 1: shier24-ak File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/shier24.vhd Line: 17
+    Info (12023): Found entity 1: shier24 File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/shier24.vhd Line: 6
+Info (12127): Elaborating entity "yuanlitu" for the top level hierarchy
+Warning (275080): Converted elements in bus name "A" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "A[3..0]" to "A3..0"
+Warning (275080): Converted elements in bus name "A1" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "A1[3..0]" to "A13..0"
+Warning (275080): Converted elements in bus name "A2" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "A2[3..0]" to "A23..0"
+Warning (275080): Converted elements in bus name "A3" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "A3[3..0]" to "A33..0"
+Warning (275080): Converted elements in bus name "xuan" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "xuan[7..0]" to "xuan7..0"
+Warning (275080): Converted elements in bus name "xuan1" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "xuan1[7..0]" to "xuan17..0"
+Warning (275080): Converted elements in bus name "xuan2" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "xuan2[7..0]" to "xuan27..0"
+Warning (275080): Converted elements in bus name "xuan3" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "xuan3[7..0]" to "xuan37..0"
+Warning (275080): Converted elements in bus name "xuan4" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "xuan4[7..0]" to "xuan47..0"
+Warning (275080): Converted elements in bus name "xuan5" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "xuan5[7..0]" to "xuan57..0"
+Warning (275083): Bus "TLb2[3..0]" found using same base name as "TLb", which might lead to a name conflict.
+Warning (275083): Bus "THb2[3..0]" found using same base name as "THb", which might lead to a name conflict.
+Warning (275083): Bus "TLc2[3..0]" found using same base name as "TLc", which might lead to a name conflict.
+Warning (275083): Bus "THc2[3..0]" found using same base name as "THc", which might lead to a name conflict.
+Warning (275080): Converted elements in bus name "THb" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "THb[3..0]" to "THb3..0"
+Warning (275080): Converted elements in bus name "THb2" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "THb2[3..0]" to "THb23..0"
+Warning (275080): Converted elements in bus name "THc" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "THc[3..0]" to "THc3..0"
+Warning (275080): Converted elements in bus name "THc2" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "THc2[3..0]" to "THc23..0"
+Warning (275080): Converted elements in bus name "TLb" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "TLb[3..0]" to "TLb3..0"
+Warning (275080): Converted elements in bus name "TLb2" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "TLb2[3..0]" to "TLb23..0"
+Warning (275080): Converted elements in bus name "TLc" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "TLc[3..0]" to "TLc3..0"
+Warning (275080): Converted elements in bus name "TLc2" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "TLc2[3..0]" to "TLc23..0"
+Warning (275011): Block or symbol "jishuqic" of instance "inst22" overlaps another block or symbol
+Info (12128): Elaborating entity "bijiao" for hierarchy "bijiao:inst18"
+Info (12128): Elaborating entity "baoshiyima" for hierarchy "baoshiyima:inst15"
+Info (12128): Elaborating entity "fenpin300" for hierarchy "fenpin300:inst7"
+Info (12128): Elaborating entity "fenpin" for hierarchy "fenpin:inst1"
+Info (12128): Elaborating entity "baoshijishu" for hierarchy "baoshijishu:inst35"
+Info (12128): Elaborating entity "baoshi" for hierarchy "baoshi:inst31"
+Info (12128): Elaborating entity "naozhong" for hierarchy "naozhong:inst30"
+Info (12128): Elaborating entity "fenpina" for hierarchy "fenpina:inst4"
+Info (12128): Elaborating entity "naozhongkey" for hierarchy "naozhongkey:inst29"
+Info (10041): Inferred latch for "q2b[0]" at naozhongkey.vhd(25) File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/naozhongkey.vhd Line: 25
+Info (10041): Inferred latch for "q2b[1]" at naozhongkey.vhd(25) File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/naozhongkey.vhd Line: 25
+Info (10041): Inferred latch for "q2b[2]" at naozhongkey.vhd(25) File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/naozhongkey.vhd Line: 25
+Info (10041): Inferred latch for "q2b[3]" at naozhongkey.vhd(25) File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/naozhongkey.vhd Line: 25
+Info (10041): Inferred latch for "q1b[0]" at naozhongkey.vhd(24) File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/naozhongkey.vhd Line: 24
+Info (10041): Inferred latch for "q1b[1]" at naozhongkey.vhd(24) File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/naozhongkey.vhd Line: 24
+Info (10041): Inferred latch for "q1b[2]" at naozhongkey.vhd(24) File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/naozhongkey.vhd Line: 24
+Info (10041): Inferred latch for "q1b[3]" at naozhongkey.vhd(24) File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/naozhongkey.vhd Line: 24
+Info (10041): Inferred latch for "q2a[0]" at naozhongkey.vhd(23) File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/naozhongkey.vhd Line: 23
+Info (10041): Inferred latch for "q2a[1]" at naozhongkey.vhd(23) File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/naozhongkey.vhd Line: 23
+Info (10041): Inferred latch for "q2a[2]" at naozhongkey.vhd(23) File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/naozhongkey.vhd Line: 23
+Info (10041): Inferred latch for "q2a[3]" at naozhongkey.vhd(23) File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/naozhongkey.vhd Line: 23
+Info (10041): Inferred latch for "q1a[0]" at naozhongkey.vhd(22) File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/naozhongkey.vhd Line: 22
+Info (10041): Inferred latch for "q1a[1]" at naozhongkey.vhd(22) File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/naozhongkey.vhd Line: 22
+Info (10041): Inferred latch for "q1a[2]" at naozhongkey.vhd(22) File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/naozhongkey.vhd Line: 22
+Info (10041): Inferred latch for "q1a[3]" at naozhongkey.vhd(22) File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/naozhongkey.vhd Line: 22
+Info (12128): Elaborating entity "xiaodou" for hierarchy "xiaodou:inst27"
+Info (12128): Elaborating entity "xiaodoukey" for hierarchy "xiaodoukey:inst9"
+Info (12128): Elaborating entity "shier24" for hierarchy "shier24:inst10"
+Info (12128): Elaborating entity "jishuqif" for hierarchy "jishuqif:inst25"
+Warning (10492): VHDL Process Statement warning at jishuqif.vhd(21): signal "zhishu" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jishuqif.vhd Line: 21
+Warning (10492): VHDL Process Statement warning at jishuqif.vhd(22): signal "ZSH" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jishuqif.vhd Line: 22
+Info (12128): Elaborating entity "jishuqic2" for hierarchy "jishuqic2:inst24"
+Warning (10492): VHDL Process Statement warning at jishuqic2.vhd(22): signal "zhishu" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jishuqic2.vhd Line: 22
+Warning (10492): VHDL Process Statement warning at jishuqic2.vhd(23): signal "ZSL" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jishuqic2.vhd Line: 23
+Info (12128): Elaborating entity "jishuqib2" for hierarchy "jishuqib2:inst23"
+Warning (10492): VHDL Process Statement warning at jishuqib2.vhd(22): signal "zhishu" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jishuqib2.vhd Line: 22
+Warning (10492): VHDL Process Statement warning at jishuqib2.vhd(23): signal "ZSH" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jishuqib2.vhd Line: 23
+Info (12128): Elaborating entity "jishuqic" for hierarchy "jishuqic:inst22"
+Warning (10492): VHDL Process Statement warning at jishuqic.vhd(22): signal "zhishu" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jishuqic.vhd Line: 22
+Warning (10492): VHDL Process Statement warning at jishuqic.vhd(23): signal "ZSL" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jishuqic.vhd Line: 23
+Info (12128): Elaborating entity "jishuqib" for hierarchy "jishuqib:inst"
+Warning (10492): VHDL Process Statement warning at jishuqib.vhd(22): signal "zhishu" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jishuqib.vhd Line: 22
+Warning (10492): VHDL Process Statement warning at jishuqib.vhd(23): signal "ZSH" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jishuqib.vhd Line: 23
+Info (12128): Elaborating entity "jishuqia" for hierarchy "jishuqia:inst21"
+Warning (10492): VHDL Process Statement warning at jishuqia.vhd(22): signal "zhishu" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jishuqia.vhd Line: 22
+Warning (10492): VHDL Process Statement warning at jishuqia.vhd(23): signal "ZSL" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jishuqia.vhd Line: 23
+Warning (10492): VHDL Process Statement warning at jishuqia.vhd(25): signal "key" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhongmax/jishuqia.vhd Line: 25
+Info (12128): Elaborating entity "zhuangtaikey" for hierarchy "zhuangtaikey:inst2"
+Info (12128): Elaborating entity "jinzhixuan" for hierarchy "jinzhixuan:inst5"
+Info (12128): Elaborating entity "naozhongyima" for hierarchy "naozhongyima:inst37"
+Info (12128): Elaborating entity "naozhongjishu" for hierarchy "naozhongjishu:inst36"
+Info (12128): Elaborating entity "yima" for hierarchy "yima:inst6"
+Info (12128): Elaborating entity "shinengxuan" for hierarchy "shinengxuan:inst16"
+Info (12128): Elaborating entity "saomiao" for hierarchy "saomiao:inst453"
+Info (12128): Elaborating entity "shanshuoh" for hierarchy "shanshuoh:inst14"
+Info (12128): Elaborating entity "shanshuom" for hierarchy "shanshuom:inst13"
+Info (12128): Elaborating entity "shanshuos" for hierarchy "shanshuos:inst12"
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "seven[7]" is stuck at VCC
+Info (21057): Implemented 396 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 7 input pins
+    Info (21059): Implemented 20 output pins
+    Info (21061): Implemented 369 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 58 warnings
+    Info: Peak virtual memory: 4768 megabytes
+    Info: Processing ended: Fri Jul 12 10:11:26 2024
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:02
+
+

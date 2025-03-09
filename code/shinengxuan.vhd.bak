@@ -1,0 +1,32 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+
+entity shinengxuan is
+	port (
+	clk:in Std_logic;
+	clka:out Std_logic;
+	clkb:out Std_logic;
+	clkc:out Std_logic;
+	clkd:out Std_logic;
+	clke:out Std_logic;
+	A:in Std_logic_vector(2 downto 0));
+end shinengxuan;
+
+architecture ak of shinengxuan is
+
+begin
+	
+	clka <= clk when A="000"else --0
+				"000";
+	clkb <= clk when A="001"else --1
+				"000";
+	clkc <= clk when A="010"else --2
+				"000";
+	clkd <= clk when A="011"else --3
+				"000";
+	clke <= clk when A="100"else --4
+				"000";
+--	
+end ak;

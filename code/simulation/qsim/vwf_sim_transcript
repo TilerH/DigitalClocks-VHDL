@@ -1,0 +1,184 @@
+Determining the location of the ModelSim executable...
+
+Using: d:/fpga/20.1/modelsim_ase/win32aloem/
+
+To specify a ModelSim executable directory, select: Tools -> Options -> EDA Tool Options
+Note: if both ModelSim-Altera and ModelSim executables are available, ModelSim-Altera will be used.
+
+**** Generating the ModelSim Testbench ****
+
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off demo -c demo --vector_source="C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhong/Waveform.vwf" --testbench_file="C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhong/simulation/qsim/Waveform.vwf.vht"
+
+Info: *******************************************************************
+Info: Running Quartus Prime EDA Netlist Writer
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Copyright (C) 2020  Intel Corporation. All rights reserved.
+    Info: Your use of Intel Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Intel Program License 
+    Info: Subscription Agreement, the Intel Quartus Prime License Agreement,
+    Info: the Intel FPGA IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Intel and sold by Intel or its authorized distributors.  Please
+    Info: refer to the applicable agreement for further details, at
+    Info: https://fpgasoftware.intel.com/eula.
+    Info: Processing started: Mon Jul 08 09:36:34 2024
+Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off demo -c demo --vector_source=C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhong/Waveform.vwf --testbench_file=C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhong/simulation/qsim/Waveform.vwf.vht
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+
+Completed successfully. 
+
+**** Generating the functional simulation netlist ****
+
+quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhong/simulation/qsim/" demo -c demo
+
+Info: *******************************************************************
+Info: Running Quartus Prime EDA Netlist Writer
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Copyright (C) 2020  Intel Corporation. All rights reserved.
+    Info: Your use of Intel Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Intel Program License 
+    Info: Subscription Agreement, the Intel Quartus Prime License Agreement,
+    Info: the Intel FPGA IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Intel and sold by Intel or its authorized distributors.  Please
+    Info: refer to the applicable agreement for further details, at
+    Info: https://fpgasoftware.intel.com/eula.
+    Info: Processing started: Mon Jul 08 09:36:34 2024
+Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhong/simulation/qsim/ demo -c demo
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (204019): Generated file demo.vho in folder "C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhong/simulation/qsim//" for EDA simulation tool
+Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 4623 megabytes
+    Info: Processing ended: Mon Jul 08 09:36:34 2024
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:00
+
+Completed successfully. 
+
+**** Generating the ModelSim .do script ****
+
+C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhong/simulation/qsim/demo.do generated.
+
+Completed successfully. 
+
+**** Running the ModelSim simulation ****
+
+d:/fpga/20.1/modelsim_ase/win32aloem//vsim -c -do demo.do
+
+Reading pref.tcl
+
+# 2020.1
+
+# do demo.do
+
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 09:36:35 on Jul 08,2024
+# vcom -work work demo.vho 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package VITAL_Timing
+# -- Loading package VITAL_Primitives
+# -- Loading package maxii_atom_pack
+# -- Loading package maxii_components
+# -- Compiling entity yuanlitu
+# -- Compiling architecture structure of yuanlitu
+
+# End time: 09:36:35 on Jul 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 09:36:35 on Jul 08,2024
+# vcom -work work Waveform.vwf.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity yuanlitu_vhd_vec_tst
+# -- Compiling architecture yuanlitu_arch of yuanlitu_vhd_vec_tst
+# End time: 09:36:35 on Jul 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+
+# vsim -c -t 1ps -L maxii -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.demo_vhd_vec_tst 
+# Start time: 09:36:35 on Jul 08,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.demo_vhd_vec_tst(demo_arch)
+# Loading ieee.vital_timing(body)
+# Loading ieee.vital_primitives(body)
+# Loading maxii.maxii_atom_pack(body)
+# Loading maxii.maxii_components
+# Loading work.demo(structure)
+# Loading ieee.std_logic_arith(body)
+# Loading maxii.maxii_io(behave)
+# Loading maxii.maxii_lcell(vital_le_atom)
+# Loading maxii.maxii_asynch_lcell(vital_le)
+# Loading maxii.maxii_lcell_register(vital_le_reg)
+# ** Warning: Design size of 15948 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+# after#31
+
+# End time: 09:36:35 on Jul 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+
+Completed successfully. 
+
+**** Converting ModelSim VCD to vector waveform ****
+
+Reading C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhong/Waveform.vwf...
+
+Reading C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhong/simulation/qsim/demo.msim.vcd...
+
+Processing channel transitions... 
+
+Warning: clk - signal not found in VCD.
+
+Warning: seven[7] - signal not found in VCD.
+
+Warning: seven[6] - signal not found in VCD.
+
+Warning: seven[5] - signal not found in VCD.
+
+Warning: seven[4] - signal not found in VCD.
+
+Warning: seven[3] - signal not found in VCD.
+
+Warning: seven[2] - signal not found in VCD.
+
+Warning: seven[1] - signal not found in VCD.
+
+Warning: seven[0] - signal not found in VCD.
+
+Warning: xuan[7] - signal not found in VCD.
+
+Warning: xuan[6] - signal not found in VCD.
+
+Warning: xuan[5] - signal not found in VCD.
+
+Warning: xuan[4] - signal not found in VCD.
+
+Warning: xuan[3] - signal not found in VCD.
+
+Warning: xuan[2] - signal not found in VCD.
+
+Warning: xuan[1] - signal not found in VCD.
+
+Warning: xuan[0] - signal not found in VCD.
+
+Writing the resulting VWF to C:/Users/Tiler/Desktop/Digital2024/D2024yjhshuzizhong/simulation/qsim/demo_20240708093636.sim.vwf
+
+Finished VCD to VWF conversion.
+
+Completed successfully. 
+
+All completed.

@@ -1,0 +1,60 @@
+
+State Machine - |yuanlitu|shanshuos:inst12|s
+Name s.s8 s.s7 s.s6 s.s5 s.s4 s.s3 s.s2 s.s1 s.s0 
+s.s0 0 0 0 0 0 0 0 0 0 
+s.s1 0 0 0 0 0 0 0 1 1 
+s.s2 0 0 0 0 0 0 1 0 1 
+s.s3 0 0 0 0 0 1 0 0 1 
+s.s4 0 0 0 0 1 0 0 0 1 
+s.s5 0 0 0 1 0 0 0 0 1 
+s.s6 0 0 1 0 0 0 0 0 1 
+s.s7 0 1 0 0 0 0 0 0 1 
+s.s8 1 0 0 0 0 0 0 0 1 
+
+State Machine - |yuanlitu|shanshuom:inst13|s
+Name s.s8 s.s7 s.s6 s.s5 s.s4 s.s3 s.s2 s.s1 s.s0 
+s.s0 0 0 0 0 0 0 0 0 0 
+s.s1 0 0 0 0 0 0 0 1 1 
+s.s2 0 0 0 0 0 0 1 0 1 
+s.s3 0 0 0 0 0 1 0 0 1 
+s.s4 0 0 0 0 1 0 0 0 1 
+s.s5 0 0 0 1 0 0 0 0 1 
+s.s6 0 0 1 0 0 0 0 0 1 
+s.s7 0 1 0 0 0 0 0 0 1 
+s.s8 1 0 0 0 0 0 0 0 1 
+
+State Machine - |yuanlitu|shanshuoh:inst14|s
+Name s.s8 s.s7 s.s6 s.s5 s.s4 s.s3 s.s2 s.s1 s.s0 
+s.s0 0 0 0 0 0 0 0 0 0 
+s.s1 0 0 0 0 0 0 0 1 1 
+s.s2 0 0 0 0 0 0 1 0 1 
+s.s3 0 0 0 0 0 1 0 0 1 
+s.s4 0 0 0 0 1 0 0 0 1 
+s.s5 0 0 0 1 0 0 0 0 1 
+s.s6 0 0 1 0 0 0 0 0 1 
+s.s7 0 1 0 0 0 0 0 0 1 
+s.s8 1 0 0 0 0 0 0 0 1 
+
+State Machine - |yuanlitu|saomiao:inst453|s
+Name s.s8 s.s7 s.s6 s.s5 s.s4 s.s3 s.s2 s.s1 s.s0 
+s.s0 0 0 0 0 0 0 0 0 0 
+s.s1 0 0 0 0 0 0 0 1 1 
+s.s2 0 0 0 0 0 0 1 0 1 
+s.s3 0 0 0 0 0 1 0 0 1 
+s.s4 0 0 0 0 1 0 0 0 1 
+s.s5 0 0 0 1 0 0 0 0 1 
+s.s6 0 0 1 0 0 0 0 0 1 
+s.s7 0 1 0 0 0 0 0 0 1 
+s.s8 1 0 0 0 0 0 0 0 1 
+
+State Machine - |yuanlitu|naozhong:inst30|s
+Name s.s8 s.s7 s.s6 s.s5 s.s4 s.s3 s.s2 s.s1 s.s0 
+s.s0 0 0 0 0 0 0 0 0 0 
+s.s1 0 0 0 0 0 0 0 1 1 
+s.s2 0 0 0 0 0 0 1 0 1 
+s.s3 0 0 0 0 0 1 0 0 1 
+s.s4 0 0 0 0 1 0 0 0 1 
+s.s5 0 0 0 1 0 0 0 0 1 
+s.s6 0 0 1 0 0 0 0 0 1 
+s.s7 0 1 0 0 0 0 0 0 1 
+s.s8 1 0 0 0 0 0 0 0 1 

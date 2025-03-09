@@ -1,0 +1,25 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+
+entity baoshi is
+	port (
+	TsH:in Std_logic_vector(3 downto 0);
+	Tsl:in Std_logic_vector(3 downto 0);
+	TmH:in Std_logic_vector(3 downto 0);
+	Tml:in Std_logic_vector(3 downto 0);
+	ThH:in Std_logic_vector(3 downto 0);
+	Thl:in Std_logic_vector(3 downto 0);
+	baoshi:out Std_logic);
+end baoshi;
+
+architecture ak of baoshi is
+
+
+begin
+
+	baoshi <='1' when Tsl="0001" and TsH="0000"else 
+				'1' when Tsl="0010" and TsH="0000"else 
+				'0' ;
+end ak;

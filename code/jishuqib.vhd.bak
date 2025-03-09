@@ -1,0 +1,56 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+
+entity jishuqi is
+	port (
+	clk:in Std_logic;
+	clkb:buffer Std_logic;
+	H:buffer Std_logic_vector(3 downto 0);
+	H1:buffer Std_logic);
+end jishuqi;
+
+architecture ak of jishuqi is
+
+signal count1:integer:= 0;
+
+signal count4:integer:= 0;
+
+begin
+
+
+
+process(clk)--分频
+	begin
+		if(clk'event and clk='1') then
+				count1<=count1+1;
+				if(count1=2000) then
+					if(clkb='0') then
+						clkb<='1';
+					else
+						clkb<='0';
+					end if;
+					count1<=0;
+				end if;
+		end if;
+	end process;
+
+
+process(clkb)--计数器秒表
+	begin		
+		if(clkb'event and clkb='1') then
+				count4<=count4+1;
+					if(count4=500) then
+						if(H<"0101") then
+							H<=H+1;
+						else
+							H<="0000";
+							H1<='1';
+						end if;
+						count4<=0;
+					end if;
+			end if;
+	end process;
+		
+end ak;

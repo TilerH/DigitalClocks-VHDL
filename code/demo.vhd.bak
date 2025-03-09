@@ -1,0 +1,20 @@
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+
+entity adder is
+	port 
+	(
+		a	   : in Std_logic;
+		b	   : in Std_logic;
+		result : out  Std_logic
+		);
+
+end adder;
+
+architecture a of adder is
+begin
+	result <= a+b;
+end a;

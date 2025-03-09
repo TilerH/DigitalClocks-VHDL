@@ -1,0 +1,36 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+
+entity kongzhi1 is
+	port (
+	clk:in Std_logic;
+	clm:in Std_logic;
+	clkb:buffer Std_logic);
+end kongzhi1;
+
+architecture ak of kongzhi1 is
+
+begin
+	process(clk)--分频
+	begin
+		if(clk'event and clk='1') then
+				if(keym='0') then
+						if(flag='1') then
+							flag<='0';
+						else
+							flag<='1';
+						end if;
+					end if;
+				
+				if(flag='1') then
+					if(clkb='0') then
+						clkb<='1';
+					else
+						clkb<='0';
+					end if;
+				end if;
+		end if;
+	end process;
+end ak;

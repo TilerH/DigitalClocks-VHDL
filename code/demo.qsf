@@ -1,0 +1,140 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 2020  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and any partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel FPGA IP License Agreement, or other applicable license
+# agreement, including, without limitation, that your use is for
+# the sole purpose of programming logic devices manufactured by
+# Intel and sold by Intel or its authorized distributors.  Please
+# refer to the applicable agreement for further details, at
+# https://fpgasoftware.intel.com/eula.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+# Date created = 10:39:25  July 05, 2024
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		demo_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus Prime software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "MAX II"
+set_global_assignment -name DEVICE EPM570T100C5
+set_global_assignment -name TOP_LEVEL_ENTITY yuanlitu
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 20.1.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "10:39:25  JULY 05, 2024"
+set_global_assignment -name LAST_QUARTUS_VERSION "20.1.1 Lite Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR "-1"
+set_global_assignment -name POWER_EXT_SUPPLY_VOLTAGE_TO_REGULATOR 3.3V
+set_location_assignment PIN_12 -to clk
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "NO HEAT SINK WITH STILL AIR"
+set_location_assignment PIN_51 -to xuan[0]
+set_location_assignment PIN_52 -to xuan[1]
+set_location_assignment PIN_53 -to xuan[2]
+set_location_assignment PIN_54 -to xuan[3]
+set_location_assignment PIN_55 -to xuan[4]
+set_location_assignment PIN_56 -to xuan[5]
+set_location_assignment PIN_57 -to xuan[6]
+set_location_assignment PIN_58 -to xuan[7]
+set_location_assignment PIN_68 -to seven[0]
+set_location_assignment PIN_69 -to seven[1]
+set_location_assignment PIN_70 -to seven[2]
+set_location_assignment PIN_71 -to seven[3]
+set_location_assignment PIN_72 -to seven[4]
+set_location_assignment PIN_73 -to seven[5]
+set_location_assignment PIN_74 -to seven[6]
+set_location_assignment PIN_75 -to seven[7]
+set_location_assignment PIN_50 -to baoshi
+set_location_assignment PIN_100 -to key1
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to key1
+set_location_assignment PIN_1 -to duanmal[0]
+set_location_assignment PIN_2 -to duanmal[1]
+set_location_assignment PIN_3 -to duanmal[2]
+set_location_assignment PIN_4 -to duanmal[3]
+set_location_assignment PIN_5 -to duanmah[0]
+set_location_assignment PIN_6 -to duanmah[1]
+set_location_assignment PIN_7 -to duanmah[2]
+set_location_assignment PIN_8 -to duanmah[3]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to duanmah[3]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to duanmah[2]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to duanmah[1]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to duanmah[0]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to duanmah
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to duanmal[3]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to duanmal[2]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to duanmal[1]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to duanmal[0]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to duanmal
+set_location_assignment PIN_49 -to zhenliekey1
+set_location_assignment PIN_48 -to zhenliekey2
+set_location_assignment PIN_47 -to zhenliekey3
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to zhenliekey1
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to zhenliekey2
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to zhenliekey3
+set_location_assignment PIN_41 -to zhuangtaikey
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to zhuangtaikey
+set_global_assignment -name VHDL_FILE fenpinb.vhd
+set_global_assignment -name VHDL_FILE jishuqif.vhd
+set_global_assignment -name VHDL_FILE demo.vhd
+set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Waveform.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
+set_global_assignment -name BDF_FILE yuanlitu.bdf
+set_global_assignment -name VHDL_FILE fenpin.vhd
+set_global_assignment -name VHDL_FILE xiaodou.vhd
+set_global_assignment -name VHDL_FILE jishuqia.vhd
+set_global_assignment -name VHDL_FILE jishuqib.vhd
+set_global_assignment -name VHDL_FILE fenpina.vhd
+set_global_assignment -name VHDL_FILE saomiao.vhd
+set_global_assignment -name VHDL_FILE yima.vhd
+set_global_assignment -name VHDL_FILE jishuqic.vhd
+set_global_assignment -name VHDL_FILE baoshi.vhd
+set_global_assignment -name VHDL_FILE kongzhi1.vhd
+set_global_assignment -name VHDL_FILE fenpin300.vhd
+set_global_assignment -name VHDL_FILE zhishu.vhd
+set_global_assignment -name VHDL_FILE duanmakaiguan.vhd
+set_global_assignment -name VHDL_FILE zhenliejian.vhd
+set_global_assignment -name VHDL_FILE shanshuos.vhd
+set_global_assignment -name VHDL_FILE shanshuom.vhd
+set_global_assignment -name VHDL_FILE shanshuoh.vhd
+set_global_assignment -name VHDL_FILE zhuangtaikey.vhd
+set_global_assignment -name VHDL_FILE shinengxuan.vhd
+set_global_assignment -name VHDL_FILE naozhong.vhd
+set_global_assignment -name VHDL_FILE output_files/fenpinb.vhd
+set_global_assignment -name VHDL_FILE xiaodoukey.vhd
+set_global_assignment -name VHDL_FILE jishuqib2.vhd
+set_global_assignment -name VHDL_FILE jishuqic2.vhd
+set_global_assignment -name VHDL_FILE naozhongkey.vhd
+set_global_assignment -name VHDL_FILE baoshijishu.vhd
+set_global_assignment -name VHDL_FILE baoshiyima.vhd
+set_global_assignment -name VHDL_FILE naozhongjishu.vhd
+set_global_assignment -name VHDL_FILE naozhongyima.vhd
+set_global_assignment -name VHDL_FILE bijiao.vhd
+set_global_assignment -name VHDL_FILE jinzhixuan.vhd
+set_global_assignment -name VHDL_FILE shier24.vhd
+set_location_assignment PIN_38 -to jinzhi
+set_location_assignment PIN_40 -to xiaowu
+set_location_assignment PIN_42 -to naozhong
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to naozhong
+set_location_assignment PIN_36 -to naozhongzhishi

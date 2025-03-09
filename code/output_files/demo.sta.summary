@@ -1,0 +1,73 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Setup 'fenpin:inst1|clkb'
+Slack : -11.274
+TNS   : -199.514
+
+Type  : Setup 'fenpina:inst4|clkm'
+Slack : -9.464
+TNS   : -204.338
+
+Type  : Setup 'clk'
+Slack : -7.589
+TNS   : -268.962
+
+Type  : Setup 'xiaodou:inst27|keya'
+Slack : -6.441
+TNS   : -79.965
+
+Type  : Setup 'fenpin300:inst7|clkm'
+Slack : -6.422
+TNS   : -198.933
+
+Type  : Hold 'clk'
+Slack : -2.398
+TNS   : -6.488
+
+Type  : Hold 'fenpin300:inst7|clkm'
+Slack : -2.364
+TNS   : -2.364
+
+Type  : Hold 'fenpina:inst4|clkm'
+Slack : -0.262
+TNS   : -0.475
+
+Type  : Hold 'fenpin:inst1|clkb'
+Slack : 1.078
+TNS   : 0.000
+
+Type  : Hold 'xiaodou:inst27|keya'
+Slack : 4.202
+TNS   : 0.000
+
+Type  : Recovery 'fenpin:inst1|clkb'
+Slack : -6.176
+TNS   : -117.912
+
+Type  : Removal 'fenpin:inst1|clkb'
+Slack : 4.116
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'clk'
+Slack : -2.289
+TNS   : -2.289
+
+Type  : Minimum Pulse Width 'fenpin300:inst7|clkm'
+Slack : 0.234
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'fenpin:inst1|clkb'
+Slack : 0.234
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'fenpina:inst4|clkm'
+Slack : 0.234
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'xiaodou:inst27|keya'
+Slack : 0.500
+TNS   : 0.000
+
+------------------------------------------------------------
